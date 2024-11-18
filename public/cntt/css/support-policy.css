@@ -1,0 +1,41 @@
+/* Begin Chính sách */
+.policy-web ul {
+    padding-left: 0;
+    /* position: sticky;
+    top: 55px;
+    left: 0;
+    width: 100%;
+    z-index: 999; */
+}
+.policy-web ul li {
+    border-bottom: 1px solid #f2f2f2;
+    display: block;
+    height: 38px;
+    margin-bottom: 0;
+}
+.policy-web ul li a {
+    color: #76b900;
+    display: block;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 15px;
+    font-size: 15px !important;
+}
+.policy-web ul li.active a {
+    background-color: #ebeef4;
+}
+.policy-web h2 {
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.policy-web ul li a:hover, .policy-web ul li.active a {
+    background-color: #ebeef4;
+}
+
+/* End Chính sách */
+
+@media (max-width: 992px) {
+    .menu-policy {
+        display: none;
+    }
+}

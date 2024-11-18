@@ -1,0 +1,336 @@
+/* Css content */
+#chi-tiet h1, .content-cate h1 {
+    line-height: 30px;
+    font-size: 21px;
+    font-weight: bold;
+}
+#chi-tiet table p {
+    margin: 0;
+}
+#chi-tiet h2, .content-cate h2 {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 30px;
+}
+#chi-tiet h3, .content-cate h3 {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 30px;
+}
+#chi-tiet h4, .content-cate h1 {
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 30px;
+}
+#chi-tiet a, .content-cate a {
+    color: #76b900;
+    text-decoration: underline;
+}
+#chi-tiet div, #chi-tiet p, #chi-tiet ul li, .content-cate p, .content-cate ul li{
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-bottom: 10px;
+    font-size: 15px !important;
+}
+.content-cate div {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-size: 15px !important;
+}
+#chi-tiet table, .content-cate table {
+    --bs-table-bg: transparent;
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: #212529;
+    --bs-table-striped-bg: rgba(0,0,0,0.05);
+    --bs-table-active-color: #212529;
+    --bs-table-active-bg: rgba(0,0,0,0.1);
+    --bs-table-hover-color: #212529;
+    --bs-table-hover-bg: rgba(0,0,0,0.075);
+    width: 100% !important;
+    margin-bottom: 1rem;
+    color: #212529;
+    vertical-align: top;
+    border-color: #dee2e6;
+}
+#chi-tiet table>:not(caption)>*, .content-cate table>:not(caption)>*{
+    border-width: 1px 0;
+}
+#chi-tiet table tbody tr td:first-child, .content-cate table tbody tr td:first-child {
+    word-break: initial;
+}
+#chi-tiet table>:not(caption)>*>*, .content-cate table>:not(caption)>*>* {
+    border-width: 0 1px;
+    padding: .3rem .5rem;
+}
+#chi-tiet td, .content-cate td {
+    font-size: 15px;
+}
+#chi-tiet img, .content-cate img {
+    border-radius: 5px;
+    max-width: 100%;
+}
+
+/* Mục lục bài viết */
+.seo-item-container {
+    display: block;
+    width: 100%;
+    border: 1px dashed #76b900;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+.seo-item-container a{
+    padding: 10px 10px 10px 0;
+    font-size: 0.9rem !important;
+    text-decoration: none !important;
+}
+.seo-item-container ul, .seo-item-container ol {
+    list-style-type: none; /* Loại bỏ dấu chấm */
+    padding-left: 1rem;
+    margin-bottom: 0;
+}
+
+.seo-title-container {
+    font-weight: 600 !important;
+    margin-bottom: 5px;
+}
+
+/* Comments */
+.comment-write {
+    padding: 15px;
+    border: solid 1px #ccc;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.comment-write h3 {
+    font-size: 1.25em;
+    font-weight: 500;
+}
+.form-comment input, .form-comment input::-webkit-input-placeholder {
+    font-size: .9rem !important;
+}
+.info-form-comment, .input-comment {
+    width: 100%;
+    height: 60px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    text-indent: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: .9rem;
+    padding: 5px;
+}
+.cmt-content-form span {
+    display: flex;
+    text-align: justify;
+}
+.p-close {
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-top: 1rem;
+}
+.link-close {
+    border: 1px solid #76b900;
+    background-color: #76b900;
+    border-radius: 3px;
+    color: #fff;
+    text-align: center;
+    padding: 3px 10px;
+    line-height: 28px;
+}
+.review-row {
+    padding-top: 10px;
+    margin-left: 25px;
+    position: relative;
+}
+.view-comments-item.review-hidden {
+    color: #999;
+}
+.img-member-thumb {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 3px;
+    margin-right: 5px;
+    font-weight: 700 !important;
+    box-shadow: 0 0 3px #000;
+    text-shadow: 1px 1px 0 #fff;
+    display: inline-block;
+    text-transform: uppercase;
+}
+.name-member {
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    line-height: 20px;
+    margin-right: 10px;
+    color: #666;
+    display: inline-block;
+}
+.name-member span {
+    font-size: 12px;
+    color: #b2b2b2;
+    font-weight: 100 !important;
+    margin-left: 5px;
+}
+.content-comments {
+    margin: 0 10px 3px 25px;
+    color: #333;
+    line-height: 1.5em;
+    font-size: 14px !important;
+}
+.content-comments p {
+    line-height: 1.5em;
+    font-size: 14px !important;
+    margin-bottom: 0;
+}
+.relate-comment {
+    margin-left: 25px;
+}
+.relate-com-item.rep-comment, .user-normal-thumb {
+    display: none;
+}
+.relate-com-item, .relate-com-item~label {
+    display: inline-block;
+    margin-right: 20px;
+    color: #222b45;
+    cursor: pointer;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+}
+
+.bg-comments.level-2, .bg-comments.level-3, .bg-comments.level-4, .bg-comments.level-5, .bg-comments.level-6 {
+    background: #f8f8f8;
+    padding: 5px 10px;
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+}
+
+.img-member-thumb {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 3px;
+    margin-right: 5px;
+    font-weight: 700;
+    box-shadow: 0 0 3px #000;
+    text-shadow: 1px 1px 0 #fff;
+    display: inline-block;
+    text-transform: uppercase;
+}
+.user-normal-thumb {
+    display: none;
+}
+.user-normal {
+    color: #666;
+    margin-bottom: 7px;
+}
+.i-favi {
+    background: url(../img/favi.png) no-repeat 0 0 / 25px;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+    position: relative;
+    top: 4px;
+    margin-right: 7px;
+}
+.qtv {
+    background: #f1c40f;
+    border-radius: 2px;
+    padding: 0 5px;
+    line-height: normal;
+    border: 1px solid #f1c40f;
+    font-size: 11px;
+    color: #333;
+    font-weight: 400;
+    display: inline-block;
+    margin-left: 10px;
+}
+.like-comment a {
+    color: #222b45;
+}
+
+#rate-form .rate-stars-row {
+    display: inline-block;
+    width: auto;
+    padding-right: 10px;
+    margin-bottom: 0;
+}
+.form-item-title {
+    font-weight: 600;
+    margin-right: 10px;
+}
+.prod-rate {
+    display: inline-block;
+}
+.rating .rate-poin-rdo {
+    display: none;
+}
+.rating > label {
+    margin-right: 3px;
+    cursor: pointer;
+}
+.rating svg {
+    color: #ddd;
+    transition: fill 0.2s ease-in-out;
+}
+.cmt-reply {
+    padding: .5rem;
+    border: solid 1px #ccc;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+}
+.infor-cmt {
+    font-size: 14px !important;
+}
+.close-cmt {
+    font-size: 1rem !important;
+    padding-right: .5rem;
+    cursor: pointer;
+}
+.comment-replay-like span {
+    padding-right: 12px;
+    font-size: 14px !important;
+}
+
+.reply-btn {
+    cursor: pointer;
+}
+.reply-form {
+    display: none;
+    padding-top: 10px;
+    margin-left: 25px;
+}
+
+.submit-reply {
+    border: 1px solid #76b900;
+    background-color: #76b900;
+    border-radius: 3px;
+    color: #fff;
+    text-align: center;
+    margin-top: 10px;
+    padding: 5px 12px;
+    line-height: 24px;
+}
+.result-cmt {
+    background: #f8f8f8;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+}
+
+.star-rated {
+    color: #ddd;
+    padding: 3px 0 5px 25px;
+}
+.star-rated svg {
+    margin-right: 3px;
+}
+
+@media (min-width: 567px) {
+    #rate-form .rate-stars-row {
+        margin-top: 10px;
+    }
+}

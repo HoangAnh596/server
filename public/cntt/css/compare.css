@@ -1,0 +1,479 @@
+/* Begin Compare Products  */
+.pt-60 {
+    margin-top: 62px;
+}
+.pt-60 ul, .pt-60 ol {
+    list-style: none;
+    padding: 0;
+}
+.pro-compare {
+    display: flex;
+    margin-top: 20px;
+    box-shadow: 0 15px 10px -15px rgba(102, 102, 102, .3);
+    border-right: 1px solid #e6e6e6;
+}
+.sticky-cp {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+    z-index: 99999;
+    max-width: 1296px;
+    margin: auto;
+    max-height: 90px;
+}
+.sticky-cp.pro-compare li {
+    border-bottom: unset;
+}
+.sticky-cp.pro-compare li a {
+    position: relative;
+    padding: 5px 0 5px 70px;
+    height: 100%;
+}
+.sticky-cp.pro-compare li .item-img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 70px;
+    top: 5px;
+    bottom: 5px;
+}
+.sticky-cp.pro-compare li .item-img img {
+    width: auto;
+    margin: unset;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 5px;
+}
+.sticky-cp.pro-compare li .title-cp, .sticky-cp.pro-compare li .product-cp {
+    display: none;
+}
+.sticky-cp.pro-compare li .item-label, .sticky-cp.pro-compare li .item-rating, .sticky-cp.pro-compare li .deleteProduct, .sticky-cp.pro-compare li .item-bottom, .sticky-cp.pro-compare li .item-txt-online, .sticky-cp.pro-compare li .item-gift {
+    display: none;
+}
+.sticky-cp.pro-compare li.productid-0 {
+    display: flex;
+}
+.sticky-cp.pro-compare li.productid-0 .addsp-cp {
+    margin: auto;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.sticky-cp.pro-compare li.productid-0 .addsp-cp .plus {
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+}
+.sticky-cp.pro-compare li .addsp-cp span {
+    margin: 0 0 0 10px;
+}
+.bg-popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000;
+    opacity: .75;
+    z-index: 999999;
+}
+.pro-compare li {
+    float: left;
+    position: relative;
+    width: 33.33%;
+    border-left: 1px solid #e6e6e6;
+    border-top: 1px solid #e6e6e6;
+}
+.pro-compare li a {
+    display: block;
+    color: #333;
+}
+.pro-compare li .title-cp {
+    font-size: 16px !important;
+    line-height: 150%;
+    color: #666;
+}
+.pro-compare li .productname-cp {
+    font-size: 16px !important;
+    line-height: 150%;
+    color: #222;
+    font-weight: bold !important;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+.pro-compare li .productname-cp:not(:last-child):after {
+    color: #666;
+    content: '&';
+    display: block;
+    font-weight: normal;
+    margin-top: 10px;
+}
+.pro-compare li .item-img {
+    position: relative;
+}
+.pro-compare li .item-img img {
+    display: block;
+    width: 92%;
+    margin: 35px auto 10px;
+    position: relative;
+    max-width: 275px;
+}
+.pro-compare li h3 {
+    overflow: hidden;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    height: 40px;
+    padding: 0 0 3px 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+.pro-compare li h3:hover {
+    color: #76b900;
+}
+.pro-compare li strong.price {
+    font-size: 14px !important;
+    display: block;
+    overflow: hidden;
+    padding: 0 0 12px 15px;
+    color: #76b900;
+}
+.compare-price {
+    color: #6c757d;
+    text-decoration: line-through;
+}
+.pro-compare li a.deleteProduct {
+    position: absolute;
+    top: 3px;
+    right: 6px;
+}
+.pro-compare li.productid-0 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pro-compare li .addsp-cp {
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+}
+.pro-compare li .addsp-cp .plus {
+    border: 1px dashed #76b900;
+    border-radius: 3px;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pro-compare li .addsp-cp .plus i {
+    width: 20px;
+    height: 1px;
+    background: #76b900;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.pro-compare li .addsp-cp span {
+    display: block;
+    overflow: hidden;
+    font-size: 14px;
+    margin-top: 15px;
+    line-height: 137%;
+    color: #666;
+}
+.modal-body .input-text {
+    position: relative;
+}
+.input-text i.iconcate-search {
+    left: 25px;
+    top: 12px;
+    display: block;
+}
+.iconcate-search {
+    height: 16px !important;
+    width: 16px !important;
+    background-image: url('/storage/images/ui_images/icon-search-compare.png');
+    background-repeat: no-repeat;
+    vertical-align: text-bottom;
+    margin-right: 2px;
+    background-size: 16px 16px;
+    display: block;
+    position: absolute;
+}
+#kcc {
+    display: block;
+    margin: 10px auto;
+    width: 95%;
+    background: rgba(142, 142, 147, .12);
+    border: 0;
+    border-radius: 8px;
+    padding: 10px 27px 10px 32px;
+    font-size: 0.9rem !important;
+}
+
+.fullspecs {
+    border-bottom: .5px solid #e0e0e0;
+    margin-bottom: 20px;
+}
+.parameter-cp.col1, .parameter-cp.col2, .parameter-cp.col3 {
+    width: unset;
+}
+.parameter-cp {
+    display: block;
+}
+.box-detailcp {
+    margin-top: 30px;
+}
+.technologi .titletechnologi {
+    display: flex;
+    align-items: center;
+}
+.titletechnologi i {
+    color: #76b900;
+}
+.technologi .titletechnologi strong {
+    text-transform: uppercase;
+    line-height: 140%;
+    color: #222;
+    margin: 3px 0 0 10px;
+}
+/* css reponsive so sánh sản phẩm màn hình điện thoại */
+.sticky-cp.sticky-3sp.pro-compare li a {
+    padding: 5px;
+}
+.sticky-cp.sticky-3sp.pro-compare li .item-img {
+    display: none;
+    width: unset;
+}
+.sticky-3sp.pro-compare li .box-p, .sticky-3sp.pro-compare li strong.price {
+    padding: 0 0 3px 0 !important;
+}
+.sticky-3sp.pro-compare li h3 {
+    padding: 0 5px 3px 0 !important;
+    font-size: 14px !important;
+}
+.technologi-mb .title-mb-compare {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    border-bottom: 1.5px solid #222;
+    padding-top: 30px;
+    text-transform: uppercase;
+}
+.hasprod_product {
+    display: flex;
+}
+.hasprod_product aside {
+    flex: 1 1 30%;
+    border: 1px solid #f1f1f1;
+}
+.box-detailcp-mb aside p {
+    padding: 8px 8px;
+    margin-bottom: 0;
+}
+aside.hasprod-mb p span {
+    font-size: 14px !important;
+    color: #333;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}
+aside.hasprod-mb-pr {
+    background-color: #f6fdff;
+}
+.hasprod_product aside p span {
+    font-size: 14px !important;
+}
+.box-detailcp .listtechnologi {
+    margin-top: 10px;
+    border-left: .5px solid #e0e0e0;
+    border-bottom: .5px solid #e0e0e0;
+    border-right: .5px solid #e0e0e0;
+    border-top: 1.5px solid #222;
+}
+.box-detailcp .part-detail {
+    display: block;
+    overflow: hidden;
+}
+.box-detailcp .part-detail>div {
+    display: flex;
+}
+.box-detailcp aside.hasprod:first-child {
+    background: #f1f1f1;
+}
+.box-detailcp aside {
+    float: left;
+    width: 25%;
+    border-right: .5px solid #e0e0e0;
+}
+.box-detailcp aside.hasprod {
+    border-bottom: .5px solid #e0e0e0;
+}
+.box-detailcp aside p {
+    padding: 10px 12px;
+    margin-bottom: 0;
+}
+.box-detailcp aside p span {
+    display: flex;
+    font-size: 14px;
+    flex-direction: column;
+}
+.prop span {
+    color: #76b900;
+    font-weight: bold;
+}
+
+.compare-modal {
+    top: 20px !important;
+}
+.scroll-container {
+    margin: 0 16px;
+    width: 95%;
+    overflow-y: auto;
+    max-height: 370px;
+}
+.scroll-container .pro-compare {
+    display: flex;
+    overflow: hidden;
+    border: unset;
+    margin-top: 5px;
+    flex-wrap: wrap;
+    box-shadow: none;
+}
+.scroll-container .pro-compare li {
+    float: left;
+    max-width: 33.33%;
+    border: 1px solid #e5e5e5;
+    text-align: center;
+    padding: 12px 4px 12px 4px;
+    position: relative;
+}
+.scroll-container ul, .scroll-container ol {
+    list-style: none;
+    padding: 0;
+}
+.scroll-container .pro-compare li img {
+    display: block;
+    margin: 0 5px;
+}
+.scroll-container h3 {
+    padding: 0 5px !important;
+    margin-top: 10px;
+    line-height: 1.3rem;
+}
+.scroll-container .add-compare {
+    cursor: pointer;
+    color: #76b900 !important;
+    font-size: 0.9rem !important;
+}
+
+#compareResults {
+    display: none;
+    background-color: #fff;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+}
+.compare-outer {
+    max-height: 420px;
+    overflow: auto;
+}
+.compare-row {
+    display: block;
+    float: left;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    padding: 3px 0;
+}
+.compare-title a {
+    color: #333;
+    font-size: .9rem !important;
+    line-height: 1rem;
+}
+.export-compare {
+    display: inline-block;
+    float: right;
+    padding: 0 10px;
+    background: #76b900;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px !important;
+    font-weight: bold;
+}
+/* End Compare Products  */
+
+@media (max-width: 1200px) {
+    .sticky-cp {
+        max-width: 936px;
+    }
+}
+@media (max-width: 992px) {
+    .sticky-cp {
+        max-width: 696px;
+    }
+}
+@media (max-width: 767px) {
+    .sticky-cp {
+        max-width: 516px;
+    }
+}
+@media (min-width: 769px) {
+    .pro-compare li:first-child {
+        border: none;
+    }
+}
+@media (max-width: 768px) {
+    .pro-compare {
+        flex-wrap: wrap;
+        padding: 0;
+        list-style: none;
+    }
+
+    .pro-compare li:first-child {
+        width: 100%; /* Chiếm toàn bộ chiều ngang */
+    }
+
+    .pro-compare li {
+        width: 33.33%; /* 3 cột chia đều */
+        float: none; /* Loại bỏ float khi màn hình nhỏ */
+    }
+    .pro-compare li .title-cp {
+        display: inline;
+    }
+    .product-cp {
+        display: initial;
+    }
+    .pro-compare li .productname-cp {
+        font-size: 16px;
+        line-height: 150%;
+        color: #222;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-top: 10px;
+        display: inline;
+    }
+    .pro-compare li .productname-cp:not(:last-child):after {
+        color: #666;
+        content: '&';
+        display: block;
+        font-weight: normal;
+        margin-top: 10px;
+        display: inherit;
+        margin-left: 8px;
+    }
+}

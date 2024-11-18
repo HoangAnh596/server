@@ -1,0 +1,203 @@
+/* Câu hỏi sản phẩm or product */
+#boxFAQ {
+    background-color: #f9fafb;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .1), 0 2px 6px 2px rgba(60, 64, 67, .15);
+    margin: 15px auto;
+    padding: 10px;
+}
+#boxFAQ .title {
+    color: #76b900;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+#boxFAQ .accordion .b-button {
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #000;
+    cursor: pointer;
+    display: flex;
+    font-size: 15px;
+    justify-content: space-between;
+    margin-bottom: 0;
+    margin-top: 5px;
+    padding: 15px;
+}
+#boxFAQ .accordion .b-button p {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    margin: 0;
+}
+#boxFAQ .icon {
+    align-items: center;
+    display: inline-flex;
+    height: 1.5rem;
+    justify-content: center;
+    width: 1.5rem;
+}
+#boxFAQ .accordion .accordion__content.active {
+    max-height: 2000px;
+}
+#boxFAQ .accordion .accordion__content {
+    background-color: #f2f2f2;
+    font-size: 14px !important;
+    max-height: 0;
+    overflow: hidden;
+    text-align: justify;
+}
+#boxFAQ .accordion .accordion__content .content-wrapper {
+    padding: 10px;
+}
+#boxFAQ .content-wrapper p, #boxFAQ .content-wrapper li {
+    font-size: 14px !important;
+}
+
+/* End Câu hỏi sản phẩm or product */
+
+.bg-prod {
+    background-color: #76b900;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    height: 50px;
+}
+.bg-prod h2{
+    font-size: 1.25rem;
+    margin: 0;
+    padding-left: 1rem;
+    font-weight: 600;
+}
+
+.outstand-prod {
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .1), 0 2px 6px 2px rgba(60, 64, 67, .15);
+    display: block;
+    margin-right: auto;
+    max-height: 500px;
+    min-height: 0;
+    overflow: hidden;
+    padding: 15px;
+    position: relative;
+    width: 100%;
+}
+.title-outstand-prod {
+    margin-top: 50px;
+}
+.support-prod {
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .1), 0 2px 6px 2px rgba(60, 64, 67, .15);
+    display: block;
+    margin-right: auto;
+    min-height: 0;
+    overflow: hidden;
+    padding: 10px;
+    position: relative;
+    width: 100%;
+}
+.new-prod {
+    position: sticky;
+    top: 54px;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+.top-heading {
+    display: block;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 5px;
+    font-weight: 600;
+    background: #eee;
+    padding: 2px 10px 1px;
+    border-radius: 3px;
+}
+.contact-infor {
+    margin-bottom: 7px;
+    margin-left: 5px;
+    line-height: 20px;
+}
+.contact-infor i {
+    margin-right: 5px;
+}
+.user-heading {
+    font-weight: 500;
+    color: #B30000;
+    font-size: .9rem;
+}
+
+.sp-online {
+    margin-top: 4px;
+}
+.i-skype {
+    background: url(../img/skype-icon-min.png) no-repeat 0px 0 / 33px;
+    display: inline-block;
+    height: 15px;
+    width: 33px;
+    position: relative;
+    top: 4px;
+}
+.i-zalo {
+    background: url(../img/zalo-icon-min.png) no-repeat 0px 0 / 33px;
+    display: inline-block;
+    height: 15px;
+    width: 33px;
+    position: relative;
+    top: 4px;
+}
+.i-gmail {
+    background: url(../img/icon-gmail.png) no-repeat 0px 0 / 20px;
+    display: inline-block;
+    height: 15px;
+    width: 20px;
+    position: relative;
+    top: 4px;
+    margin-right: 5px;
+}
+.btn-outstand img{
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+.show-more, .outstand-show-more {
+    background: linear-gradient(180deg, hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, .91) 50%, #fff 55%);
+    border-radius: 5px;
+    bottom: 0;
+    display: none;
+    left: 0;
+    margin-bottom: 0;
+    padding-top: 30px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    width: 100%;
+}
+.btn-show-more button{
+    padding: 4px 8px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: .9rem;
+    background-color: #eee;
+}
+
+.nothing-show-more .icon {
+    fill: #76b900;
+    height: 50px;
+    width: 50px;
+}
+.nothing-show-more .icon svg {
+    fill: #76b900;
+    height: 50px;
+    width: 50px;
+}
+
+@media (max-width: 992px) {
+    .new-prod {
+        top: 116px !important;
+    }
+}

@@ -1,0 +1,59 @@
+.hp-error {
+    padding-top: 44px;
+}
+.hp-error h1 {
+    margin: 3rem 0;
+    font-size: 2rem;
+}
+.c-500 {
+    color: #76b900;
+}
+.img-404 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.list-contact {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+.list-contact a {
+    color: #000;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+}
+.list-contact .itemct {
+    margin: 0 10px;
+    width: 130px;
+}
+.list-contact .itemct p {
+    color: #666;
+    font-size: 14px !important;
+    line-height: 17px;
+    margin-bottom: 5px;
+}
+.list-contact .link--yellow {
+    background-color: #76b900;
+}
+.list-contact .link {
+    align-items: center;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    height: 40px;
+}
+.iconerror-tgdd {
+    background-position: 0 -25px;
+    height: 18px;
+    width: 108px;
+}
+[class^="iconerror-"], [class*="iconerror-"] {
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    background-size: 140px 50px;
+}

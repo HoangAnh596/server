@@ -1,0 +1,237 @@
+/* css page admin */
+body {
+    color: #080808;
+}
+p, td a {
+    font-size: 15px;
+    margin-bottom: 0;
+}
+.container, .container-fluid {
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+.text-gray-800 {
+    color: #000 !important;
+}
+.text-dark {
+    color: black !important;
+}
+.tab-pane {
+    padding-top: 25px;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active, .btn-outline-dark, .form-control {
+    color: black;
+}
+/* css image */
+#holder {
+    margin: 15px 0;
+    max-height: 15rem;
+}
+#holder img {
+    height: 15rem !important;
+}
+#favicon_img {
+    width: 36px !important;
+    height: 36px !important;
+}
+#preview img {
+    max-height: 150px;
+}
+#preview-image {
+    display: none;
+    margin: 15px;
+    max-height: 150px;
+}
+
+/* sticky css */
+.table-responsive {
+    height: 500px; /* Chiều cao của bảng */
+    overflow-y: auto; /* Bật thanh cuộn dọc */
+}
+
+.action a {
+    font-size: 14px;
+}
+
+.table thead th {
+    position: sticky !important; /* Làm cho các tiêu đề cố định */
+    top: 0; /* Vị trí cố định ở trên cùng */
+    background-color: #eee; /* Đặt màu nền để tiêu đề không bị trong suốt */
+    z-index: 999; /* Đảm bảo tiêu đề luôn ở trên cùng */
+}
+/* end sticky css */
+
+/* css product_images */
+
+/* css image */
+#image-holder {
+    margin: 15px;
+    max-height: 150px;
+}
+
+#image-holder img {
+    height: 150px !important;
+}
+#pr img {
+    max-height: 150px;
+}
+#pr-image {
+    display: none;
+    margin: 15px;
+    max-height: 150px;
+}
+
+/* css tags */
+.bootstrap-tagsinput {
+    width: 100%;
+}
+.bootstrap-tagsinput input {
+    padding: 3px;
+}
+.label {
+    padding: .2em .6em .3em;
+    border-radius: .25em;
+}
+.label-info {
+    background-color: #5bc0de;
+}
+
+.table-responsive img {
+    max-width: 50%;
+}
+
+.warningMenu {
+    color: red;
+    margin-right: 5px;
+}
+.icon-social {
+    color: blue;
+    margin-right: 5px;
+}
+.deleteForm {
+    position: absolute;
+    bottom: 24px;
+    right: 80px;
+    z-index: 99;
+}
+.sr-product .form-control {
+    width: 350px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px; /* Khoảng cách giữa các nút, tùy chỉnh theo ý muốn */
+    /* border-bottom: 1px solid white !important; */
+}
+
+.action-buttons form {
+    margin: 0;
+}
+.btn-cntt {
+    color: black;
+    background-color: #76b900;
+    border-color: #76b900;
+}
+.btn-cntt:hover {
+    color: white;
+    text-decoration: none;
+}
+.cke_notification_warning {
+    display: none;
+}
+
+/* thông báo toastr */
+
+.toast-warning {
+    font-size: 1rem;
+}
+#confirmButton {
+    background-color: red;
+}
+
+/* thông báo toastr */
+.subCate {
+    list-style-type: none;
+    padding-left: 0;
+    max-height: 285px;
+    overflow-y: auto;
+    border: 1px solid #ced4da;
+    padding: 10px;
+}
+.subCate li {
+    padding: 2px;
+    cursor: pointer;
+}
+.subCate li.selected {
+    background-color: #f0f0f0; /* Bạn có thể thay đổi màu này */
+}
+
+/* Nhóm sản phẩm */
+.vertical-line {
+    border-right: 1px solid gray;
+    /* Đường kẻ */
+    padding-right: 10px;
+    /* Khoảng cách với nội dung */
+    display: flex;
+    align-items: center;
+    /* Căn chỉnh nội dung của cột col-2 theo chiều dọc */
+}
+.group-pro {
+    background-color: #f8f9fc;
+    padding: 0 1.25rem;
+}
+.group-pro .pt-2 {
+    padding-top: 1rem !important;
+}
+.btn-group-prod {
+    padding-left: 0;
+    padding-right: 0;
+}
+.btn-group-prod button {
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.btn-group-prod button:first-child {
+    margin-right: 12px;
+}
+.hidden-add-group {
+    display: none;
+    border: 1px solid #76b900;
+}
+.hidden-add-group .select2, .hidden-add-group input {
+    width: 100% !important;
+}
+.btn-add-complete {
+    margin-right: 12px;
+    font-size: 15px;
+}
+.btn-add-complete button {
+    border-radius: 4px;
+    cursor: pointer;
+}
+.close-group {
+    margin-left: 12px;
+}
+/* Nhóm sản phẩm */
+
+/* Thông báo */
+.dropdown-item span {
+    color: blue;
+}
+.notification .dropdown-item {
+    padding: .25rem .8rem;
+}
+.topbar.navbar-light .navbar-nav .nav-item .nav-link {
+    color: #696969;
+}
+.scroll-noti {
+    max-height: 400px;
+    overflow-y: auto;
+}
+/* Thông báo */
+.note-admin {
+    font-size: 14px;
+    color:red;
+    padding: .75rem .25rem
+}

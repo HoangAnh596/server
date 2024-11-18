@@ -1,0 +1,181 @@
+/* Begin Check list price */
+#check-list {
+    padding: 55px 0;
+}
+#check-list * {
+    outline: none;
+}
+.content-check-list {
+    display: block;
+    text-align: center;
+}
+.content-check-list .decor {
+    position: relative;
+    display: block;
+    height: 3px;
+    width: 200px;
+    margin: 20px auto;
+}
+.content-check-list .decor:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ccc;
+}
+.content-check-list .decor:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 35%;
+    width: 30%;
+    height: 100%;
+    background: #76b900;
+}
+.check-list-title {
+    text-align: center;
+    color: #76b900;
+    font-size: 0.9rem !important;
+}
+.formcheck {
+    margin: 20px auto;
+    width: 65%;
+    display: inline-block;
+}
+.formcheck h1 {
+    font-size: 18px !important;
+    text-align: left;
+}
+#checklistnumber {
+    padding: 1px;
+    background: #76b900;
+    width: 100%;
+    float: left;
+    border-radius: 3px;
+}
+#checklistnumber .search-submit {
+    background: #76b900;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    border-top: 1px solid #eee;
+    color: #fff;
+    display: block;
+    float: right;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 7px 8px;
+    text-align: center;
+    width: 25%;
+    box-sizing: border-box;
+    height: 40px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+#checklistnumber .search-submit1 {
+    background: #fafafa;
+    color: #76b900;
+    display: block;
+    float: right;
+    font-family: inherit;
+    font-size: 20px !important;
+    padding: 0px 5px;
+    text-align: center;
+    width: 7%;
+    box-sizing: border-box;
+    height: 40px;
+    float: left;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+#checklistnumber input[type="text"] {
+    background: #fafafa;
+    color: #000;
+    display: block;
+    width: 68%;
+    box-sizing: border-box;
+    font-size: 1rem !important;
+    margin: 0;
+    height: 40px;
+    float: left;
+    outline: none;
+}
+#checklistnumber input, #checklistnumber button {
+    border: none;
+}
+
+#check-list table {
+    border-right: 1px solid #A9A9A9;
+    width: 100%;
+    border-spacing: 0;
+}
+#check-list table thead {
+    border: 1px solid #A9A9A9;
+}
+#check-list table thead th {
+    border: 1px solid #A9A9A9;
+    border-right: none;
+    padding: 5px 10px;
+}
+#check-list table tbody tr td {
+    border: 1px solid #A9A9A9;
+    border-right: none;
+    border-top: none;
+    color: #333;
+}
+#check-list table tbody tr td.img-check-list {
+    padding: 5px;
+}
+.listprice-check-list {
+    padding: 0 15px;
+    width: 130px;
+}
+.pricemarket-check-list {
+    padding: 0 15px;
+}
+.desc {
+    padding: 5px 15px;
+}
+.buttom-check-list {
+    padding: 0 15px;
+}
+.btn-best-price-check {
+    background-color: #76b900;
+    border-color: #76b900;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: #fff;
+}
+.btn-best-price-check:hover {
+    background-color: #ea7600;
+    border-color: #ea7600;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: #fff;
+}
+/* End Check list price */
+@media (max-width: 1023px) {
+    .formcheck {
+        width: 100%;
+    }
+    .search-submit {
+        width: 32% !important;
+    }
+    .search-submit1 {
+        display: none !important;
+    }
+}
+@media (max-width: 639px) {
+    .search-submit {
+        font-size: 15px !important;
+    }
+    #check-list table tbody tr td {
+        white-space: nowrap;
+    }
+    .desc {
+        min-width: 200px;
+        white-space: normal !important;
+        max-width: 400px;
+    }
+}
