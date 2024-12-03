@@ -101,20 +101,6 @@
                     <div class="col-3 d-flex flex-row align-items-center" style="height: 38px;">(Kích thước đề nghị 636 x 334 px) <i class="fa-solid fa-circle-info" style="margin-left: 6px; color: red;"></i></div>
                 </div>
                 <div class="row mt-3 mb-3">
-                    <div class="col-2 d-flex flex-row-reverse align-items-center">Màu nền :</div>
-                    <div class="col-2 d-flex align-items-center">
-                        <select class="form-control" aria-label="Default" name="is_public">
-                            <option value="0"
-                                @if(!empty($slider) && $slider->is_public == 0) selected @endif> Đen (black)
-                            </option>
-                            <option value="1"
-                                @if(!empty($slider) && $slider->is_public == 1) selected @endif> Xám (#efefef)
-                            </option>
-                        </select>
-                    </div>
-                    <div class="d-flex align-items-center" style="height: 38px; color: red; margin-left: 38px;"><i class="fa-solid fa-circle-info"></i></div>
-                </div>
-                <div class="row mt-3 mb-3">
                     <div class="col-2 d-flex flex-row-reverse align-items-center">Hiển thị :</div>
                     <div class="col-2 d-flex align-items-center">
                         <select class="form-control" aria-label="Default" name="is_public">

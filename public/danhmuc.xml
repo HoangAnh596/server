@@ -8,21 +8,87 @@
 		<changefreq>daily</changefreq>
 	</url>
 	<url>
+	<loc>http://localhost:8000/switch-maipu</loc>
+		<priority>0.8</priority>
+		<lastmod>2024-11-21T11:12:59+07:00</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+	<loc>http://localhost:8000/bo-xu-ly-amd</loc>
+		<priority>0.8</priority>
+		<lastmod>2024-11-21T10:29:17+07:00</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+	<loc>http://localhost:8000/server-4-socket</loc>
+		<priority>0.8</priority>
+		<lastmod>2024-11-21T10:27:33+07:00</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+	<loc>http://localhost:8000/server-2-socket</loc>
+		<priority>0.8</priority>
+		<lastmod>2024-11-21T10:26:50+07:00</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+	<loc>http://localhost:8000/server-1-socket</loc>
+		<priority>0.8</priority>
+		<lastmod>2024-11-21T10:25:29+07:00</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+	<loc>http://localhost:8000/server-intel</loc>
+		<priority>0.8</priority>
+		<lastmod>2024-11-28T15:56:20+07:00</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+	<loc>http://localhost:8000/server-nvidia</loc>
+		<priority>0.8</priority>
+		<lastmod>2024-11-28T15:56:20+07:00</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+	<loc>http://localhost:8000/server-supermicro</loc>
+		<priority>0.8</priority>
+		<lastmod>2024-11-28T15:56:19+07:00</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+	<loc>http://localhost:8000/may-chu-server-lenovo</loc>
+		<priority>0.8</priority>
+		<lastmod>2024-11-28T15:56:18+07:00</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+	<loc>http://localhost:8000/server-h3c</loc>
+		<priority>0.8</priority>
+		<lastmod>2024-11-28T15:56:16+07:00</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+	<loc>http://localhost:8000/cau-hinh</loc>
+		<priority>0.8</priority>
+		<lastmod>2024-11-28T14:10:29+07:00</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 	<loc>http://localhost:8000/dell</loc>
 		<priority>0.8</priority>
-		<lastmod>2024-11-05T14:35:14+07:00</lastmod>
+		<lastmod>2024-11-21T11:11:29+07:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
 	<loc>http://localhost:8000/nividia</loc>
 		<priority>0.8</priority>
-		<lastmod>2024-11-01T15:05:59+07:00</lastmod>
+		<lastmod>2024-11-27T17:20:58+07:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
 	<loc>http://localhost:8000/dien-thoai-iphone-ram-256gb</loc>
 		<priority>0.8</priority>
-		<lastmod>2024-11-01T15:05:48+07:00</lastmod>
+		<lastmod>2024-11-28T15:56:15+07:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
@@ -50,69 +116,69 @@
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-	<loc>http://localhost:8000/dtdd-samsung-ram-64-gb</loc>
+	<loc>http://localhost:8000/server-rack-2u</loc>
 		<priority>0.8</priority>
-		<lastmod>2024-09-09T11:05:15+07:00</lastmod>
+		<lastmod>2024-11-21T10:23:51+07:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-	<loc>http://localhost:8000/dtdd-samsung-128-gb</loc>
+	<loc>http://localhost:8000/server-rack-1u</loc>
 		<priority>0.8</priority>
-		<lastmod>2024-09-09T11:04:26+07:00</lastmod>
+		<lastmod>2024-11-21T10:23:31+07:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-	<loc>http://localhost:8000/dtdd-iphone-ram-64-gb</loc>
+	<loc>http://localhost:8000/server-iphone-ram-64-gb</loc>
 		<priority>0.8</priority>
-		<lastmod>2024-11-01T15:05:45+07:00</lastmod>
+		<lastmod>2024-11-28T15:56:13+07:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-	<loc>http://localhost:8000/dtdd-iphone-ram-128gb</loc>
+	<loc>http://localhost:8000/server-dell</loc>
 		<priority>0.8</priority>
-		<lastmod>2024-11-01T15:05:46+07:00</lastmod>
+		<lastmod>2024-11-28T15:56:13+07:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-	<loc>http://localhost:8000/dtdd-samsung</loc>
+	<loc>http://localhost:8000/chassis-server</loc>
 		<priority>0.8</priority>
-		<lastmod>2024-11-01T14:18:45+07:00</lastmod>
+		<lastmod>2024-11-28T14:10:34+07:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-	<loc>http://localhost:8000/dtdd-iphone</loc>
+	<loc>http://localhost:8000/hang-server</loc>
 		<priority>0.8</priority>
-		<lastmod>2024-11-01T14:18:45+07:00</lastmod>
+		<lastmod>2024-11-28T14:10:35+07:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-	<loc>http://localhost:8000/geforce-now-cloud</loc>
+	<loc>http://localhost:8000/router</loc>
 		<priority>0.8</priority>
-		<lastmod>2024-11-01T14:26:19+07:00</lastmod>
+		<lastmod>2024-11-27T17:02:14+07:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-	<loc>http://localhost:8000/rtx-ai-pcs</loc>
+	<loc>http://localhost:8000/firewall</loc>
 		<priority>0.8</priority>
-		<lastmod>2024-11-01T14:26:20+07:00</lastmod>
+		<lastmod>2024-11-27T16:52:39+07:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-	<loc>http://localhost:8000/dien-thoai-thong-minh</loc>
+	<loc>http://localhost:8000/wifi-access-point</loc>
 		<priority>0.8</priority>
-		<lastmod>2024-11-01T14:27:17+07:00</lastmod>
+		<lastmod>2024-11-27T16:50:53+07:00</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+	<loc>http://localhost:8000/switch</loc>
+		<priority>0.8</priority>
+		<lastmod>2024-11-28T16:05:43+07:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
 	<loc>http://localhost:8000/server</loc>
 		<priority>0.8</priority>
-		<lastmod>2024-11-07T11:25:32+07:00</lastmod>
-		<changefreq>weekly</changefreq>
-	</url>
-	<url>
-	<loc>http://localhost:8000/dtdd</loc>
-		<priority>0.8</priority>
-		<lastmod>2024-11-13T11:30:40+07:00</lastmod>
+		<lastmod>2024-11-27T16:49:35+07:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 </urlset>

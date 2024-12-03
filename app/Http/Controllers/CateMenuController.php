@@ -85,9 +85,20 @@ class CateMenuController extends Controller
 
     public function insertOrUpdate(CateMenuFormRequest $request, $id = '')
     {
+        // dd($request->all());
         $cateMenu = empty($id) ? new CateMenu() : CateMenu::findOrFail($id);
 
         $cateMenu->fill($request->all());
+        $path = parse_url($request->filepath, PHP_URL_PATH);
+        // Xóa dấu gạch chéo đầu tiên nếu cần thiết
+        if (strpos($path, '/') === 0) {
+            $path = substr($path, 1);
+        }
+
+        $cateMenu->image = $path;
+        $cateMenu->title_img = (isset($request->title_img)) ? $request->title_img : $request->name;
+        $cateMenu->alt_img = (isset($request->alt_img)) ? $request->alt_img : $request->name;
+
         if(empty($request->input('parent_menu'))){
             $cateMenu->parent_menu = $request->input('parent_menu', 0);
         }

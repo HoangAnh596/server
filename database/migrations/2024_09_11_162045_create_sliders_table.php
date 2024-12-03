@@ -22,7 +22,6 @@ class CreateSlidersTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('image')->nullable();
-            $table->tinyInteger('is_color')->default(0)->comment('1: Màu trắng, 0: Màu đen');
             $table->tinyInteger('is_public')->default(0)->comment('1: Hiển thị, 0: Ẩn');
             $table->integer('stt_slider')->nullable();
             $table->timestamps();

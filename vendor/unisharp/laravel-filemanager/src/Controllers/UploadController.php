@@ -86,61 +86,59 @@ class UploadController extends LfmController
     {
         // Đường dẫn tới file gốc
         $originalPath = $this->lfm->setName($filename)->path('absolute');
-        $baseDirectory = dirname($originalPath); // Đường dẫn tới thư mục chứa ảnh
+        // Lấy đường dẫn gốc của storage
+        $storagePath = storage_path('app/public');
+
+        // Tính đường dẫn tương đối so với storage
+        $relativePath = str_replace($storagePath, '', dirname($originalPath));
+        // Gán lại `$baseDirectory` cho phù hợp với cả local và server
+        $baseDirectory = $storagePath . $relativePath;
+        $relativePath = str_replace('\\', '/', $relativePath);
         if (file_exists($originalPath)) {
             $sizes = [
-                'small' => 240,  // Chiều rộng 240px
-                'medium' => 320, // Chiều rộng 320px
-                'large' => 460,  // Chiều rộng 480px
+                'small' => 240,
+                'medium' => 320,
+                'large' => 460,
                 'w_560' => 560,
-                'w_640' => 640
+                'w_640' => 640,
             ];
             // Kiểm tra thư mục chứa ảnh
-            switch ($baseDirectory) {
-                case "C:\\xampp\\htdocs\\Project\\nvidia\\storage\\app/public\\images":
+            switch ($relativePath) {
+                case "/images":
                     // Xử lý cho thư mục images
                     break;
-                case "C:\\xampp\\htdocs\\Project\\nvidia\\storage\\app/public\\images\\danh-muc":
+                case "/images/danh-muc":
                     // Xử lý cho thư mục danh-muc
                     break;
-                case "C:\\xampp\\htdocs\\Project\\nvidia\\storage\\app/public\\images\\san-pham":
+                case "/images/san-pham":
                     // Xử lý cho thư mục san-pham
                     break;
-                case "C:\\xampp\\htdocs\\Project\\nvidia\\storage\\app/public\\images\\bai-viet":
+                case "/images/bai-viet":
                     // Xử lý cho thư mục bai-viet
                     break;
                 default:
-                    // Xử lý cho các thư mục khác
                     $sizes = []; // Nếu thư mục không thuộc các thư mục trên
                     break;
             }
 
-            // còn không phải thì $sizes = ơ
-            // Tách tên file và phần mở rộng
+            // Phần xử lý resize ảnh không cần thay đổi
             $pathInfo = pathinfo($originalPath);
-            $filename = $pathInfo['filename']; // Tên file (không có phần mở rộng)
-            $extension = $pathInfo['extension']; // Phần mở rộng
+            $filename = $pathInfo['filename'];
+            $extension = $pathInfo['extension'];
 
             foreach ($sizes as $size => $width) {
-                // Tạo thư mục nếu chưa tồn tại
                 $sizeDirectory = $baseDirectory . '/' . $size;
                 if (!File::exists($sizeDirectory)) {
                     File::makeDirectory($sizeDirectory, 0755, true);
                 }
-
-                // Tạo đối tượng ảnh từ file gốc
+        
                 $image = Image::make($originalPath)->sharpen(10);
-
-                // Thay đổi kích thước ảnh
                 $image->resize($width, null, function ($constraint) {
-                    $constraint->aspectRatio(); // Giữ nguyên tỷ lệ
-                    $constraint->upsize(); // Không phóng to hơn kích thước gốc
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
                 });
-
-                // Tạo đường dẫn mới cho ảnh với kích thước đã thay đổi
+        
                 $sizePath = $sizeDirectory . '/' . $filename . '.' . $extension;
-
-                // Lưu ảnh mới vào đường dẫn vừa tạo
                 $image->save($sizePath, 100);
             }
         }

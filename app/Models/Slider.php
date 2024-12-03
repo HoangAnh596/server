@@ -17,6 +17,6 @@ class Slider extends Model
     protected $fillable = [
         'name', 'title', 'url', 'url_text',
         'image', 'description', 'user_id',
-        'is_color', 'is_public', 'stt_slider'
+        'is_public', 'stt_slider'
     ];
 }

@@ -22,6 +22,7 @@ class CateMenu extends Model
     protected $fillable = [
         'name', 'parent_menu',
         'url', 'stt_menu',
+        'image', 'title_img', 'alt_img',
         'is_click', 'is_tab', 'is_public'
     ];
 

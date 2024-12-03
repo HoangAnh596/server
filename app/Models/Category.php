@@ -37,7 +37,7 @@ class Category extends Model
     public function children()
     {
 
-        return $this->hasMany(Category::class, 'parent_id')->with('children');
+        return $this->hasMany(Category::class, 'parent_id');
     }
 
     public function parent()
@@ -69,10 +69,10 @@ class Category extends Model
     public function getAllParents()
     {
         $parents = collect();
-        $parent = $this->parent()->select('id', 'parent_id', 'name', 'slug')->first();
+        $parent = $this->parent()->select('id', 'parent_id', 'name', 'slug', 'is_public')->first();
         while ($parent) {
             $parents->prepend($parent);
-            $parent = $parent->parent()->select('id', 'parent_id', 'name', 'slug')->first();
+            $parent = $parent->parent()->select('id', 'parent_id', 'name', 'slug', 'is_public')->first();
         }
         return $parents;
     }

@@ -94,9 +94,25 @@
                         </div>
                     </div>
                     <div style="height: 38px; color: red; margin-left: 20px;"><i class="fa-solid fa-circle-info"></i></div>
-                    <div class="col-5">
-
+                    <div class="col-5"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2 d-flex flex-row-reverse align-items-center" style="height: 38px;">Ảnh icon:<div class="warningMenu">*</div>
                     </div>
+                    <div class="col-2">
+                        <div class="input-group">
+                            <input id="thumbnail" class="form-control" type="hidden" name="filepath" value="{{ old('image', $category->image ?? '') }}">
+                            <span class="input-group-btn">
+                                <button id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-outline-dark hiddenButton">
+                                    <i class="fa fa-picture-o"></i> Chọn ảnh từ thư viện
+                                </button>
+                            </span>
+                        </div>
+                        <div id="holder">
+                            <img id="out_img" src="{{ \App\Http\Helpers\Helper::getPath($category->image) }}">
+                        </div>
+                    </div>
+                    <div class="col-4 d-flex flex-row align-items-center" style="height: 38px;">(Kích thước đề nghị 120 x 60 px) <i class="fa-solid fa-circle-info" style="margin-left: 6px; color: red;"></i></div>
                 </div>
                 <div class="row mt-3 mb-3">
                     <div class="col-2 d-flex flex-row-reverse align-items-center">Thứ tự hiển thị :</div>

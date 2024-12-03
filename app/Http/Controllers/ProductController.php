@@ -283,9 +283,19 @@ class ProductController extends Controller
     public function isCheckbox(Request $request)
     {
         $product = Product::findOrFail($request->id);
-        $product->is_outstand = $request->is_outstand;
-        $product->save();
+        if ($product) {
+            $field = $request->field;
+            $value = $request->value;
+            // Kiểm tra xem trường có tồn tại trong bảng user không
+            if (in_array($field, ['is_outstand', 'is_public'])) {
+                $product->$field = $value;
 
-        return response()->json(['success' => true]);
+                $product->save();
+                return response()->json(['success' => true]);
+            } else {
+                return response()->json(['success' => false, 'message' => 'Không tồn tại.']);
+            }
+        }
+        return response()->json(['success' => false]);
     }
 }

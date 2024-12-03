@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\Bottom;
 use App\Models\CateFooter;
 use App\Models\Category;
 use App\Models\CategoryNew;
@@ -35,6 +34,33 @@ class AppServiceProvider extends ServiceProvider
         if (request()->is('admin*') || request()->is('login*') || request()->is('register*') || request()->is('password/*')) {
             $this->app->register(AdminServiceProvider::class);
         }
+
+        // đảm bảo sql chỉ chạy 1 lần
+        $this->app->singleton('menus', function () {
+            return CateMenu::select('id', 'name', 'url', 'is_click', 'is_tab', 'image')
+                ->where('parent_menu', 0)
+                ->where('is_public', 1)
+                ->orderBy('stt_menu', 'ASC')
+                ->with(['children' => function ($query) {
+                    $query->select('id', 'name', 'url', 'parent_menu', 'is_tab', 'is_click', 'image')
+                        ->where('is_public', 1)
+                        ->orderBy('stt_menu', 'ASC')
+                        ->with(['children' => function ($subQuery) {
+                            $subQuery->select('id', 'name', 'url', 'parent_menu', 'is_tab', 'is_click', 'image')
+                                ->where('is_public', 1)
+                                ->orderBy('stt_menu', 'ASC');
+                        }]);
+                }])
+                ->get();
+        });
+
+        $this->app->singleton('categories', function () {
+            return Category::select('id', 'name', 'slug', 'image', 'title_img', 'alt_img', 'is_outstand', 'is_serve')
+                ->where('is_public', 1)
+                ->where('parent_id', 0)
+                ->with('children')
+                ->orderBy('stt_cate', 'ASC')->get();
+        });
 
         $this->app->singleton('footers', function () {
             return CateFooter::select('id', 'name', 'url', 'is_tab')
@@ -75,10 +101,6 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton('headerTags', function () {
             return HeaderTag::select('id', 'content')->where('is_public', 1)->get();
         });
-        // Chân trang dưới footer
-        $this->app->singleton('bottom', function () {
-            return Bottom::select('id', 'name', 'url')->where('is_public', 1)->orderBy('stt', 'ASC')->get();
-        });
         // Cấu hình icon liên hệ
         $this->app->singleton('contact-icons', function () {
             return ContactIcon::select('id', 'url', 'name', 'image', 'animation')->where('is_public', 1)->orderBy('stt', 'ASC')->get();
@@ -116,17 +138,17 @@ class AppServiceProvider extends ServiceProvider
         }
         
         View::composer('*', function ($view) {
+            $globalMenus = $this->app->make('menus');
+            $globalCategories = $this->app->make('categories');
             $globalFooters = $this->app->make('footers');
             $searchCate = $this->app->make('searchCate');
             $globalHeaderTags = $this->app->make('headerTags');
-            $ft_bottom = $this->app->make('bottom');
             $globalSetting = $this->app->make('setting');
             $contactIconGlobal = $this->app->make('contact-icons');
 
-            $view->with('globalFooters', $globalFooters)
-                ->with('searchCate', $searchCate)
+            $view->with('globalMenus', $globalMenus)->with('globalFooters', $globalFooters)
+                ->with('globalCategories', $globalCategories)->with('searchCate', $searchCate)
                 ->with('globalHeaderTags', $globalHeaderTags)
-                ->with('ft_bottom', $ft_bottom)
                 ->with('globalSetting', $globalSetting)
                 ->with('contactIconGlobal', $contactIconGlobal);
         });

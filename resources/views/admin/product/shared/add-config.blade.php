@@ -12,16 +12,25 @@
                 <span class="text-danger" id="codeError"></span>
             </div>
             <div class="mb-3">
-                <label for="status" class="form-label">Tình trạng</label>
+                <label for="status" class="form-label">Tình trạng sản phẩm: </label>
                 <select class="form-control" id="status" aria-label="Default" name="status">
                     <option value="1">Còn hàng</option>
                     <option value="0">Hết hàng</option>
                 </select>
             </div>
             <div class="mb-3">
-                <label for="price" class="form-label">Giá sản phẩm</label>
-                <input class="form-control" id="price" type="text" name="price" value="{{ old('price') }}">
-                <span class="text-danger" id="priceError"></span>
+                <label for="is_outstand" class="form-label">Sản phẩm nổi bật: </label>
+                <select class="form-control" id="is_outstand" aria-label="Default" name="is_outstand">
+                    <option value="0">Không</option>
+                    <option value="1">Có</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="is_public" class="form-label">Ẩn/Hiện sản phẩm: </label>
+                <select class="form-control" id="is_public" aria-label="Default" name="is_public">
+                    <option value="0">Ẩn</option>
+                    <option value="1">Hiển thị</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="category" class="form-label">Danh mục chính <i class="fa-solid fa-circle-info" style="color: red;"></i></label>
@@ -46,6 +55,11 @@
             <div class="mb-3">
                 <label for="tags" class="form-label">Thẻ Tags</label>
                 <select class="form-control searchTags" name="tag_ids[]" id="searchTags" multiple="multiple"></select>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Giá sản phẩm</label>
+                <input class="form-control" id="price" type="text" name="price" value="{{ old('price') }}">
+                <span class="text-danger" id="priceError"></span>
             </div>
             <div class="mb-3">
                 <label for="discount" class="form-label">Giảm giá %</label>

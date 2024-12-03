@@ -7,7 +7,6 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\BottomController;
 use App\Http\Controllers\CateFooterController;
 use App\Http\Controllers\CategoryNewController;
 use App\Http\Controllers\CateMenuController;
@@ -244,16 +243,6 @@ Route::prefix('/admin')->middleware('verified')->group(function () {
     Route::delete('cateFooter/{id}', [CateFooterController::class, 'destroy'])->name('cateFooter.destroy')->middleware('can:footer-delete');
     Route::post('cateFooter/checkStt', [CateFooterController::class, 'checkStt'])->name('cateFooter.checkStt')->middleware('can:footer-checkStt');
     Route::post('cateFooter/checkbox', [CateFooterController::class, 'isCheckbox'])->name('cateFooter.isCheckbox')->middleware('can:footer-checkbox');
-
-    // Quản lý chân trang bottom
-    Route::get('/bottoms', [BottomController::class, 'index'])->name('bottoms.index');
-    Route::get('/bottoms/create', [BottomController::class, 'create'])->name('bottoms.create')->middleware('can:bottom-add');
-    Route::post('/bottoms', [BottomController::class, 'store'])->name('bottoms.store');
-    Route::get('/bottoms/{id}/edit', [BottomController::class, 'edit'])->name('bottoms.edit')->middleware('can:bottom-edit');
-    Route::put('bottoms/{id}', [BottomController::class, 'update'])->name('bottoms.update');
-    Route::delete('bottoms/{id}', [BottomController::class, 'destroy'])->name('bottoms.destroy')->middleware('can:bottom-delete');
-    Route::post('/bottoms/checkStt', [BottomController::class, 'checkStt'])->name('bottoms.checkStt')->middleware('can:bottom-checkStt');
-    Route::post('/bottoms/checkbox', [BottomController::class, 'isCheckbox'])->name('bottoms.isCheckbox')->middleware('can:bottom-checkbox');
 
     // Quản lý icon phía dưới chân trang
     Route::get('/contact-icons', [ContactIconController::class, 'index'])->name('contact-icons.index');

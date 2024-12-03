@@ -29,6 +29,10 @@ class CreateProductsTable extends Migration
             $table->unsignedTinyInteger('discount')->nullable();
             $table->string('image_ids')->nullable();
             $table->string('group_ids')->nullable();
+            $table->string('config_pr')->nullable();
+            $table->string('cpu_pr')->nullable();
+            $table->string('ram_pr')->nullable();
+            $table->string('hdd_pr')->nullable();
             $table->text('des')->nullable();
             $table->text('content')->nullable();
             $table->string('title_seo')->nullable();

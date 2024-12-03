@@ -20,7 +20,9 @@ class CreateCateMenuTable extends Migration
             $table->bigInteger('parent_menu');
             $table->unsignedBigInteger('user_id');
             $table->integer('stt_menu')->nullable();
-            // $table->string('image')->nullable();
+            $table->string('image')->nullable();
+            $table->string('title_img')->nullable();
+            $table->string('alt_img')->nullable();
             $table->tinyInteger('is_public')->default(0)->comment('1: hiển thị, 0: không hiển thị');
             $table->tinyInteger('is_tab')->default(0)->comment('1: mở tab mới, 0: không mở tab');
             $table->tinyInteger('is_click')->default(0)->comment('1: click, 0: không click');

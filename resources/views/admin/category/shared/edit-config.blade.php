@@ -33,10 +33,10 @@
                 </span>
             </div>
             <div id="holder">
-                <img id="out_img" src="{{ \App\Http\Helpers\Helper::getPath($category->image) }}">
+                <img id="out_img" src="{{ \App\Http\Helpers\Helper::getPath($category->image) }}" style="height: auto !important;">
             </div>
         </div>
-        <div class="col-3 d-flex flex-row align-items-center" style="height: 38px;">(Kích thước đề nghị 234 x 234 px) <i class="fa-solid fa-circle-info" style="margin-left: 6px; color: red;"></i></div>
+        <div class="col-3 d-flex flex-row align-items-center" style="height: 38px;">(Kích thước đề nghị 65 x 65 px) <i class="fa-solid fa-circle-info" style="margin-left: 6px; color: red;"></i></div>
     </div>
     <div class="row">
         <div class="col-sm-6">

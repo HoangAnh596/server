@@ -47,9 +47,10 @@
                         <tr>
                             <th class="">No.</th>
                             <th class="col-sm-3 text-center">Tên sản phẩm</th>
-                            <th class="col-sm-3 text-center">Danh mục</th>
+                            <th class="col-sm-2 text-center">Danh mục</th>
                             <th class="col-sm-2 text-center">Mã Code</th>
                             <th class="text-center">Nổi bật</th>
+                            <th class="text-center">Ẩn/Hiện</th>
                             <th class="col-sm-2 text-center">Hành động</th>
                         </tr>
                     </thead>
@@ -71,6 +72,9 @@
                             <td>{{ $product->code }}</td>
                             <td class="text-center">
                                 <input type="checkbox" class="active-checkbox" data-id="{{ $product->id }}" data-field="is_outstand" {{ ($product->is_outstand == 1) ? 'checked' : '' }}>
+                            </td>
+                            <td class="text-center">
+                                <input type="checkbox" class="active-checkbox" data-id="{{ $product->id }}" data-field="is_public" {{ ($product->is_public == 1) ? 'checked' : '' }}>
                             </td>
                             <td class="action">
                                 @can('product-edit')
@@ -121,6 +125,7 @@
 
         $('.active-checkbox').change(function() {
             var cateId = $(this).data('id');
+            var field = $(this).data('field');
             var value = $(this).is(':checked') ? 1 : 0;
 
             $.ajax({
@@ -128,7 +133,8 @@
                 method: 'POST',
                 data: {
                     id: cateId,
-                    is_outstand: value,
+                    field: field,
+                    value: value,
                     _token: '{{ csrf_token() }}',
                 },
                 success: function(response) {

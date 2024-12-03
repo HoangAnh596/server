@@ -18,6 +18,41 @@ $(document).ready(function() {
         $this.find('.icon-up').toggle();
         $dropdownContent.toggle();
     });
+
+    $("#prd-cate-list .main-cate ul li").hover(
+        function() {
+            $(this).addClass("active"); // Thêm class active khi hover
+            $(this).find("i.fa-chevron-right").css("display", "inline");
+        },
+        function() {
+            $(this).removeClass("active"); // Bỏ class active khi rời khỏi
+            $(this).find("i.fa-chevron-right").css("display", "none");
+        }
+    );
+
+    $('.dn-prd-cate, .dn-main-cate').hover(
+        function () {
+            $('.dn-main-cate').css('display', 'block');
+        },
+        function () {
+            // Khi chuột rời khỏi cả hai
+            setTimeout(() => {
+                if (!$('.dn-prd-cate:hover').length && !$('.dn-main-cate:hover').length) {
+                    $('.dn-main-cate').css('display', 'none');
+                }
+            }, 100); // Thêm một khoảng delay để tránh nhấp nháy
+        }
+    );
+
+    const $toggler = $(".navbar-toggler");
+    const $iconBars = $toggler.find(".fa-bars");
+    const $iconXmark = $toggler.find(".fa-xmark");
+
+    $toggler.on("click", function () {
+        // Kiểm tra trạng thái của các icon và toggle class `d-none`
+        $iconBars.toggleClass("d-none");
+        $iconXmark.toggleClass("d-none");
+    });
 });
 function scrollFunction() {
     var topLink = document.getElementById("top-link");

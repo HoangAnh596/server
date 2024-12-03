@@ -40,13 +40,14 @@ class HomeController extends Controller
     {
         // Seo Website
         $globalSeo = app('setting');
+        $globalCategories = app('categories');
         $titleSeo = $globalSeo->title_seo;
         $keywordSeo = $globalSeo->keyword_seo;
         $descriptionSeo = $globalSeo->des_seo;
 
         // Sliders
         $sliders = Slider::where('is_public', 1)
-            ->select('id', 'name', 'image', 'url', 'url_text', 'title', 'description', 'stt_slider', 'is_color')
+            ->select('id', 'name', 'image', 'url', 'url_text', 'title', 'description', 'stt_slider')
             ->orderBy('stt_slider', 'ASC')
             ->orderBy('updated_at', 'DESC')->get();
         
@@ -57,21 +58,23 @@ class HomeController extends Controller
             ->limit(12)->get();
         $cateBlogs = CategoryNew::where('is_menu', 1)->select('name', 'slug')->orderBy('created_at', 'ASC')->get();
 
-        // Lấy tất cả các danh mục có parent_id = 0
-        $categories = Category::where('is_public', 1)
-            ->select('id', 'name', 'slug', 'image', 'title_img', 'alt_img', 'is_outstand')
-            ->orderBy('stt_cate', 'ASC')
-            ->limit(5)->get();
+        // Sản phẩm nổi bật
+        $prOutstand = Product::select('id', 'name', 'slug', 'des', 'price', 'image_ids', 'status', 'cpu_pr', 'ram_pr', 'hdd_pr')
+            ->where('is_outstand', 1)
+            ->orderBy('created_at', 'ASC')->get();
+        
+        foreach ($prOutstand as $product) {
+            $product->loadProductImages();
+        }
 
         // Lấy danh mục có is_outstand = 1 có stt_cate từ nhỏ tới lớn 
-        $cate = $categories->where('is_outstand', 1);
+        $cate = $globalCategories->where('is_outstand', 1);
         $ids = $cate->pluck('id');
         if ($ids->isEmpty()) {
 
             return view('cntt.home.index', compact(
                 'titleSeo', 'keywordSeo', 'descriptionSeo',
-                'categories', 'blogs', 'cateBlogs',
-                'sliders'));
+                'blogs', 'cateBlogs', 'sliders'));
         } else {
             $categoriesWithProducts = collect();
             foreach ($ids as $idCate) {
@@ -86,7 +89,7 @@ class HomeController extends Controller
                     $products = Product::whereHas('category', function ($query) use ($allCategoryIds) {
                         $query->whereIn('product_categories.category_id', $allCategoryIds);
                     })->select('id', 'name', 'slug', 'price', 'image_ids', 'status')
-                        ->where('is_outstand', 1)
+                        ->where('is_public', 1)
                         ->orderBy('created_at', 'DESC')->get();
                     
                     foreach ($products as $product) {
@@ -121,8 +124,8 @@ class HomeController extends Controller
 
             return view('cntt.home.index', compact(
                 'titleSeo', 'keywordSeo', 'descriptionSeo',
-                'categories', 'blogs', 'cateBlogs',
-                'categoriesWithProducts', 'sliders'
+                'blogs', 'cateBlogs', 'categoriesWithProducts',
+                'sliders', 'prOutstand'
             ));
         }
     }
@@ -186,6 +189,7 @@ class HomeController extends Controller
             // Lấy ra id của parent_id = 0 
             $cateParent = $mainCate->topLevelParent();
             $allParents = $mainCate->getAllParents();
+            // dd($allParents);
             $filterCate = $cateParent->getFilterCates();
             $categoryIds = $mainCate->getAllChildrenIds();
             array_unshift($categoryIds, $mainCate->id); // Thêm ID danh mục chính vào danh sách
@@ -429,6 +433,7 @@ class HomeController extends Controller
         } else {
             // Xử lý id category cha con khi không có group_ids
             $cateIds = $parent->getAllParentIds();
+            dd($cateIds);
             $groupProducts = Group::with(['products' => function ($query) {
                 $query->select('products.id', 'products.name', 'products.slug', 'products.image_ids');
             }])
@@ -456,6 +461,7 @@ class HomeController extends Controller
     // Xử lý tìm kiếm
     public function search(Request $request)
     {
+        // dd($request->all());
         // Seo Website
         $globalSeo = app('setting');
         $titleSeo = $globalSeo->title_seo;
@@ -505,6 +511,7 @@ class HomeController extends Controller
                     'phoneInfors', 'total'
                 ));
             } elseif ($source === 'prod') {
+                // dd(1);
                 // Truy vấn bảng Category
                 $nameCate = Category::where('id', $searchId)->value('name');
                 $childrenIds = $this->categorySrc->getAllChildrenIds($searchId);

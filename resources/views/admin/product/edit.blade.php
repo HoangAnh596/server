@@ -37,6 +37,12 @@
                         </button>
                     </li>
                     <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#server-tab" type="button" role="tab">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                            Cấu hình thiết bị
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wallet-tab" type="button" role="tab">
                             <i class="bi bi-wallet2"></i>
                             Cấu hình SEO
@@ -46,6 +52,9 @@
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="info-tab" role="tabpanel">
                         @include("admin.product.shared.edit-config")
+                    </div>
+                    <div class="tab-pane fade" id="server-tab" role="tabpanel">
+                        @include("admin.product.shared.edit-server")
                     </div>
                     <div class="tab-pane fade" id="wallet-tab" role="tabpanel">
                         @include("admin.product.shared.edit-seo")

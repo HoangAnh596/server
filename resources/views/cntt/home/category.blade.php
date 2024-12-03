@@ -7,7 +7,9 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
                 @foreach ($allParents as $parent)
-                <li class="breadcrumb-item"><a href="{{ asset($parent->slug) }}">{{ $parent->name }}</a></li>
+                @if($parent->is_public == 1)
+                <li class="breadcrumb-item a213a"><a href="{{ asset($parent->slug) }}">{{ $parent->name }}</a></li>
+                @endif
                 @endforeach
                 <li class="breadcrumb-item">{{ $mainCate->name }}</li>
             </ol>
