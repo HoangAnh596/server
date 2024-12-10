@@ -42,7 +42,7 @@
     color: black;
 }
 .btn-filter:hover {
-    color: #76b900;
+    color: #dc3545;
 }
 /*  */
 .pos-filter {
@@ -199,12 +199,12 @@
     color: #dd1c1a;
 }
 .btn-filter-readmore, .btn-filter-readmore-mb {
-    background-color: #76b900;
-    border: 1px solid #76b900;
+    background-color: #dc3545;
+    border: 1px solid #dc3545;
     color: #fff;
 }
 .show-filter:active, .show-filter-mb:active {
-    border: 2px solid #76b900;
+    border: 2px solid #dc3545;
 }
 .show-filter-mb {
     position: relative;

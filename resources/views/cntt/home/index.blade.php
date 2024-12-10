@@ -271,7 +271,7 @@ $agent = new Jenssegers\Agent\Agent();
             <span class="decor"></span>
         </div>
         <div class="row">
-            <div class="service-item col-lg-3 col-md-3 sm-6">
+            <div class="service-item col-lg-4 col-md-4 sm-6">
                 <div class="icon_box">
                     <img loading="lazy" width="40" height="40" data-src="{{ asset('storage/images/ui_images/icon-tu-van.png') }}" alt="Tư vấn tin cậy" src="{{ asset('storage/images/ui_images/icon-tu-van.png') }}" srcset="{{ asset('storage/images/ui_images/icon-tu-van.png') }}">
                 </div>
@@ -280,7 +280,7 @@ $agent = new Jenssegers\Agent\Agent();
                     <p>Tư vấn, giải đáp mọi thắc mắc</p>
                 </div>
             </div>
-            <div class="service-item col-lg-3 col-md-3 sm-6">
+            <div class="service-item col-lg-4 col-md-4 sm-6">
                 <div class="icon_box">
                     <img loading="lazy" width="40" height="40" data-src="{{ asset('storage/images/ui_images/icon-gia.png') }}" alt="Giá cạnh tranh" src="{{ asset('storage/images/ui_images/icon-gia.png') }}" srcset="{{ asset('storage/images/ui_images/icon-gia.png') }}">
                 </div>
@@ -289,22 +289,13 @@ $agent = new Jenssegers\Agent\Agent();
                     <p>Giá cạnh tranh, thấp nhất thị trường</p>
                 </div>
             </div>
-            <div class="service-item col-lg-3 col-md-3 sm-6">
+            <div class="service-item col-lg-4 col-md-4 sm-6">
                 <div class="icon_box">
                     <img loading="lazy" width="40" height="40" data-src="{{ asset('storage/images/ui_images/icon-phuc-vu.png') }}" alt="Phục vụ chu đáo" src="{{ asset('storage/images/ui_images/icon-phuc-vu.png') }}" srcset="{{ asset('storage/images/ui_images/icon-phuc-vu.png') }}">
                 </div>
                 <p class="why_us">Phục vụ chu đáo</p>
                 <div class="text">
                     <p>Đem đến sự hài lòng cho quý khách</p>
-                </div>
-            </div>
-            <div class="service-item col-lg-3 col-md-3 sm-6">
-                <div class="icon_box">
-                    <img loading="lazy" width="40" height="40" data-src="{{ asset('storage/images/ui_images/icon-dich-vu.png') }}" alt="Dịch vụ hoàn hảo" src="{{ asset('storage/images/ui_images/icon-dich-vu.png') }}" srcset="{{ asset('storage/images/ui_images/icon-dich-vu.png') }}">
-                </div>
-                <p class="why_us">Dịch vụ hoàn hảo</p>
-                <div class="text">
-                    <p>Dịch vụ hoàn hảo từ A-Z</p>
                 </div>
             </div>
         </div>

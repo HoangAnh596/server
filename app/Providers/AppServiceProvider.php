@@ -58,7 +58,16 @@ class AppServiceProvider extends ServiceProvider
             return Category::select('id', 'name', 'slug', 'image', 'title_img', 'alt_img', 'is_outstand', 'is_serve')
                 ->where('is_public', 1)
                 ->where('parent_id', 0)
-                ->with('children')
+                ->with(['children' => function ($query) {
+                    $query->select('id', 'name', 'slug', 'parent_id', 'is_outstand', 'is_serve')
+                        ->where('is_public', 1)
+                        ->orderBy('stt_cate', 'ASC')
+                        ->with(['children' => function ($subQuery) {
+                            $subQuery->select('id', 'name', 'slug', 'parent_id', 'is_outstand', 'is_serve')
+                                ->where('is_public', 1)
+                                ->orderBy('stt_cate', 'ASC');
+                        }]);
+                }])
                 ->orderBy('stt_cate', 'ASC')->get();
         });
 

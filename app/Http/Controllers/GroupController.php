@@ -122,6 +122,8 @@ class GroupController extends Controller
             $group = empty($id) ? new Group() : Group::findOrFail($id);
             $group->fill($request->all());
             $group->parent_id = 0;
+            $group->max_quantity = $request->max_quantity;
+            $group->stt = (isset($request->stt)) ? $request->stt : 999;
 
             $group->save();
 

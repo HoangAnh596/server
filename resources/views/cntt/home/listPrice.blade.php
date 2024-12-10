@@ -18,7 +18,7 @@
                         <h1>Giá mã sản phẩm: {{ $key }}</h1>
                         <div id="checklistnumber">
                             <form action="{{ route('home.listPrice') }}" accept-charset="utf-8" method="get" id="checklist">
-                                <button class="search-submit" onclick="document.getElementById('checklist').submit()">CHECK GIÁ</button>
+                                <button class="src-submit" onclick="document.getElementById('checklist').submit()">CHECK GIÁ</button>
                                 <button class="search-submit1" onclick="document.getElementById('checklist').submit()"><i class="fa fa-search"></i></button>
                                 <input type="text" name="key" value="{{ $key }}" id="partvalue" placeholder="Mã sản phẩm...">
                             </form>

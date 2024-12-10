@@ -7,7 +7,7 @@
     padding: 10px;
 }
 #boxFAQ .title {
-    color: #76b900;
+    color: #dc3545;
     font-size: 24px !important;
     font-weight: 700 !important;
     margin: 0;
@@ -59,7 +59,7 @@
 /* End Câu hỏi sản phẩm or product */
 
 .bg-prod {
-    background-color: #76b900;
+    background: linear-gradient(90deg, #dc3545 0%, #ff6b75 75%);
     position: absolute;
     top: 0;
     left: 0;
@@ -71,7 +71,7 @@
     font-size: 1.25rem;
     margin: 0;
     padding-left: 1rem;
-    font-weight: 600;
+    color: white;
 }
 
 .outstand-prod {
@@ -104,7 +104,7 @@
 }
 .new-prod {
     position: sticky;
-    top: 54px;
+    top: 24px;
     left: 0;
     width: 100%;
     z-index: 999;
@@ -186,12 +186,12 @@
 }
 
 .nothing-show-more .icon {
-    fill: #76b900;
+    fill: #dc3545;
     height: 50px;
     width: 50px;
 }
 .nothing-show-more .icon svg {
-    fill: #76b900;
+    fill: #dc3545;
     height: 50px;
     width: 50px;
 }

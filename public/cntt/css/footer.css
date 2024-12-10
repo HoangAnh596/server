@@ -146,11 +146,11 @@
 }
 
 .ft-link {
-    color: #76b900;
+    color: #ccc;
     line-height: 30px;
 }
 .ft-link:hover {
-    color: white;
+    color: #dc3545;
 }
 
 .page-footer__social {

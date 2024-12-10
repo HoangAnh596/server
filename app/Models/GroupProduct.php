@@ -13,7 +13,7 @@ class GroupProduct extends Model
 
     protected $fillable = [
         'product_id', 'group_id',
-        'is_checked'
+        'quantity', 'is_checked'
     ];
     
     // Thiết lập mối quan hệ với Product

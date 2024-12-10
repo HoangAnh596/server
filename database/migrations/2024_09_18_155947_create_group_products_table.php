@@ -17,6 +17,8 @@ class CreateGroupProductsTable extends Migration
             $table->id();
             $table->bigInteger('group_id');
             $table->bigInteger('product_id');
+            $table->integer('quantity')->nullable();
+            $table->tinyInteger('is_checked')->default(0)->comment('0: không, 1: mặc định');
             $table->timestamps();
         });
     }

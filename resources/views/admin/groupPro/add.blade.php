@@ -153,10 +153,12 @@
                 <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th class="col-sm-6 text-center">Tên sản phẩm</th>
+                            <th class="col-sm-4 text-center">Tên sản phẩm</th>
                             <th class="col-sm-2 text-center">Ảnh</th>
                             <th class="col-sm-2 text-center">Mã sản phẩm</th>
-                            <th class="col-sm-1 text-center">Giá list</th>
+                            <th class="col-sm-2 text-center">Giá list</th>
+                            <th class="col-sm-1 text-center">Số lượng</th>
+                            <th class="col-sm-1 text-center">Mặc định</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -172,7 +174,21 @@
                                 @endif
                             </td>
                             <td>{{ $k->code }}</td>
-                            <td>$0</td>
+                            <td class="text-center">
+                                <input type="text" class="form-control check-stt" name="stt" data-group-id="{{ $key->id }}" product-id="{{ $k->id }}" style="text-align: center;" value="">
+                            </td>
+                            <td class="text-center">
+                                <input type="text" class="form-control check-quantity" name="quantity" data-group-id="{{ $key->id }}" product-id="{{ $k->id }}" style="text-align: center;" value="">
+                            </td>
+                            @if($key->is_type == 0)
+                            <td class="text-center">
+                                <input type="radio" name="radio-{{ $key->id }}" class="checkbox-checked" data-group-id="{{ $key->id }}" product-id="{{ $k->id }}" data-field="is_checked" data-type="{{ $key->is_type }}"  @if($k->pivot->is_checked == 1) checked @endif>
+                            </td>
+                            @else
+                            <td class="text-center">
+                                <input type="checkbox" class="checkbox-checked" data-group-id="{{ $key->id }}" product-id="{{ $k->id }}" data-field="is_checked" data-type="{{ $key->is_type }}"  @if($k->pivot->is_checked == 1) checked @endif>
+                            </td>
+                            @endif
                         </tr>
                         @endforeach
                     </tbody>
@@ -217,10 +233,12 @@
                 <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th class="col-sm-6 text-center">Tên sản phẩm</th>
+                            <th class="col-sm-4 text-center">Tên sản phẩm</th>
                             <th class="col-sm-2 text-center">Ảnh</th>
                             <th class="col-sm-2 text-center">Mã sản phẩm</th>
-                            <th class="col-sm-1 text-center">Giá list</th>
+                            <th class="col-sm-2 text-center">Giá list</th>
+                            <th class="col-sm-1 text-center">Số lượng</th>
+                            <th class="col-sm-1 text-center">Mặc định</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -236,7 +254,21 @@
                                 @endif
                             </td>
                             <td>{{ $gr->code }}</td>
-                            <td>$0</td>
+                            <td class="text-center">
+                                <input type="text" class="form-control check-price" name="price" data-group-id="{{ $group->id }}" product-id="{{ $gr->id }}" style="text-align: center;" value="">
+                            </td>
+                            <td class="text-center">
+                                <input type="text" class="form-control check-quantity" name="quantity" data-group-id="{{ $group->id }}" product-id="{{ $gr->id }}" style="text-align: center;" value="{{ old('quantity', $gr->pivot->quantity) }}">
+                            </td>
+                            @if($group->is_type == 0)
+                            <td class="text-center">
+                                <input type="radio" name="radio-{{ $group->id }}" class="checkbox-checked" data-group-id="{{ $group->id }}" product-id="{{ $gr->id }}" data-field="is_checked" data-type="{{ $group->is_type }}"  @if($gr->pivot->is_checked == 1) checked @endif>
+                            </td>
+                            @else
+                            <td class="text-center">
+                                <input type="checkbox" class="checkbox-checked" data-group-id="{{ $group->id }}" product-id="{{ $gr->id }}" data-field="is_checked" data-type="{{ $group->is_type }}"  @if($gr->pivot->is_checked == 1) checked @endif>
+                            </td>
+                            @endif
                         </tr>
                         @endforeach
                     </tbody>
@@ -469,6 +501,110 @@
                         closeButton: true,
                         timeOut: 5000
                     });
+                }
+            });
+        });
+
+        $('.check-quantity').change(function() {
+            var groupId = $(this).data('group-id');
+            var productId = $(this).attr('product-id');
+            var qttGroup = $(this).val();
+
+            $.ajax({
+                url: '{{ route("groupPro.checkQuantity") }}',
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: {
+                    group_id: groupId,
+                    product_id: productId,
+                    quantity: qttGroup,
+                },
+                success: function(response) {
+                    if (response.success) {
+                        toastr.success('Thứ tự được cập nhật thành công.', 'Thành công', {
+                            progressBar: true,
+                            closeButton: true,
+                            timeOut: 5000
+                        });
+                    } else {
+                        toastr.error('Không thể cập nhật thứ tự.', 'Lỗi', {
+                            progressBar: true,
+                            closeButton: true,
+                            timeOut: 5000
+                        });
+                    }
+                },
+                error: function(xhr) {
+                    if (xhr.status === 403) {
+                        toastr.warning('Bạn không có quyền cập nhật.', 'Cảnh báo', {
+                            progressBar: true,
+                            closeButton: true,
+                            timeOut: 3000
+                        });
+                        setTimeout(function() {
+                            window.location.reload()
+                        }, 3000);
+                    } else {
+                        toastr.error('Lỗi cập nhật thứ tự.', 'Lỗi', {
+                            progressBar: true,
+                            closeButton: true,
+                            timeOut: 5000
+                        });
+                    }
+                }
+            });
+        });
+
+        $('.checkbox-checked').change(function() {
+            var groupId = $(this).data('group-id');
+            var productId = $(this).attr('product-id');
+            var isType = $(this).data('type');
+            var value = $(this).is(':checked') ? 1 : 0;
+
+            $.ajax({
+                url: '{{ route("groupPro.isChecked") }}',
+                method: 'POST',
+                data: {
+                    group_id: groupId,
+                    product_id: productId,
+                    is_type: isType,
+                    is_checked: value,
+                    _token: '{{ csrf_token() }}',
+                },
+                success: function(response) {
+                    if (response.success) {
+                        toastr.success('Trạng thái được cập nhật thành công.', 'Thành công', {
+                            progressBar: true,
+                            closeButton: true,
+                            timeOut: 5000
+                        });
+                    } else {
+                        toastr.error('Không thể cập nhật trạng thái.', 'Lỗi', {
+                            progressBar: true,
+                            closeButton: true,
+                            timeOut: 5000
+                        });
+                    }
+                },
+                error: function(xhr) {
+                    if (xhr.status === 403) {
+                        toastr.warning('Bạn không có quyền cập nhật.', 'Cảnh báo', {
+                            progressBar: true,
+                            closeButton: true,
+                            timeOut: 3000
+                        });
+                        setTimeout(function() {
+                            window.location.reload()
+                        }, 3000);
+                    } else {
+                        toastr.error('Lỗi cập nhật thứ tự.', 'Lỗi', {
+                            progressBar: true,
+                            closeButton: true,
+                            timeOut: 5000
+                        });
+                    }
                 }
             });
         });

@@ -219,45 +219,30 @@
 
             @foreach($groupProducts as $group)
             @if($parentCate->is_serve == 1)
-            <div class="panel-subheading">
-                <h4>{{ $group->name }}</h4>
-                <ul class="conf-section__list">
-                    @foreach($group->products as $grPro)
-                    @if($group->is_type == 0)
-                    <li class="conf-section__item specify is-checked">
-                        <label class="radio">
-                            <input class="radio__default js-option-item item-{{ $group->name }}" type="radio" id="{{ $group->name }}-{{ $grPro->id }}" name="{{ $group->name }}" data-item="{{ $grPro->id }}" @if($grPro->pivot->is_checked == 1) checked @endif>
-                            <span class="radio__custom"></span>
-                            <span class="radio__label">
-                                <span class="js-item-name">{{ $grPro->name }}</span>
-                            </span>
-                        </label>
-                        <div class="item-price item-price--specify"><span class="item-price__value2">Liên hệ</span></div>
-                    </li>
-                    @else
-                    <li class="conf-section__item with-quantity">
-                        <label class="checkbox">
-                            <input class="checkbox__default js-option-item item-sled" type="checkbox" id="{{ $group->name }}-{{ $grPro->id }}" name="{{ $group->name }}" data-item="{{ $grPro->id }}">
-                            <span class="checkbox__custom"></span>
-                            <span class="checkbox__label">
-                                <span class="js-item-name">{{ $grPro->name }}</span>
-                            </span>
-                        </label>
-                        <div class="item-price item-price--quantity">
-                            <span class="item-price__quantity">
-                                <span class="price__quantity-block">
-                                    <span class="js-item-counter-minus"></span>
-                                    <input aria-label="count" class="js-item-counter item-sled-counter" type="number" step="1" max="10" min="1" value="1">
-                                    <span class="js-item-counter-plus"></span>
-                                </span>
-                                <span class="price__quantity-ea">ea.</span>
-                            </span>
-                            <span class="item-price__value">Liên hệ</span>
-                        </div>
-                    </li>
+            <div class="part mt-3" custom-config-id="{{ $group->id }}">
+                <div class="head">
+                    <span class="name">{{ $group->name }}</span>
+                    @if($group->max_quantity != 0)
+                    <span class="conf-section-desc mb-2"><i class="fa-solid fa-circle-info"></i> Dòng máy chủ này support tối đa {{ $group->max_quantity }} {{ $group->name }}</span>
                     @endif
+                </div>
+                <div class="scroll-box">
+                    @foreach($group->products as $grPro)
+                    <div class="item @if($grPro->pivot->is_checked == 1)is-checked @endif" data-product_id="{{ $grPro->id }}">
+                        <span class="sel">
+                            <input type="{{ $group->is_type == 0 ? 'radio' : 'checkbox' }}" name="{{ $group->name }}" id="part_8703" @if($grPro->pivot->is_checked == 1) checked @endif>
+                        </span>
+                        <span class="qty">
+                            <input name="item_qty" value="{{ $grPro->pivot->is_checked == 1 ? '1' : '0' }}" min="1" max="{{ $group->max_quantity }}" type="number"> x
+                        </span>
+                        <span class="infor">
+                            <span>{{ $grPro->name }}</span>
+                            <span class="cmd"><a href="{{ asset('/' . $grPro->slug) }}" target="_blank"><i class="fa fa-external-link"></i></a></span>
+                            <span class="contact">Liên hệ</span>
+                        </span>
+                    </div>
                     @endforeach
-                </ul>
+                </div>
             </div>
             @else
             <div class="pricing prd_di_kem group-prod">
@@ -287,7 +272,6 @@
             </div>
             @endif
             @endforeach
-
             <!-- Bình luận -->
             <div class="wrap-tab-comments mt-4" id="comment-box">
                 <div class="comment-write" id="rate-box">
@@ -417,7 +401,7 @@
                         </div>
                         @endif
                         @endforeach
-                        <div class="mt-3"><span class="top-heading">Hỗ trợ kỹ thuật <i class="fa-solid fa-gear"></i></span></div>
+                        <div class="mt-2"><span class="top-heading">Hỗ trợ kỹ thuật <i class="fa-solid fa-gear"></i></span></div>
                         @foreach($phoneInfors as $val)
                         @if($val->role == 1)
                         <div class="contact-infor">
@@ -917,6 +901,28 @@
         // Gọi các sự kiện ban đầu
         addPaginationListeners();
         bindCommentFormEvents(); // Lắng nghe sự kiện cho form bình luận
+
+        // Xử lý cho radio
+        $('.item input[type="radio"]').on('change', function () {
+            const groupName = $(this).attr('name'); // Lấy tên nhóm của radio
+            // Loại bỏ is-checked chỉ trong các item có cùng nhóm name
+            $(`.item input[name="${groupName}"]`).closest('.item').removeClass('is-checked');
+            // Thêm is-checked vào item chứa radio được chọn
+            if ($(this).is(':checked')) {
+                $(this).closest('.item').addClass('is-checked');
+            }
+        });
+
+        // Xử lý cho checkbox
+        $('.item input[type="checkbox"]').on('change', function () {
+            if ($(this).is(':checked')) {
+                // Thêm is-checked nếu checkbox được chọn
+                $(this).closest('.item').addClass('is-checked');
+            } else {
+                // Loại bỏ is-checked nếu checkbox không được chọn
+                $(this).closest('.item').removeClass('is-checked');
+            }
+        });
     });
 
     let typingTimer; // Biến để lưu trữ thời gian chờ

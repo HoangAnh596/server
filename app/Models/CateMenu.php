@@ -29,7 +29,7 @@ class CateMenu extends Model
     public function children()
     {
 
-        return $this->hasMany(CateMenu::class, 'parent_menu')->with('children');
+        return $this->hasMany(CateMenu::class, 'parent_menu');
     }
 
     public function parent()

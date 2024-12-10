@@ -27,7 +27,7 @@ class CateFooter extends Model
     public function children()
     {
 
-        return $this->hasMany(CateFooter::class, 'parent_menu')->with('children');
+        return $this->hasMany(CateFooter::class, 'parent_menu');
     }
 
     public function parent()

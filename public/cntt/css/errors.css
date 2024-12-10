@@ -6,7 +6,7 @@
     font-size: 2rem;
 }
 .c-500 {
-    color: #76b900;
+    color: #dc3545;
 }
 .img-404 {
     display: flex;
@@ -34,7 +34,7 @@
     margin-bottom: 5px;
 }
 .list-contact .link--yellow {
-    background-color: #76b900;
+    background-color: #dc3545;
 }
 .list-contact .link {
     align-items: center;

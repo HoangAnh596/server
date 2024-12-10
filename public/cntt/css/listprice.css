@@ -32,11 +32,11 @@
     left: 35%;
     width: 30%;
     height: 100%;
-    background: #76b900;
+    background: #dc3545;
 }
 .check-list-title {
     text-align: center;
-    color: #76b900;
+    color: #dc3545;
     font-size: 0.9rem !important;
 }
 .formcheck {
@@ -50,13 +50,13 @@
 }
 #checklistnumber {
     padding: 1px;
-    background: #76b900;
+    background: #dc3545;
     width: 100%;
     float: left;
     border-radius: 3px;
 }
-#checklistnumber .search-submit {
-    background: #76b900;
+#checklistnumber .src-submit {
+    background: #dc3545;
     border-bottom: 1px solid #eee;
     border-right: 1px solid #eee;
     border-top: 1px solid #eee;
@@ -75,7 +75,7 @@
 }
 #checklistnumber .search-submit1 {
     background: #fafafa;
-    color: #76b900;
+    color: #dc3545;
     display: block;
     float: right;
     font-family: inherit;
@@ -141,8 +141,8 @@
     padding: 0 15px;
 }
 .btn-best-price-check {
-    background-color: #76b900;
-    border-color: #76b900;
+    background-color: #dc3545;
+    border-color: #dc3545;
     padding: 5px 15px;
     border-radius: 5px;
     color: #fff;
@@ -159,7 +159,7 @@
     .formcheck {
         width: 100%;
     }
-    .search-submit {
+    .src-submit {
         width: 32% !important;
     }
     .search-submit1 {
@@ -167,7 +167,7 @@
     }
 }
 @media (max-width: 639px) {
-    .search-submit {
+    .src-submit {
         font-size: 15px !important;
     }
     #check-list table tbody tr td {

@@ -40,6 +40,8 @@ class GroupsFormRequest extends FormRequest
         return [
             'name' => (isset($ruleUpdateName)) ? $ruleUpdateName : 'required | unique:groups',
             'cate_id' => 'required',
+            'max_quantity' => (!empty($params['max_quantity'])) ? 'integer|min:0|max:99' : '',
+            'stt' => (!empty($params['stt'])) ? 'integer|min:0' : ''
         ];
     }
 
@@ -52,6 +54,11 @@ class GroupsFormRequest extends FormRequest
             'name.required' => 'Tên nhóm không được bỏ trống.',
             'name.unique' => 'Tên nhóm đã tồn tại. Vui lòng thay đổi tên khác.',
             'cate_id.required' => 'Danh mục sản phẩm không được bỏ trống.',
+            'max_quantity.integer' => 'Số lượng phải là số nguyên.',
+            'max_quantity.min' => 'Số lượng tối đa phải lớn hơn 0',
+            'max_quantity.max' => 'Số lượng tối đa phải nhỏ hơn 99',
+            'stt.integer' => 'Số thứ tự phải là số nguyên.',
+            'stt.min' => 'Số thứ tự phải lớn 0',
         ];
     }
 }

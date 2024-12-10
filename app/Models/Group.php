@@ -14,6 +14,7 @@ class Group extends Model
     protected $fillable = [
         'name', 'parent_id', 'is_type',
         'cate_id', 'is_public', 'stt',
+        'max_quantiy'
     ];
 
     // Thiết lập mối quan hệ với Category
@@ -26,6 +27,6 @@ class Group extends Model
     public function products()
     {
         return $this->belongsToMany(Product::class, 'group_products', 'group_id', 'product_id')
-                    ->withPivot('is_checked');
+                    ->withPivot('quantity', 'is_checked');
     }
 }

@@ -424,23 +424,22 @@ class HomeController extends Controller
                 $groupProducts = Group::with(['products' => function ($query) {
                     $query->select('products.id', 'products.name', 'products.slug', 'products.image_ids');
                 }])
-                ->select('id', 'name', 'is_type')
+                ->select('id', 'name', 'is_type', 'max_quantity')
                 ->where('is_public', 1)
                 ->whereIn('id', $groupIds)
-                ->orderBy('stt', 'DESC')
+                ->orderBy('stt', 'ASC')
                 ->get();
             }
         } else {
             // Xử lý id category cha con khi không có group_ids
             $cateIds = $parent->getAllParentIds();
-            dd($cateIds);
             $groupProducts = Group::with(['products' => function ($query) {
                 $query->select('products.id', 'products.name', 'products.slug', 'products.image_ids');
             }])
-            ->select('id', 'name', 'is_type')
+            ->select('id', 'name', 'is_type', 'max_quantity')
             ->where('is_public', 1)
             ->whereIn('cate_id', $cateIds)
-            ->orderBy('stt', 'DESC')
+            ->orderBy('stt', 'ASC')
             ->get();
         }
 

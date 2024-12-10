@@ -102,7 +102,7 @@ button.pop-gallery {
     position: fixed;
     top: 20px; /* Điều chỉnh vị trí */
     right: 40px; /* Điều chỉnh vị trí */
-    background-color: #76b900;
+    background-color: #dc3545;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
@@ -118,7 +118,7 @@ button.pop-gallery {
     cursor: pointer;
 }
 .col-viewmore-item:hover i, .col-viewmore-item:hover a {
-    color: #76b900;
+    color: #dc3545;
 }
 .col-viewmore-item i {
     color: #ff6903;
@@ -183,7 +183,7 @@ button.pop-gallery {
 .contact-price {
     border: none;
     padding: 5px 40px 7px;
-    background: #76b900;
+    background: #dc3545;
     color: #fff;
     font-weight: 500;
     font-size: 1.2rem;
@@ -218,12 +218,8 @@ button.pop-gallery {
     display: none;
 }
 .price-modal .price-code {
-    color: #76b900;
+    color: #dc3545;
 }
-/* .price-modal .btn-primary {
-    background-color: #76b900;
-    border-color: #76b900;
-} */
 
 .check-list-btn svg {
     position: absolute;
@@ -239,15 +235,15 @@ button.pop-gallery {
     text-align: center;
     font-weight: 700 !important;
     position: relative;
-    color: #76b900;
+    color: #dc3545;
     margin-bottom: 10px;
 }
 .datasheet-prd:hover {
-    color: #76b900;
+    color: #dc3545;
 }
 .product-note p.cam_ket {
     font-size: 1.1rem !important;
-    color: #76b900;
+    color: #dc3545;
     margin-bottom: 10px;
     font-weight: 700 !important;
     line-height: 20px;
@@ -346,7 +342,7 @@ button.pop-gallery {
     box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .1), 0 2px 6px 2px rgba(60, 64, 67, .15);
 }
 .panel-heading {
-    background-color: #76b900;
+    background: linear-gradient(90deg, #dc3545 0%, #ff6b75 75%);
     padding: 8px 10px;
     font-weight: 500;
     color: #fff;
@@ -355,371 +351,68 @@ button.pop-gallery {
     margin-top: 0;
 }
 /* cấu hình sản phẩm serve */
-.conf-section__list {
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15), 0 2px 10px rgba(0, 0, 0, 0.05);
-    padding: 16px;
-    border-radius: 0;
-    list-style: none;
+.part {
+    border: 1px solid #eee;
 }
-.conf-section__item {
-    margin-bottom: 8px;
-}
-.conf-section__item {
-    position: relative;
-    margin-bottom: 6px;
-}
-.conf-section__item .radio {
-    position: relative;
-    display: block;
-    border-radius: 3px;
-    cursor: pointer;
-}
-.radio__default {
-    position: absolute;
-    width: 1px !important;
-    height: 1px !important;
-    margin: -1px;
-    border: 0;
+.part .head {
+    background: #eee;
     padding: 0;
-    white-space: nowrap;
-    -webkit-clip-path: inset(100%);
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
 }
-.conf-section__item .radio__default:checked + .radio__custom {
-    background: transparent;
-}
-.conf-section__item.specify .radio__custom, .conf-section__item.with-quantity .radio__custom {
-    top: 10px;
-    left: 10px;
-    -webkit-transform: none;
-    transform: none;
-}
-.radio__default:checked + .radio__custom {
-    border-color: #fff;
-    background-color: #fff;
-}
-.radio__custom {
-    display: block;
-    width: 12px;
-    height: 12px;
-    left: 10px;
-    top: 10px;
-    border: 1px solid #999999;
-    border-radius: 100%;
-    position: absolute;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-    z-index: 2;
-}
-.radio__default:checked + .radio__custom::before {
-    content: "";
-    display: block;
-    width: 6px;
-    height: 6px;
-    border-radius: 100%;
-    background-color: #fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-.radio__default:checked ~ .radio__label, .checkbox__default:checked ~ .checkbox__label, .conf-widget .cw-footer__price, .conf-section__item .checkbox__default:checked ~ .checkbox__label {
-    background-color: #76b900;
-}
-.conf-section__item .radio:hover .radio__label, .conf-section__item .checkbox:hover .checkbox__label {
-    background-color: #76b900;
-}
-.conf-section__item .radio__default:checked ~ .radio__label {
-    color: #fff;
-}
-.conf-section__item .radio:hover .radio__label {
-    color: #fff;
-}
-.radio:hover .radio__custom {
-    border-color: #fff;
-}
-.conf-section__item.specify .checkbox__label, .conf-section__item.specify .radio__label {
-    padding-right: 140px;
-}
-.radio__label, .checkbox__label {
-    position: relative;
-    display: block;
-    font-weight: 400;
-    font-family: 'IBM Plex Mono', sans-serif;
-    font-size: 13px;
-    line-height: 16px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    white-space: nowrap;
-    overflow: hidden;
-    background-color: #F5F6F6;
-    padding: 8px 8px 8px 32px;
-    border-radius: 2px;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-}
-.conf-section__item .item-price {
-    display: -webkit-box;
-    display: flex;
-    -webkit-box-pack: end;
-    justify-content: flex-end;
-    -webkit-box-align: center;
-    align-items: center;
-    width: 80px;
-    pointer-events: none;
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-.conf-section__item .item-price--specify {
-    width: 140px;
-}
-.conf-section__item .item-price__value2 {
-    font-size: 12px;
-    line-height: 16px;
-    -webkit-transition: color .2s ease;
-    transition: color .2s ease;
-}
-.checkbox {
-    position: relative;
-    display: block;
-    border-radius: 2px;
-}
-.common-form__input input.checkbox__default, .checkbox__default {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    -webkit-clip-path: inset(100%);
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-}
-.conf-section__item.specify .checkbox__custom, .conf-section__item.with-quantity .checkbox__custom {
-    -webkit-transform: none;
-    transform: none;
-}
-.conf-section__item .checkbox__custom {
-    left: 10px;
-}
-.checkbox__custom {
-    display: block;
-    width: 12px;
-    height: 12px;
-    border-radius: 2px;
-    border: 1px solid #999999;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-    z-index: 2;
-}
-.conf-section__item .checkbox__label {
-    background-color: #F5F6F6;
-    color: #606060;
-    white-space: normal;
-    padding: 8px 100px 8px 32px;
-}
-
-.ratio-configurator .conf-section__item.with-quantity .checkbox__label, .ratio-configurator .conf-section__item.with-quantity .radio__label {
-    padding-right: 220px;
-}
-.checkbox__default:checked + .checkbox__custom {
-    border-color: #fff;
-    background: none;
-}
-.conf-section__item .checkbox__default:checked ~ .checkbox__label {
-    background-color: #76b900;
-    color: #fff;
-}
-.conf-section__item .checkbox:hover .checkbox__label {
-    background-color: #76b900;
-    color: #fff;
-}
-.checkbox:hover .checkbox__custom {
-    border-color: #fff;
-    /* background-color: #fff; */
-}
-.checkbox__default:checked + .checkbox__custom::before {
-    content: "";
-    display: block;
-    width: 6px;
-    height: 4px;
-    border-left: 1px solid #fff;
-    border-bottom: 1px solid #fff;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-}
-
-
-.conf-section__item.is-checked .item-price--quantity {
-    justify-content: space-between;
-}
-.conf-section__item .item-price {
-    white-space: nowrap;
-}
-.conf-section__item .item-price--quantity {
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    justify-content: flex-end;
-    width: 200px;
-}
-.conf-section__item .item-price {
-    display: -webkit-box;
-    display: flex;
-    -webkit-box-pack: end;
-    justify-content: flex-end;
-    -webkit-box-align: center;
-    align-items: center;
-    width: 80px;
-    pointer-events: none;
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-.conf-section__item .item-price--quantity {
-    width: 195px;
-    justify-content: space-between !important;
-}
-.conf-section__item .item-price__quantity input[type="number"] {
-    width: 20px;
-}
-
-.conf-section__item.is-checked .item-price__quantity {
-    display: -webkit-box;
-    display: flex;
-}
-.conf-section__item .item-price__quantity {
-    display: -webkit-box;
-    display: flex;
-    /* display: none; */
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    align-items: center;
-}
-.conf-section__item.is-checked .item-price__quantity span {
-    color: #fff;
-}
-.conf-section__item .item-price__quantity span {
-    font-size: 10px;
-    line-height: 16px;
-    color: #869CAC;
-    -webkit-transition: color 0.2s ease;
-    transition: color 0.2s ease;
-}
-.price__quantity-block {
-    position: relative;
-    display: inline-flex;
-    border-radius: 2px;
-    background: white;
-    height: 20px;
-    min-width: 56px;
-    margin-right: 8px;
-    white-space: nowrap;
-}
-.conf-section__item.is-checked .item-price input, .conf-section__item.is-checked .item-price .js-item-counter-minus, .conf-section__item.is-checked .item-price .js-item-counter-plus {
-    pointer-events: auto;
-}
-.conf-section__item.is-checked .item-price__quantity span {
-    color: #fff;
-}
-.conf-section__item.is-checked .js-item-counter-minus, .conf-section__item.is-checked .js-item-counter-plus {
-    opacity: 1;
-}
-.conf-section__item .item-price__quantity span {
-    font-size: 10px;
-    line-height: 16px;
-    color: #869CAC;
-    -webkit-transition: color 0.2s ease;
-    transition: color 0.2s ease;
-}
-.js-item-counter-minus, .js-item-counter-plus {
-    display: inline-block;
-    position: relative;
-    height: 20px;
-    width: 20px;
-    cursor: pointer;
-    opacity: 0.2;
-}
-.js-item-counter-minus:before, .js-item-counter-plus:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 1px;
-    width: 6px;
-    background: black;
-    border-radius: 1px;
-}
-.js-item-counter-plus:after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 6px;
-    width: 1px;
-    background: black;
-    border-radius: 1px;
-}
-.item-price__quantity input[type="number"] {
-    width: 24px;
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
-    outline: none;
-    margin-right: 0;
-}
-.conf-section__item.is-checked .item-price__quantity input[type="number"] {
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
-    outline: none;
-    margin-right: 0;
-    width: 40px;
-}
-.conf-section__item .item-price__quantity input[type="number"] {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background: none;
-    border: none;
-    font-size: 12px;
-    line-height: 20px;
-    color: #18304C;
-    color: white;
-    text-align: center;
-    -webkit-transition: color 0.2s ease;
-    transition: color 0.2s ease;
-}
-
-.conf-section__item .item-price__value {
-    font-size: 12px;
-    line-height: 16px;
-    color: #22446B;
-}
-/* .item-price .item-price__value, .item-price .item-price__value2 {
-    color: #fff;
+.part .head .name {
+    min-width: 100px;
+    margin: 0 0;
+    padding: 0 10px;
+    background: linear-gradient(90deg, #dc3545 0%, #ff6b75 75%);
     font-weight: bold;
-} */
+    text-transform: uppercase;
+    display: inline-block;
+}
+.part .scroll-box {
+    margin: 10px 0;
+    max-height: 134px;
+    overflow: hidden scroll;
+}
+.part .item {
+    margin: 5px 0;
+}
+.part .is-checked {
+    background: #F5F6F6;
+}
+.part .item .sel {
+    margin-left: 10px;
+}
+.part .item .qty {
+    margin-left: 10px;
+}
+.part input[type="number"] {
+    height: 24px;
+    width: 40px;
+    border: 1px solid #e9e9e9;
+    font-size: 14px;
+}
+.part input[type="radio"], .part input[type="checkbox"] {
+    cursor: pointer;
+}
+.part .infor {
+    font-size: 14px;
+    font-family: 'IBM Plex Mono', sans-serif;
+    font-weight: 400;
+    margin-left: 5px;
+}
+.part .item .cmd a {
+    color: #dc3545;
+    margin-left: 5px;
+}
+.part .infor .contact {
+    float: right;
+    color: #dc3545;
+    margin-right: 10px;
+}
+.conf-section-desc {
+    margin-left: 5px;
+    font-size: 12px;
+    font-family: 'IBM Plex Mono', sans-serif;
+}
 /* cấu hình sản phẩm serve */
 
 /* sản phẩm đi kèm */
@@ -745,7 +438,7 @@ button.pop-gallery {
 }
 .prd_di_kem .panel-subheading svg {
     margin-right: 7px;
-    color: #76b900;
+    color: #dc3545;
 }
 .pricing .panel-subheading h4 {
     font-size: 16px;
@@ -775,7 +468,7 @@ button.pop-gallery {
     line-height: 23px;
 }
 .pricing ul li a:hover h4 {
-    color: #76b900;
+    color: #dc3545;
     text-decoration: underline;
 }
 
@@ -843,7 +536,7 @@ button.pop-gallery {
     opacity: 1;
   }
   .mySwiper .swiper-slide-thumb-active img {
-    border: 1px solid #76b900;
+    border: 1px solid #dc3545;
     border-radius: 6px;
   }
 
@@ -855,10 +548,10 @@ button.pop-gallery {
   }
   .swiper-button-next,
 .swiper-button-prev {
-    color: #76b900;
+    color: #dc3545;
 }
 .reviewer i{
-    color: #76b900;
+    color: #dc3545;
 }
 .reviewer a:first-of-type {
     margin-right: 10px;
@@ -872,7 +565,7 @@ button.pop-gallery {
 
 .check-list-btn {
     padding: 5px 40px;
-    background: #76b900;
+    background: #dc3545;
     color: #fff;
     font-weight: 500 !important;
     font-size: 1.2rem !important;
@@ -933,7 +626,7 @@ button.pop-gallery {
 }
 
 @media (max-width: 767px) {
-    .price__quantity-block, .price__quantity-ea {
+    .part .contact {
         display: none;
     }
 }
@@ -957,11 +650,7 @@ button.pop-gallery {
 }
 
 @media (min-width: 1200px) {
-    .contact-price {
-        padding: 5px 20px 7px 40px;
-    }
-
-    .check-list-btn {
+    .contact-price, .check-list-btn {
         padding: 5px 20px 7px 40px;
     }
 
@@ -997,11 +686,6 @@ button.pop-gallery {
         margin-right: 0;
         display: block;
     }
-
-    .prd_di_kem ul li.mg-r {
-        margin-right: 0;
-        display: block;
-    }
 }
 
 @media (min-width: 1400px) {
@@ -1009,11 +693,7 @@ button.pop-gallery {
         padding: 5px 20px;
     }
 
-    .contact-price {
-        padding: 5px 40px 7px;
-    }
-
-    .check-list-btn {
+    .contact-price, .check-list-btn {
         padding: 5px 40px 7px;
     }
 

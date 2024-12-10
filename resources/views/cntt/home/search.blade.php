@@ -92,7 +92,7 @@
     }
     .src-fixed {
         position: sticky;
-        top: 56px;
+        top: 24px;
         left: 0;
         width: 100%;
         z-index: 999;

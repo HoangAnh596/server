@@ -134,14 +134,14 @@
     text-overflow: ellipsis;
 }
 .pro-compare li h3:hover {
-    color: #76b900;
+    color: #dc3545;
 }
 .pro-compare li strong.price {
     font-size: 14px !important;
     display: block;
     overflow: hidden;
     padding: 0 0 12px 15px;
-    color: #76b900;
+    color: #dc3545;
 }
 .compare-price {
     color: #6c757d;
@@ -164,7 +164,7 @@
     cursor: pointer;
 }
 .pro-compare li .addsp-cp .plus {
-    border: 1px dashed #76b900;
+    border: 1px dashed #dc3545;
     border-radius: 3px;
     position: relative;
     width: 60px;
@@ -177,7 +177,7 @@
 .pro-compare li .addsp-cp .plus i {
     width: 20px;
     height: 1px;
-    background: #76b900;
+    background: #dc3545;
     position: absolute;
     left: 0;
     right: 0;
@@ -239,7 +239,7 @@
     align-items: center;
 }
 .titletechnologi i {
-    color: #76b900;
+    color: #dc3545;
 }
 .technologi .titletechnologi strong {
     text-transform: uppercase;
@@ -332,7 +332,7 @@ aside.hasprod-mb-pr {
     flex-direction: column;
 }
 .prop span {
-    color: #76b900;
+    color: #dc3545;
     font-weight: bold;
 }
 
@@ -376,7 +376,7 @@ aside.hasprod-mb-pr {
 }
 .scroll-container .add-compare {
     cursor: pointer;
-    color: #76b900 !important;
+    color: #dc3545 !important;
     font-size: 0.9rem !important;
 }
 
@@ -409,7 +409,7 @@ aside.hasprod-mb-pr {
     display: inline-block;
     float: right;
     padding: 0 10px;
-    background: #76b900;
+    background: #dc3545;
     border: none;
     border-radius: 5px;
     font-size: 14px !important;

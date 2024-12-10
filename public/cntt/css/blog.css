@@ -1,12 +1,12 @@
 .collection-title-news h1 {
     font-size: 18px;
-    color: #76b900;
+    color: #dc3545;
     padding: 8px 10px 8px 20px;
     display: block;
     float: left;
     width: 100%;
     border: #ccc solid 1px;
-    border-left: 5px solid #76b900;
+    border-left: 5px solid #ff6b75;
     margin: 0 0 1.5rem;
     font-weight: 600;
 }
@@ -37,7 +37,7 @@
     display: block;
     float: left;
     width: 100%;
-    border-left: 5px solid #76b900;
+    border-left: 5px solid #ff6b75;
     font-weight: bold;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .news_cate_hot li a:hover {
-    color: #76b900;
+    color: #dc3545;
     background: #f2f6fb;
 }
 
@@ -125,7 +125,7 @@
     line-height: 18px !important;
 }
 .author_meta .author.vcard a:hover{
-    color: #76B900;
+    color: #dc3545;
 }
 .view-count {
     color: #b2b2b2;
@@ -140,14 +140,14 @@
 }
 .author_meta .author {
     /* color: inherit; */
-    text-decoration-color: #76B900;
+    text-decoration-color: #ff6b75;
     text-decoration-line: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 0.3125em;
 }
 
 .media-body a:hover {
-    color: #76b900 !important;
+    color: #dc3545 !important;
 }
 .most-view {
     float: left;
@@ -168,7 +168,7 @@
 
 .most-view li::before {
     content: "\2022";
-    color: #76b900;
+    color: #dc3545;
     font-weight: 700;
     display: inline-block;
     width: 1em;
@@ -180,7 +180,7 @@
     text-decoration: none;
 }
 .most-view li a:hover, .hot-news .media .media-right a:hover {
-    color: #76b900;
+    color: #dc3545;
 }
 .hot-news {
     float: left;
@@ -261,7 +261,7 @@ img {
 .related-products .media-right .new-price {
     display: inline-block;
     padding: 2px 20px;
-    background: #76b900;
+    background: #ff6b75;
     color: #fff;
     font-size: 0.9rem;
     border-radius: 3px;
@@ -293,7 +293,7 @@ img {
     font-weight: bold;
 }
 .author-header a {
-    color: #76B900;
+    color: #dc3545;
 }
 .author-header p, .author-social {
     margin-bottom: 0;

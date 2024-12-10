@@ -18,6 +18,7 @@ class CreateGroupsTable extends Migration
             $table->string('name');
             $table->bigInteger('parent_id');
             $table->bigInteger('cate_id');
+            $table->integer('max_quantity')->nullable();
             $table->tinyInteger('is_type')->default(0)->comment('0: radio, 1: select');
             $table->tinyInteger('is_public')->default(0)->comment('1: hiển thị, 0: không hiển thị');
             $table->integer('stt')->nullable();

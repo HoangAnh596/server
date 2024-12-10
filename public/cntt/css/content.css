@@ -23,7 +23,7 @@
     line-height: 30px;
 }
 #chi-tiet a, .content-cate a {
-    color: #76b900;
+    color: #dc3545;
     text-decoration: underline;
 }
 #chi-tiet div, #chi-tiet p, #chi-tiet ul li, .content-cate p, .content-cate ul li{
@@ -74,7 +74,7 @@
 .seo-item-container {
     display: block;
     width: 100%;
-    border: 1px dashed #76b900;
+    border: 1px dashed #ff6b75;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 1rem;
@@ -129,8 +129,8 @@
     margin-top: 1rem;
 }
 .link-close {
-    border: 1px solid #76b900;
-    background-color: #76b900;
+    border: 1px solid #ff6b75;
+    background: linear-gradient(90deg, #dc3545 0%, #ff6b75 75%);
     border-radius: 3px;
     color: #fff;
     text-align: center;
@@ -304,8 +304,8 @@
 }
 
 .submit-reply {
-    border: 1px solid #76b900;
-    background-color: #76b900;
+    border: 1px solid #ff6b75;
+    background-color: #ff6b75;
     border-radius: 3px;
     color: #fff;
     text-align: center;

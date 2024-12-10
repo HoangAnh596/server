@@ -27,7 +27,7 @@ class CategoryNew extends Model
 
     public function children()
     {
-        return $this->hasMany(CategoryNew::class, 'parent_id')->with('children');
+        return $this->hasMany(CategoryNew::class, 'parent_id');
     }
 
     public function parent()

@@ -144,6 +144,9 @@ Route::prefix('/admin')->middleware('verified')->group(function () {
     Route::post('/group-product', [GroupProductController::class, 'store'])->name('groupPro.store');
     Route::get('/group-product/{id}/edit', [GroupProductController::class, 'edit'])->name('groupPro.edit')->middleware('can:groupPro-edit');
     Route::put('group-product/{id}', [GroupProductController::class, 'update'])->name('groupPro.update');
+    Route::post('groupPro/checkPrice', [GroupProductController::class, 'checkPrice'])->name('groupPro.checkPrice');
+    Route::post('groupPro/checkQuantity', [GroupProductController::class, 'checkQuantity'])->name('groupPro.checkQuantity');
+    Route::post('groupPro/checkbox', [GroupProductController::class, 'isChecked'])->name('groupPro.isChecked');
 
     // Quản lý danh mục bài viết
     Route::get('/cateNews', [CategoryNewController::class, 'index'])->name('cateNews.index');
