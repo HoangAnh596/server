@@ -107,9 +107,9 @@ class UploadController extends LfmController
                 case "/images":
                     // Xử lý cho thư mục images
                     break;
-                case "/images/danh-muc":
-                    // Xử lý cho thư mục danh-muc
-                    break;
+                // case "/images/danh-muc":
+                //     // Xử lý cho thư mục danh-muc
+                //     break;
                 case "/images/san-pham":
                     // Xử lý cho thư mục san-pham
                     break;

@@ -110,12 +110,6 @@
     bottom: 0;
     left: 0;
 }
-.ftaddhn, .ftaddhnhcm {
-    color: #ccc;
-    font-size: .9rem !important;
-    margin-bottom: 17px;
-    display: block;
-}
 .footer_address a {
     color: #76b900;
 }

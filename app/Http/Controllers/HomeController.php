@@ -59,10 +59,10 @@ class HomeController extends Controller
         $cateBlogs = CategoryNew::where('is_menu', 1)->select('name', 'slug')->orderBy('created_at', 'ASC')->get();
 
         // Sản phẩm nổi bật
-        $prOutstand = Product::select('id', 'name', 'slug', 'des', 'price', 'image_ids', 'status', 'cpu_pr', 'ram_pr', 'hdd_pr')
+        $prOutstand = Product::select('id', 'name', 'slug', 'des', 'price', 'image_ids', 'status', 'cpu_pr', 'ram_pr', 'hdd_pr', 'group_ids')
             ->where('is_outstand', 1)
             ->orderBy('created_at', 'ASC')->get();
-        
+
         foreach ($prOutstand as $product) {
             $product->loadProductImages();
         }
@@ -917,5 +917,76 @@ class HomeController extends Controller
             'titleSeo', 'keywordSeo', 'descriptionSeo',
             'contacts'
         ));
+    }
+
+    public function getGrProduct(Request $request)
+    {
+        $productId = $request->get('id');
+        $product = Product::select('id', 'name', 'group_ids')->find($productId); // Tìm sản phẩm theo ID
+        if (!$product) {
+            return response()->json(['success' => false, 'message' => 'Product not found'], 404);
+        }
+
+        if (!empty($product->group_ids)) {
+            // Chuyển đổi JSON thành mảng nếu group_ids không rỗng
+            $groupIds = json_decode($product->group_ids, true) ?? [];
+
+            if (!empty($groupIds)) {
+                // Lấy các nhóm dựa trên group_ids
+                $product->group_products = Group::with(['products' => function ($query) {
+                    $query->select('products.id', 'products.name', 'products.slug', 'products.image_ids');
+                }])
+                ->select('id', 'name', 'is_type', 'max_quantity')
+                ->where('is_public', 1)
+                ->whereIn('id', $groupIds)
+                ->orderBy('stt', 'ASC')
+                ->get();
+            } else {
+                $product->group_products = collect();
+            }
+        } else {
+            // Xử lý khi không có group_ids
+            $parentCategory = $product->category()->first();
+            if ($parentCategory) {
+                // Lấy tất cả id của danh mục cha-con
+                $cateIds = $parentCategory->getAllParentIds();
+
+                // Lấy các nhóm dựa trên cateIds
+                $product->group_products = Group::with(['products' => function ($query) {
+                    $query->select('products.id', 'products.name', 'products.slug', 'products.image_ids');
+                }])
+                ->select('id', 'name', 'is_type', 'max_quantity')
+                ->where('is_public', 1)
+                ->whereIn('cate_id', $cateIds)
+                ->orderBy('stt', 'ASC')
+                ->get();
+            } else {
+                $product->group_products = collect();
+            }
+        }
+    
+        // Tạo nội dung HTML cho tooltip
+        $html = '
+            <a data-tooltip="sticky3" href="#">' . e($product->name) . '</a>
+            <ul class="thong-so-ky-thuat-sv" data-tooltip="sticky3">
+        ';
+
+        if ($product->group_products->isNotEmpty()) {
+            $html .= '<li style="list-style: none; font-weight: bold;">Cấu hình: </li>';
+            foreach ($product->group_products as $group) {
+                // Kiểm tra nếu nhóm có danh sách sản phẩm
+                if ($group->products->isNotEmpty()) {
+                    foreach ($group->products as $productItem) {
+                        $html .= '<li>' . e($productItem->name) . '</li>';
+                    }
+                }
+            }
+        } else {
+            $html .= '<li>Không có nhóm sản phẩm nào</li>';
+        }
+
+        $html .= '</ul>';
+    
+        return response()->json(['success' => true, 'html' => $html]);
     }
 }

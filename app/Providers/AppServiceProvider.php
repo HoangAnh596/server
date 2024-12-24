@@ -55,18 +55,13 @@ class AppServiceProvider extends ServiceProvider
         });
 
         $this->app->singleton('categories', function () {
-            return Category::select('id', 'name', 'slug', 'image', 'title_img', 'alt_img', 'is_outstand', 'is_serve')
+            return Category::select('id', 'name', 'slug', 'image', 'title_img', 'alt_img', 'is_outstand', 'is_serve', 'infor_server')
                 ->where('is_public', 1)
                 ->where('parent_id', 0)
                 ->with(['children' => function ($query) {
-                    $query->select('id', 'name', 'slug', 'parent_id', 'is_outstand', 'is_serve')
+                    $query->select('id', 'name', 'slug', 'parent_id', 'is_outstand', 'is_serve', 'image', 'alt_img', 'infor_server')
                         ->where('is_public', 1)
-                        ->orderBy('stt_cate', 'ASC')
-                        ->with(['children' => function ($subQuery) {
-                            $subQuery->select('id', 'name', 'slug', 'parent_id', 'is_outstand', 'is_serve')
-                                ->where('is_public', 1)
-                                ->orderBy('stt_cate', 'ASC');
-                        }]);
+                        ->orderBy('stt_cate', 'ASC');
                 }])
                 ->orderBy('stt_cate', 'ASC')->get();
         });

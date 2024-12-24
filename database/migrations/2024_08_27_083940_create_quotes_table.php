@@ -20,7 +20,10 @@ class CreateQuotesTable extends Migration
             $table->string('gmail')->nullable();
             $table->string('product');
             $table->integer('quantity')->nullable();
+            $table->string('note_conf')->nullable();
+            $table->text('customize_conf')->nullable();
             $table->unsignedBigInteger('user_id');
+            $table->tinyInteger('group_cate')->default(0)->comment('0: khác, 1: server');
             $table->tinyInteger('purpose')->default(0)->comment('0: công ty, 1: dự án');
             $table->tinyInteger('status')->default(0)->comment('0: chưa, 1: đã báo giá');
             $table->timestamps();

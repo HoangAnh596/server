@@ -75,7 +75,7 @@
 }
 
 .outstand-prod {
-    background: #fff;
+    background: #eee;
     border-radius: 7px;
     box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .1), 0 2px 6px 2px rgba(60, 64, 67, .15);
     display: block;
@@ -98,13 +98,13 @@
     margin-right: auto;
     min-height: 0;
     overflow: hidden;
-    padding: 10px;
+    padding: 10px 10px 0 10px;
     position: relative;
     width: 100%;
 }
 .new-prod {
     position: sticky;
-    top: 24px;
+    top: 60px;
     left: 0;
     width: 100%;
     z-index: 999;

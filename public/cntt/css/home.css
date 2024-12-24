@@ -14,7 +14,7 @@ body {
 /* Typography */
 ul, li, p, a, label, input, div {
     font-family: 'OpenSans', sans-serif;
-    font-size: 1rem;
+    font-size: .95rem;
     font-weight: 400;
 }
 #template-mo-zay-hero-carousel .carousel-control-next i, #template-mo-zay-hero-carousel .carousel-control-prev i {
@@ -28,6 +28,10 @@ ul, li, p, a, label, input, div {
 /* css header */
 #templatemo_main_nav {
     padding-right: 0;
+}
+.btn-success, .btn-success:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
 }
 /* search */
 
@@ -59,7 +63,7 @@ ul, li, p, a, label, input, div {
     padding-left: 10px;
 }
 .search-submit {
-    background-color: #C0C0C0;
+    background-color: #dc3545;
     border-bottom-right-radius: 2px;
     border-top-right-radius: 2px;
     color: #fff;
@@ -71,7 +75,7 @@ ul, li, p, a, label, input, div {
     padding: 7.5px 12px;
 }
 .search-submit i {
-    color: #dc3545;
+    color: #fff;
 }
 .form-serach {
     display: flex;
@@ -94,15 +98,29 @@ ul, li, p, a, label, input, div {
     color: #dc3545;
 }
 .header-menu {
-    background-color: #eee;
+    background-color: #dc3545;
+}
+.fixed-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+.fixed-child-menu {
+    position: fixed;
+    top: 47px;
+    right: 0;
+    left: 0;
+    z-index: 1030;
 }
 .prd-cate-header > span {
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
-    color: black;
+    color: #fff;
     cursor: pointer;
     text-transform: uppercase;
-    background: #D3D3D3;
+    background: #a40d12;
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -141,7 +159,7 @@ ul, li, p, a, label, input, div {
 
 .modal {
     z-index: 999999999;
-    top: 44px;
+    /* top: 44px; */
 }
 .modal-search {
     width: 40%;
@@ -183,7 +201,7 @@ h4 {
 }
 
 a {
-    color: #666;
+    color: #333;
     text-decoration: none;
 }
 
@@ -238,7 +256,7 @@ a:hover, .breadcrumb-item a:hover, .dropdown-content li a:hover, .text-menu-3 a:
     display: flex;
     flex-grow: 1;
     justify-content: flex-start;
-    color: #666;
+    color: #333;
 }
 .nav-item {
     position: static;
@@ -247,13 +265,14 @@ a:hover, .breadcrumb-item a:hover, .dropdown-content li a:hover, .text-menu-3 a:
     text-decoration: none;
     padding: 8px 10px;
     cursor: pointer;
-    color: #212529;
+    color: #fff;
 }
 .underline-gr, .underline-green {
     border-bottom: 3px solid greenyellow;
 }
 .nav-link:hover {
-    background-color: #fff;
+    background-color: #a40d12;
+    color: #fff;
     border-radius: 5px;
 }
 .header-menu .nav-item {
@@ -269,6 +288,9 @@ a:hover, .breadcrumb-item a:hover, .dropdown-content li a:hover, .text-menu-3 a:
 .menu-title {
     background-color: white;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.24);
+    display: flex;
+    flex-wrap: wrap; /* Cho phép các phần tử xuống hàng */
+    padding-bottom: 10px;
 }
 #prd-cate-list {
     position: relative;
@@ -308,7 +330,7 @@ a:hover, .breadcrumb-item a:hover, .dropdown-content li a:hover, .text-menu-3 a:
     position: absolute;
     background: #fff;
     left: 100%;
-    top: -1px;
+    top: 0;
     border: 1px solid #eee;
     z-index: 1000;
     width: 326%;
@@ -339,7 +361,7 @@ a:hover, .breadcrumb-item a:hover, .dropdown-content li a:hover, .text-menu-3 a:
 li.hang-san-xuat ul li {
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 5px 15px;
+    padding: 5px 0 5px 15px;
     margin-bottom: 10px;
 }
 .main-cate > ul > li > ul > li {
@@ -383,7 +405,13 @@ li.hang-san-xuat ul li {
     margin: 5px;
     border-radius: 5px;
 }
-
+.btn-menu-link {
+    flex: 1 1 calc(25% - 10px); /* Chiều rộng mỗi phần tử là 1/3 trừ khoảng cách */
+    padding-top: 10px;
+    padding-left: 10px;
+    text-decoration: none;
+    color: #333;
+}
 .btn-xmark button {
     width: 30px;
     height: 30px;
@@ -412,119 +440,11 @@ li.hang-san-xuat ul li {
 .dropdown-link:hover {
     color: #ddd;
 }
-.menu-title-1 {
-    float: left;
-    color: #666;
-    cursor: pointer;
-    margin: 0;
-    padding: 10px 11px 10px 0;
-    transition: all .2s linear;
-    -webkit-transition: all .2s linear;
-    height: 45px;
-}
-.menu-title-child {
-    color: #1a1a1a;
-    float: left;
-    margin-right: 30px;
-    max-width: 190px;
-    padding-bottom: 16px;
-    width: 190px;
-    padding-top: 24px;
-    line-height: 1.25em;
-}
-.menu-lg-item {
-    padding: 0 !important;
-    background-color: #eee !important;
-    border: 0px !important;
-    font-size: 14px !important;
-}
-.menu-lg-item:hover, .menu-lg-item:active {
-    color: #000;
-}
-.menu-lg-child {
-    padding: 0 !important;
-    background-color: #E0E0E0 !important;
-    border: 0px !important;
-    font-size: 14px !important;
-    font-weight: 700 !important;
-}
-.menu-lg-child1 {
-    padding: 0 !important;
-    background-color: #E0E0E0 !important;
-    border: 0px !important;
-    color: #666;
-    font-size: 14px !important;
-    padding: 7px 0 !important;
-    line-height: 20px;
-    font-weight: 0 !important;
-}
-.menu-title-2 {
-    color: #1a1a1a;
-    float: left;
-    margin-right: 30px;
-    max-width: 190px;
-    padding-bottom: 16px;
-    width: 190px;
-    padding-top: 24px;
-    line-height: 1.25em;
-}
-.menu-item {
-    padding: 0 !important;
-    background-color: #eee !important;
-    border: 0px !important;
-    font-size: 14px !important;
-    font-weight: 700 !important;
-}
-.menu-item-child {
-    background-color: #eee !important;
-    border: 0px !important;
-    color: #666;
-    font-size: 14px !important;
-    padding: 5px 0 !important;
-    line-height: 20px;
-    font-weight: 0 !important;
-}
+
 hr {
     margin: 10px 0 !important;
     border: 1px solid #666 !important;
 }
-.menu-title-3 {
-    color: #1a1a1a;
-    font-size: 14px !important;
-    line-height: 1.25em;
-    padding-top: 24px;
-    width: 836px;
-}
-.w-menu-3 {
-    width: 836px;
-}
-.text-menu-3 {
-    padding-bottom: 7px;
-    font-size: 14px !important;
-    line-height: 1.25em;
-}
-.submenu-4 {
-    flex: 1 1 auto; /* Cho phép submenu-4 chiếm không gian cần thiết */
-    width: auto;    /* Loại bỏ chiều rộng 16.6666666667% */
-    display: flex;  /* Sử dụng flex để các mục con nằm chung một hàng */
-}
-.menu-title-4 {
-    color: #666;
-    cursor: pointer;
-    margin: 0;
-    padding: 10px 11px;
-    transition: all .2s linear;
-    -webkit-transition: all .2s linear;
-    float: left;
-    height: 45px;
-}
-.menu-item-4 {
-    padding: 0 !important;
-    background-color: #eee !important;
-    border: 0px !important;
-    font-size: 14px !important;
-}
-
 /* search navbar */
 
 .modal-search .border {
@@ -535,7 +455,7 @@ hr {
 }
 
 .modal-backdrop {
-    top: 44px;
+    /* top: 44px; */
 }
 /* search navbar */
 /* ------css Nabar reponsive ----- */
@@ -754,6 +674,7 @@ hr {
 }
 ul.thong-so-ky-thuat-sv {
     padding-left: 10px;
+    margin-bottom: 0;
 }
 ul.thong-so-ky-thuat-sv li {
     font-size: 13px;
@@ -764,6 +685,25 @@ ul.thong-so-ky-thuat-sv li {
 }
 /* End ảnh trong outstand */
 
+.head-blog {
+    float: left;
+    display: block;
+    width: 100%;
+}
+.head-blog span {
+    font-size: 18px;
+    color: #333;
+    padding: 8px 10px 8px 20px;
+    display: block;
+    float: left;
+    width: 100%;
+    border-left: 5px solid #dc3545;
+    /* #dc3545 , ff6b75*/
+    font-weight: bold;
+}
+.bgeee {
+    background-color: #eee;
+}
 /* --------------------Begin Css Danh mục sản phẩm------------------------ */
 .hp-category {
     margin: 1.5rem 0;

@@ -171,6 +171,7 @@ class CategoryController extends Controller
 
     public function insertOrUpdate(CategoryFormRequest $request, $id = '')
     {
+        // dd($request->all());
         $category = empty($id) ? new Category() : Category::findOrFail($id);
 
         $category->fill($request->all());

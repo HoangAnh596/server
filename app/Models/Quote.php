@@ -13,8 +13,9 @@ class Quote extends Model
 
     protected $fillable = [
         'name', 'phone', 'gmail',
-        'product', 'quantity',
-        'purpose', 'status'
+        'product', 'quantity', 'note_conf',
+        'customize_conf', 'purpose', 'status',
+        'group_cate'
     ];
 
     // Thiết lập quan hệ đến User

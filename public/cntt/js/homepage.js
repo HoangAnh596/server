@@ -4,6 +4,17 @@ window.onscroll = function() {
 };
 
 $(document).ready(function() {
+    // Menu
+    $(window).on('scroll', function() {
+        if ($(this).scrollTop() > 100) {
+            $('.w-menu').addClass('fixed-menu');
+            $('.w-child-menu').addClass('fixed-child-menu');
+        } else {
+            $('.w-menu').removeClass('fixed-menu');
+            $('.w-child-menu').removeClass('fixed-child-menu');
+        }
+    });
+
     // Css reponsive mobile nav
     $('.nav-link-mb').click(function(e){
         e.preventDefault();

@@ -1,3 +1,58 @@
+/* Begin thương hiệu máy chủ */
+.header-server {
+    display: block;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    float: left;
+    width: 100%;
+    margin: 1rem 0;
+}
+.title-may-chu-server {
+    background-color: #e0e0e0;
+    float: left;
+    padding: 9px 5px 9px 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 15%;
+}
+.header-server h1 {
+    font-size: 18px;
+    background: #ff6b75;
+    padding: 7px 14px 7px;
+    border: 2px solid #ff6b75;
+    border-radius: 34px;
+    margin-bottom: 0;
+    text-align: center;
+}
+#brands_server_carousel {
+    width: 85%;
+    overflow: hidden;
+    list-style: none;
+}
+ul.brand-server {
+    background-color: #e0e0e0;
+    padding: 10px 15px;
+    float: left;
+    border-radius: 10px;
+    margin-bottom: 0;
+}
+#brands_server_carousel .owl-stage-outer .owl-item {
+    text-align: center;
+}
+ul.brand-server li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 34px;
+    height: 36px;
+    background-color: #fff;
+    padding: 5px 15px;
+    border: 2px solid #fff;
+}
+ul.brand-server a img {
+    height: 16px;
+}
+/* End thương hiệu máy chủ */
 /* Bộ lọc */
 .filter h1{
     font-size: 22px;
@@ -9,7 +64,7 @@
     padding: 12px 0;
 }
 .nav-filter li {
-    padding-left: 15px;
+    padding-left: 12px;
     position: relative;
     font-size: 0.9rem !important;
 }
@@ -111,7 +166,6 @@
 .child-filter a {
     display: inline-block;
     word-wrap: break-word;
-    margin: 10px 0;
 }
 .child-filter li {
     display: inline-block;
@@ -280,7 +334,7 @@
         border-radius: 5px;
     }
     .child-filter li {
-        padding: 10px;
+        padding-left: 10px;
     }
 }
 @media (max-width: 1200px) {
@@ -306,6 +360,25 @@
 @media (max-width: 992px) {
     .show-filter-mb {
         color: #212529;
+    }
+    .header-server {
+        background: none;
+    }
+    .title-may-chu-server {
+        background: none;
+        padding: 0;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    .title-may-chu-server h1 {
+        padding: 0;
+        background: none;
+        border: none;
+        text-align: left;
+    }
+    #brands_server_carousel {
+        width: 100%;
+        overflow: hidden;
     }
 }
 @media (max-width: 767px) {

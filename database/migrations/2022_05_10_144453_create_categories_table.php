@@ -30,6 +30,7 @@ class CreateCategoriesTable extends Migration
             $table->string('des_seo')->nullable();
             $table->integer('stt_cate')->nullable();
             $table->tinyInteger('is_serve')->default(0)->comment('1: hiển thị serve, 0: không');
+            $table->tinyInteger('infor_server')->default(0)->comment('0: không, 1: hãng server, 2: chassis server, 3: cấu hình server');
             $table->tinyInteger('is_parent')->default(0)->comment('1: hiển thị cha, 0: không');
             $table->tinyInteger('is_menu')->default(0)->comment('1: hiển thị menu, 0: không menu');
             $table->tinyInteger('is_outstand')->default(0)->comment('1: nổi bật, 0: không nổi bật');

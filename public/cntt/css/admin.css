@@ -25,10 +25,10 @@ p, td a {
 /* css image */
 #holder {
     margin: 15px 0;
-    max-height: 15rem;
+    /* max-height: 15rem; */
 }
 #holder img {
-    height: 15rem !important;
+    height: auto !important;
 }
 #favicon_img {
     width: 36px !important;

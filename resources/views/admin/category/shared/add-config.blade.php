@@ -58,4 +58,21 @@
             <textarea class="form-control" id="my-editor" rows="10" name="content">{{ old('content') }}</textarea>
         </div>
     </div>
+    <div class="row mt-3 mb-3">
+        <div class="col-2 d-flex flex-row-reverse align-items-center">Tên menu (Server) :</div>
+        <div class="col-2 d-flex align-items-center">
+            <select class="form-control" aria-label="Default" name="infor_server">
+                <option value="1">Hãng server</option>
+                <option value="2">Chassis server</option>
+                <option value="3">Cấu hình server</option>
+                <option value="0">Mặc định</option>
+            </select>
+        </div>
+    </div>
+    <div class="row mt-3 mb-3">
+        <div class="col-2 d-flex flex-row-reverse align-items-center">Thứ tự hiển thị :</div>
+        <div class="col-1">
+            <input type="number" class="form-control" style="width:80px" name="stt_cate">
+        </div>
+    </div>
 </div>

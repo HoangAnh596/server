@@ -1,28 +1,4 @@
 /* --------------------Begin Css Product------------------------ */
-.equal-height {
-    display: flex;
-}
-.equal-height > [class*='col-'] {
-    display: flex;
-    flex-direction: column;
-}
-
-.chi-tiet-sp, .cam-ket-sp {
-    flex: 1;
-}
-
-.chi-tiet-sp {
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 7px;
-    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .1), 0 2px 6px 2px rgba(60, 64, 67, .15);
-}
-.cam-ket-sp {
-    border-radius: 7px;
-    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .1), 0 2px 6px 2px rgba(60, 64, 67, .15);
-    display: block;
-    padding: 10px;
-}
 .prod-img {
     width: 100%;
     height: auto;
@@ -202,7 +178,7 @@ button.pop-gallery {
     left: 10%;
     top: 10px;
 }
-.contact-price:hover, .check-list-btn:hover {
+.contact-price:hover, .check-list-btn:hover, .btn-server:hover {
     cursor: pointer;
     background-color: #ff6903;
     color: #fff;
@@ -214,7 +190,7 @@ button.pop-gallery {
 .price-modal .modal-content {
     margin-top: 43px;
 }
-.price-modal .hide {
+.modal .hide {
     display: none;
 }
 .price-modal .price-code {
@@ -251,6 +227,7 @@ button.pop-gallery {
 .product-note p {
     margin: 0;
     font-size: .9rem !important;
+    line-height: 25px;
 }
 .uytin {
     background: url(../img/uytin.png) no-repeat;
@@ -261,16 +238,15 @@ button.pop-gallery {
     margin-top: 5px !important;
     padding-top: 5px;
 }
-.addhn, .addhnhcm {
+.addhn, .addhcm {
     font-size: .9rem;
     display: block;
     line-height: 20px;
-    margin-bottom: 10px;
 }
 .addhn {
-    padding: 15px 0 10px;
+    padding-top: 10px;
     border-top: 1px dashed #ddd;
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .maphn, .maphcm {
     background: url(../img/iconmap.png) no-repeat;
@@ -280,7 +256,6 @@ button.pop-gallery {
 .compare {
     display: block;
     width: 100%;
-    /* margin-top: 10px; */
 }
 .compare .tcpr {
     position: relative;
@@ -347,10 +322,32 @@ button.pop-gallery {
     font-weight: 500;
     color: #fff;
     font-size: 1.2rem;
-    border-radius: 5px;
-    margin-top: 0;
 }
 /* cấu hình sản phẩm serve */
+.btn-server {
+    font-size: 1rem;
+    background-color: #dc3545;
+    padding: 6px 14px;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 3px;
+    display: inline-block;
+    width: 200px;
+    margin-right: 5px;
+}
+.contact-sale-server {
+    background: #ecf2f7;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px dashed #ff0000;
+}
+.contact-sale-server p {
+    margin: 0;
+}
+.contact-sale-server a, .contact-sale-server i {
+    color: #dc3545;
+    font-weight: 700;
+}
 .part {
     border: 1px solid #eee;
 }
@@ -401,6 +398,7 @@ button.pop-gallery {
 }
 .part .item .cmd a {
     color: #dc3545;
+    font-size: 14px;
     margin-left: 5px;
 }
 .part .infor .contact {
@@ -412,6 +410,53 @@ button.pop-gallery {
     margin-left: 5px;
     font-size: 12px;
     font-family: 'IBM Plex Mono', sans-serif;
+}
+.conf-widget ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: .5rem;
+}
+.conf-widget li {
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    padding: 5px 0;
+}
+.conf-widget li div{
+    font-size: 14px;
+}
+.conf-widget li:last-child {
+    border-bottom: none;
+}
+.conf-print, .conf-buy {
+    padding: .5rem 0;
+    color: white;
+    cursor: pointer;
+}
+.conf-print {
+    background: repeating-linear-gradient(to right, #1182fd 0, #0068d9 50%, #429dff 100%);
+}
+.conf-buy {
+    background: linear-gradient(90deg, #dc3545 0%, #ff6b75 75%);
+}
+
+/* Div màu đỏ ở trên cùng */
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.top-red-div {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Chiều cao của div */
+    background: linear-gradient(90deg, #dc3545 0%, #ff6b75 75%);
+    z-index: 1056;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
 }
 /* cấu hình sản phẩm serve */
 
@@ -623,6 +668,9 @@ button.pop-gallery {
         width: 100%;
         margin-bottom: 10px;
     }
+    .price a:first-of-type {
+        margin-bottom: 10px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -632,6 +680,12 @@ button.pop-gallery {
 }
 
 @media (min-width: 992px) {
+    .description-prd {
+        border: 1px solid #ddd;
+        padding: 10px;
+        position: relative;
+        border-radius: 5px;
+    }
     .compare .tcpr {
         position: relative;
         display: flex;
@@ -650,6 +704,23 @@ button.pop-gallery {
 }
 
 @media (min-width: 1200px) {
+    .description-prd {
+        border: 1px solid #ddd;
+        padding: 10px;
+        position: relative;
+        border-radius: 5px;
+    }
+    .description-prd:after {
+        height: 100%;
+        display: block;
+        width: 1px;
+        border-right: 1px solid #eee;
+        content: '';
+        position: absolute;
+        z-index: 4;
+        top: 0;
+        right: 25%;
+    }
     .contact-price, .check-list-btn {
         padding: 5px 20px 7px 40px;
     }
@@ -702,8 +773,7 @@ button.pop-gallery {
     }
 
     .product-note p {
-        line-height: 25px;
-        margin-bottom: 7px;
+        margin-bottom: 5px;
     }
 
     .compare div.sggProd {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\PriceRequestMail;
+use App\Mail\PriceServerRequestMail;
 use App\Models\Infor;
 use App\Models\Quote;
 use Illuminate\Http\Request;
@@ -66,28 +67,52 @@ class QuoteController extends Controller
             'phone' => 'required|string|max:15|min:8',
             'code' => 'required'
         ]);
+        // dd($request->all());
         // Gửi mail
         try {
             $emails = Infor::where('send_price', 1)->pluck('gmail');
             $customerEmail = $request->email;
-            // Mail::to('hoanganhhn596@gmail.com')->send(new PriceRequestMail($request->all()));
-            if(!empty($emails)){
-                foreach ($emails as $email) {
-                    Mail::to($email)
-                        ->cc($customerEmail) // Thêm địa chỉ email khách hàng vào CC
-                        ->send(new PriceRequestMail($request->all()));
+
+            // Hàm gửi email
+            function sendEmails($emails, $customerEmail, $mailInstance) {
+                if (!empty($emails)) {
+                    foreach ($emails as $email) {
+                        Mail::to($email)
+                            ->cc($customerEmail)
+                            ->send($mailInstance);
+                    }
                 }
-        
             }
-            // Lưu báo giá vào bảng quotes
-            Quote::create([
+
+            // Dữ liệu chung cho bảng quotes
+            $quoteData = [
                 'name' => $request->name,
                 'phone' => $request->phone,
                 'gmail' => $request->email,
                 'product' => $request->code,
-                'quantity' => $request->amount,
-                'purpose' => $request->purpose
-            ]);
+            ];
+
+            if ($request->group_cate == 1) {
+                // Gửi email với PriceServerRequestMail
+                sendEmails($emails, $customerEmail, new PriceServerRequestMail($request->all()));
+
+                // Chuẩn bị dữ liệu tùy chỉnh
+                $quoteData['group_cate'] = 1;
+                $quoteData['note_conf'] = $request->note_conf;
+                $quoteData['customize_conf'] = !empty($request->customize_conf)
+                    ? trim(json_encode($request->customize_conf, JSON_UNESCAPED_UNICODE), '[]')
+                    : null;
+            } else {
+                // Gửi email với PriceRequestMail
+                sendEmails($emails, $customerEmail, new PriceRequestMail($request->all()));
+
+                // Thêm dữ liệu đặc biệt
+                $quoteData['quantity'] = $request->amount;
+                $quoteData['purpose'] = $request->purpose;
+            }
+
+            // Lưu dữ liệu vào bảng quotes
+            Quote::create($quoteData);
 
             return response()->json(['success' => 'Yêu cầu báo giá đã được gửi thành công.']);
         } catch (\Exception $e) {

@@ -8,7 +8,7 @@
 		<changefreq>daily</changefreq>
 	</url>
 	<url>
-	<loc>http://localhost:8000/may-chu-dell-poweredge-r650-8x2-5-basic</loc>
+	<loc>http://localhost:8000/hpe-flexnetwork-7506x-poe-ethernet-switch-6-slots-chassis</loc>
 		<priority>0.8</priority>
 		<lastmod>2024-11-29T10:20:43+07:00</lastmod>
 		<changefreq>weekly</changefreq>
@@ -46,7 +46,7 @@
 	<url>
 	<loc>http://localhost:8000/may-chu-tri-tue-nhan-tao-nvidia-dgx-h100</loc>
 		<priority>0.8</priority>
-		<lastmod>2024-12-02T10:27:29+07:00</lastmod>
+		<lastmod>2024-12-12T17:03:25+07:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
@@ -100,7 +100,7 @@
 	<url>
 	<loc>http://localhost:8000/ban-phim-ipad-pro-logitech-combo-touch-11-inch-m4</loc>
 		<priority>0.8</priority>
-		<lastmod>2024-09-24T13:55:42+07:00</lastmod>
+		<lastmod>2024-12-14T09:22:02+07:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>

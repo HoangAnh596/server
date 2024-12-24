@@ -31,157 +31,172 @@
     </div>
 </div>
 <div class="container">
-    <div class="row mt-4 equal-height">
-        <div class="col-lg-9">
-            <div class="chi-tiet-sp">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="description-prd mt-3">
                 <div class="row">
-                    <div class="col-lg-6">
-                        <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
-                            <div class="swiper-wrapper">
-                                @if(!empty($images))
-                                @foreach ($images as $val)
-                                @php
-                                $imagePath = $val->image;
-                                $directory = dirname($imagePath);
-                                $filename = basename($imagePath);
-                                $newDirectory = $directory . '/large';
-                                $newImagePath = $newDirectory . '/' . $filename;
-                                @endphp
-                                <div class="swiper-slide gallery-trigger">
-                                    <img class="prod-img lazyload" src="{{ asset($newImagePath) }}" alt="{{ $val->alt }}" title="{{ $val->title }}">
+                    <div class="col-lg-9">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+                                    <div class="swiper-wrapper">
+                                        @if(!empty($images))
+                                        @foreach ($images as $val)
+                                        @php
+                                        $imagePath = $val->image;
+                                        $directory = dirname($imagePath);
+                                        $filename = basename($imagePath);
+                                        $newDirectory = $directory . '/large';
+                                        $newImagePath = $newDirectory . '/' . $filename;
+                                        @endphp
+                                        <div class="swiper-slide gallery-trigger">
+                                            <img class="prod-img lazyload" src="{{ asset($newImagePath) }}" alt="{{ $val->alt }}" title="{{ $val->title }}">
+                                        </div>
+                                        @endforeach
+                                        @endif
+                                    </div>
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
                                 </div>
-                                @endforeach
-                                @endif
-                            </div>
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                        </div>
-                        <div class="view-more-image">
-                            @if($product->main_image)
-                            <button href="#" class="pop-gallery">
-                                <img alt="Xem 6 ảnh sản phẩm" width="96" height="72" class="" src="{{ asset(str_replace('storage/images/san-pham/', 'storage/images/san-pham/small/', $product->main_image->image)) }}">
-                                <div class="over-gallery">Xem {{ count($totalImgCount) }} hình</div>
-                            </button>
-                            @endif
-                        </div>
+                                <div class="view-more-image">
+                                    @if($product->main_image)
+                                    <button href="#" class="pop-gallery">
+                                        <img alt="Xem 6 ảnh sản phẩm" width="96" height="72" class="" src="{{ asset(str_replace('storage/images/san-pham/', 'storage/images/san-pham/small/', $product->main_image->image)) }}">
+                                        <div class="over-gallery">Xem {{ count($totalImgCount) }} hình</div>
+                                    </button>
+                                    @endif
+                                </div>
 
-                        <div id="imageModal" class="modal">
-                            <button class="close btn btn-success">x Đóng</button>
-                            <div class="modal-content">
-                                @if(!empty($images))
-                                @foreach($images as $image)
-                                <img class="modal-image lazyload" src="{{ asset($image->image) }}" data-src="{{ asset($image->image) }}" alt="{{ $image->alt }}" title="{{ $image->title }}">
-                                @endforeach
-                                @endif
-                            </div>
-                        </div>
-                        <div class="col-viewmore-item">
-                            <i class="fa-solid fa-comments"></i>
-                            <div class="title-spec">
-                                <a href="#comment-box" class="scrollToRateBox">
-                                    @if($totalCommentsCount != 0) {{ $totalCommentsCount }} @else Thêm @endif bình luận</a>
-                            </div>
-                        </div>
-                        <div class="col-viewmore-item">
-                            <i class="fa-solid fa-star"></i>
-                            <div class="title-spec">
-                                <a href="#comment-box" class="scrollToRateBox">
-                                    @if($totalStarCount != 0) {{ $totalStarCount }} @else Thêm @endif đánh giá</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="content-des">
-                            <h1>{{ $product->name }}</h1>
-                            <div class="product-des">{!! $product->des !!}</div>
-                            <div class="fk-main">
-                                <span><span style="font-weight: bold;">✓</span> Mã sản phẩm:</span>
-                                <span>{{ $product->code }}</span>
-                            </div>
-                            <div class="fk-main">
-                                <span><span style="font-weight: bold;">✓</span> Tình trạng:</span>
-                                <span>@if($product->status == 1) Còn hàng @else Hết hàng @endif</span>
-                            </div>
-                            <div class="price">
-                                <button title="Liên hệ để để được báo giá bán tốt nhất!" class="contact-price" data-bs-toggle="modal" data-bs-target="#priceModal">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-hand-index-thumb" viewBox="0 0 16 16">
-                                        <path d="M6.75 1a.75.75 0 0 1 .75.75V8a.5.5 0 0 0 1 0V5.467l.086-.004c.317-.012.637-.008.816.027.134.027.294.096.448.182.077.042.15.147.15.314V8a.5.5 0 0 0 1 0V6.435l.106-.01c.316-.024.584-.01.708.04.118.046.3.207.486.43.081.096.15.19.2.259V8.5a.5.5 0 1 0 1 0v-1h.342a1 1 0 0 1 .995 1.1l-.271 2.715a2.5 2.5 0 0 1-.317.991l-1.395 2.442a.5.5 0 0 1-.434.252H6.118a.5.5 0 0 1-.447-.276l-1.232-2.465-2.512-4.185a.517.517 0 0 1 .809-.631l2.41 2.41A.5.5 0 0 0 6 9.5V1.75A.75.75 0 0 1 6.75 1zM8.5 4.466V1.75a1.75 1.75 0 1 0-3.5 0v6.543L3.443 6.736A1.517 1.517 0 0 0 1.07 8.588l2.491 4.153 1.215 2.43A1.5 1.5 0 0 0 6.118 16h6.302a1.5 1.5 0 0 0 1.302-.756l1.395-2.441a3.5 3.5 0 0 0 .444-1.389l.271-2.715a2 2 0 0 0-1.99-2.199h-.581a5.114 5.114 0 0 0-.195-.248c-.191-.229-.51-.568-.88-.716-.364-.146-.846-.132-1.158-.108l-.132.012a1.26 1.26 0 0 0-.56-.642 2.632 2.632 0 0 0-.738-.288c-.31-.062-.739-.058-1.05-.046l-.048.002zm2.094 2.025z"></path>
-                                    </svg>
-                                    <span>Giá bán liên hệ</span>
-                                </button>
-                                <a title="Xem giá list sản phẩm {{ $product->code }}" class="check-list-btn" target="_blank" href="{{ asset('/gia-list?key='. $product->code) }}">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-                                        <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"></path>
-                                    </svg> Check Giá List
-                                </a>
-                            </div>
-                            @if(!empty($product->filepath))
-                            <a class="datasheet-prd" title="Datasheet {{ $product->code }}" href="{{ asset($product->filepath) }}" target="_blank">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-file-earmark-bar-graph" viewBox="0 0 16 16">
-                                    <path d="M10 13.5a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-6a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v6zm-2.5.5a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1zm-3 0a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-1z"></path>
-                                    <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"></path>
-                                </svg>
-                                <span>{{ $product->code }} Datasheet</span>
-                            </a>
-                            @else
-                            <a class="datasheet-prd" title="Datasheet {{ $product->code }}" href="javascript:void(0)">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-file-earmark-bar-graph" viewBox="0 0 16 16">
-                                    <path d="M10 13.5a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-6a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v6zm-2.5.5a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1zm-3 0a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-1z"></path>
-                                    <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"></path>
-                                </svg>
-                                <span>{{ $product->code }} Datasheet</span>
-                            </a>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-                <div class="compare">
-                    <div class="tcpr">
-                        <p>So sánh với các sản phẩm {{ $parentCate->name }} khác:</p>
-                        <div class="sggProd">
-                            <form action="javascript:void(0)">
-                                @csrf
-                                <input type="hidden" id="productId" value="{{ $product->id }}">
-                                <input type="hidden" id="slugPro" value="{{ $product->slug }}">
-                                <input id="searchSggCP" value="" type="text" placeholder="Nhập Tên hoặc Mã sản phẩm để so sánh" onkeyup="fetchProducts()">
-                                <button title="So sánh với sản phẩm khác" type="submit">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
-                                    </svg>
-                                </button>
-                                <div id="compareResults">
+                                <div id="imageModal" class="modal">
+                                    <button class="close btn btn-success">x Đóng</button>
+                                    <div class="modal-content">
+                                        @if(!empty($images))
+                                        @foreach($images as $image)
+                                        <img class="modal-image lazyload" src="{{ asset($image->image) }}" data-src="{{ asset($image->image) }}" alt="{{ $image->alt }}" title="{{ $image->title }}">
+                                        @endforeach
+                                        @endif
+                                    </div>
                                 </div>
-                            </form>
+                                <div class="col-viewmore-item">
+                                    <i class="fa-solid fa-comments"></i>
+                                    <div class="title-spec">
+                                        <a href="#comment-box" class="scrollToRateBox">
+                                            @if($totalCommentsCount != 0) {{ $totalCommentsCount }} @else Thêm @endif bình luận</a>
+                                    </div>
+                                </div>
+                                <div class="col-viewmore-item">
+                                    <i class="fa-solid fa-star"></i>
+                                    <div class="title-spec">
+                                        <a href="#comment-box" class="scrollToRateBox">
+                                            @if($totalStarCount != 0) {{ $totalStarCount }} @else Thêm @endif đánh giá</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="content-des">
+                                    <h1>{{ $product->name }}</h1>
+                                    <div class="product-des">{!! $product->des !!}</div>
+                                    <div class="fk-main">
+                                        <span><span style="font-weight: bold;">✓</span> Mã sản phẩm:</span>
+                                        <span>{{ $product->code }}</span>
+                                    </div>
+                                    <div class="fk-main">
+                                        <span><span style="font-weight: bold;">✓</span> Tình trạng:</span>
+                                        <span>@if($product->status == 1) Còn hàng @else Hết hàng @endif</span>
+                                    </div>
+                                    @if($parentCate->is_serve == 1)
+                                    <div class="price mt-3 mb-3">
+                                        <a class="btn-server" title="Liên hệ để để được báo giá bán tốt nhất!" data-bs-toggle="modal" data-bs-target="#confPrint">
+                                            <i class="fa-regular fa-paper-plane"></i> Gửi yêu cầu báo giá.
+                                        </a>
+                                        <a class="btn-server" id="scrollToConfig" title="Tùy chọn cấu hình" href="#tuy-chon-cau-hinh-server"><i class="fa-solid fa-gears"></i> Tùy chọn cấu hình.</a>
+                                    </div>
+                                    <div class="contact-sale-server mb-3">
+                                        <h4 class="quan-tam-may-chu">BẠN ĐANG QUAN TÂM MÁY CHỦ NÀY?</h4>
+                                        <p><i class="fa-solid fa-phone"></i> <strong>Hotline:</strong> <a rel="nofollow" href="tel:0866176188">0866 176 188</a> - <a rel="nofollow" href="tel:0968498887">0968 498 887</a> </p>
+                                        <p><i class="fa-solid fa-bolt"></i> Có thể thuê máy chủ này! Vui lòng liên hệ tới chúng tôi để được hỗ trợ tốt nhất.</p>
+                                    </div>
+                                    @else
+                                    <div class="price">
+                                        <button title="Liên hệ để để được báo giá bán tốt nhất!" class="contact-price" data-bs-toggle="modal" data-bs-target="#priceModal">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-hand-index-thumb" viewBox="0 0 16 16">
+                                                <path d="M6.75 1a.75.75 0 0 1 .75.75V8a.5.5 0 0 0 1 0V5.467l.086-.004c.317-.012.637-.008.816.027.134.027.294.096.448.182.077.042.15.147.15.314V8a.5.5 0 0 0 1 0V6.435l.106-.01c.316-.024.584-.01.708.04.118.046.3.207.486.43.081.096.15.19.2.259V8.5a.5.5 0 1 0 1 0v-1h.342a1 1 0 0 1 .995 1.1l-.271 2.715a2.5 2.5 0 0 1-.317.991l-1.395 2.442a.5.5 0 0 1-.434.252H6.118a.5.5 0 0 1-.447-.276l-1.232-2.465-2.512-4.185a.517.517 0 0 1 .809-.631l2.41 2.41A.5.5 0 0 0 6 9.5V1.75A.75.75 0 0 1 6.75 1zM8.5 4.466V1.75a1.75 1.75 0 1 0-3.5 0v6.543L3.443 6.736A1.517 1.517 0 0 0 1.07 8.588l2.491 4.153 1.215 2.43A1.5 1.5 0 0 0 6.118 16h6.302a1.5 1.5 0 0 0 1.302-.756l1.395-2.441a3.5 3.5 0 0 0 .444-1.389l.271-2.715a2 2 0 0 0-1.99-2.199h-.581a5.114 5.114 0 0 0-.195-.248c-.191-.229-.51-.568-.88-.716-.364-.146-.846-.132-1.158-.108l-.132.012a1.26 1.26 0 0 0-.56-.642 2.632 2.632 0 0 0-.738-.288c-.31-.062-.739-.058-1.05-.046l-.048.002zm2.094 2.025z"></path>
+                                            </svg>
+                                            <span>Giá bán liên hệ</span>
+                                        </button>
+                                        <a title="Xem giá list sản phẩm {{ $product->code }}" class="check-list-btn" target="_blank" href="{{ asset('/gia-list?key='. $product->code) }}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                                                <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z"></path>
+                                            </svg> Check Giá List
+                                        </a>
+                                    </div>
+                                    @if(!empty($product->filepath))
+                                    <a class="datasheet-prd" title="Datasheet {{ $product->code }}" href="{{ asset($product->filepath) }}" target="_blank">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-file-earmark-bar-graph" viewBox="0 0 16 16">
+                                            <path d="M10 13.5a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-6a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v6zm-2.5.5a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1zm-3 0a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-1z"></path>
+                                            <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"></path>
+                                        </svg>
+                                        <span>{{ $product->code }} Datasheet</span>
+                                    </a>
+                                    @else
+                                    <a class="datasheet-prd" title="Datasheet {{ $product->code }}" href="javascript:void(0)">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-file-earmark-bar-graph" viewBox="0 0 16 16">
+                                            <path d="M10 13.5a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-6a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v6zm-2.5.5a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1zm-3 0a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-1z"></path>
+                                            <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"></path>
+                                        </svg>
+                                        <span>{{ $product->code }} Datasheet</span>
+                                    </a>
+                                    @endif
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                        <div class="compare mb-3">
+                            <div class="tcpr">
+                                <p>So sánh với các sản phẩm {{ $parentCate->name }} khác:</p>
+                                <div class="sggProd">
+                                    <form action="javascript:void(0)">
+                                        @csrf
+                                        <input type="hidden" id="productId" value="{{ $product->id }}">
+                                        <input type="hidden" id="slugPro" value="{{ $product->slug }}">
+                                        <input id="searchSggCP" value="" type="text" placeholder="Nhập Tên hoặc Mã sản phẩm để so sánh" onkeyup="fetchProducts()">
+                                        <button title="So sánh với sản phẩm khác" type="submit">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                                            </svg>
+                                        </button>
+                                        <div id="compareResults">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="cam-ket-sp">
-                <div class="product-note">
-                    <p class="cam_ket"><i class="uytin"></i> Cam Kết Bán Hàng</p>
-                    <p><span style="font-weight: bold;">✓</span> Sản Phẩm Chính Hãng 100% Đầy Đủ CO/CQ</p>
-                    <p><span style="font-weight: bold;">✓</span> Giá Cạnh Tranh Rẻ Nhất Thị Trường</p>
-                    <p><span style="font-weight: bold;">✓</span> Ưu Đãi Lớn Cho Đại Lý Và Dự Án</p>
-                    <p><span style="font-weight: bold;">✓</span> Bảo Hành, Đổi Trả Nhanh Chóng</p>
-                    <p><span style="font-weight: bold;">✓</span> Giao Hàng Trên Toàn Quốc</p>
-                    <p><span style="font-weight: bold;">✓</span> Hỗ Trợ Kỹ Thuật Chuyên Nghiệp, Nhiệt Tình</p>
-                    <p><span style="font-weight: bold;">✓</span> Chăm Sóc Khách Hàng Trước, Trong và Sau Khi Mua Hàng Tận Tâm.</p>
-                    <p class="uytin-10"><b>Nvidiavn.vn</b> - 19 năm Uy tín cung cấp Thiết bị mạng &amp; Dịch vụ Mạng trên toàn quốc.</p>
-                    <span class="addhn">
-                        <i class="fa-solid fa-location-dot"></i> NTT03, Thống Nhất Complex, Thanh Xuân, <b>Hà Nội</b>.
-                        <a title="Chỉ đường đến Nvidiavn.vn" href="https://www.google.com/maps/dir//C%C3%B4ng+ty+Vi%E1%BB%87t+Th%C3%A1i+D%C6%B0%C6%A1ng+-+CNTTShop.vn+-+Ph%C3%A2n+ph%E1%BB%91i+Cisco,+NTT+03,+Line+1,+Th%E1%BB%91ng+Nh%E1%BA%A5t+Complex,+%C4%90%C6%B0%E1%BB%9Dng+Nguy%E1%BB%85n+Tu%C3%A2n,+Thanh+Xu%C3%A2n,+H%C3%A0+N%E1%BB%99i,+Vi%E1%BB%87t+Nam/@21.0017807,105.808972,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3135ac8d687d3479:0x863cceda2da3be36!2m2!1d105.8049987!2d20.9977409?hl=vi" target="_blank" rel="noopener noreferrer"><i class="directions"></i></a>
-                    </span>
-                    <span class="addhnhcm">
-                        <i class="fa-solid fa-location-dot"></i> Số 31B, Đường 1, Phường An Phú, Quận 2 (Thủ Đức), <b>TP HCM</b>.
-                        <a title="Chỉ đường đến Nvidiavn.vn" href="https://www.google.com/maps/dir//31b+%C4%90%C6%B0%E1%BB%9Dng+s%E1%BB%91+1,+An+Ph%C3%BA,+Qu%E1%BA%ADn+2,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vietnam/@10.8088314,106.7506978,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x31752641f7cf5b8b:0x5573c2cda7b199cb!2m2!1d106.7528865!2d10.8088261?hl=vi" target="_blank" rel="noopener noreferrer"><i class="directions"></i></a>
-                    </span>
+                    <div class="col-lg-3">
+                        <div class="product-note">
+                            <p class="cam_ket"><i class="uytin"></i> Cam Kết Bán Hàng</p>
+                            <p><span style="font-weight: bold;">✓</span> Sản Phẩm Chính Hãng 100% Đầy Đủ CO/CQ</p>
+                            <p><span style="font-weight: bold;">✓</span> Giá Cạnh Tranh Rẻ Nhất Thị Trường</p>
+                            <p><span style="font-weight: bold;">✓</span> Ưu Đãi Lớn Cho Đại Lý Và Dự Án</p>
+                            <p><span style="font-weight: bold;">✓</span> Bảo Hành, Đổi Trả Nhanh Chóng</p>
+                            <p><span style="font-weight: bold;">✓</span> Giao Hàng Trên Toàn Quốc</p>
+                            <p><span style="font-weight: bold;">✓</span> Hỗ Trợ Kỹ Thuật Chuyên Nghiệp, Nhiệt Tình</p>
+                            <p><span style="font-weight: bold;">✓</span> Chăm Sóc Khách Hàng Trước, Trong và Sau Khi Mua Hàng Tận Tâm.</p>
+                            <p class="uytin-10"><b>Nvidiavn.vn</b> - 19 năm Uy tín cung cấp Thiết bị mạng &amp; Dịch vụ Mạng trên toàn quốc.</p>
+                            <span class="addhn">
+                                <i class="fa-solid fa-location-dot"></i> NTT03, Thống Nhất Complex, Thanh Xuân, <b>Hà Nội</b>.
+                                <a title="Chỉ đường đến Nvidiavn.vn" href="https://www.google.com/maps/dir//C%C3%B4ng+ty+Vi%E1%BB%87t+Th%C3%A1i+D%C6%B0%C6%A1ng+-+CNTTShop.vn+-+Ph%C3%A2n+ph%E1%BB%91i+Cisco,+NTT+03,+Line+1,+Th%E1%BB%91ng+Nh%E1%BA%A5t+Complex,+%C4%90%C6%B0%E1%BB%9Dng+Nguy%E1%BB%85n+Tu%C3%A2n,+Thanh+Xu%C3%A2n,+H%C3%A0+N%E1%BB%99i,+Vi%E1%BB%87t+Nam/@21.0017807,105.808972,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3135ac8d687d3479:0x863cceda2da3be36!2m2!1d105.8049987!2d20.9977409?hl=vi" target="_blank" rel="noopener noreferrer"><i class="directions"></i></a>
+                            </span>
+                            <span class="addhcm">
+                                <i class="fa-solid fa-location-dot"></i> Số 31B, Đường 1, Phường An Phú, Quận 2 (Thủ Đức), <b>TP HCM</b>.
+                                <a title="Chỉ đường đến Nvidiavn.vn" href="https://www.google.com/maps/dir//31b+%C4%90%C6%B0%E1%BB%9Dng+s%E1%BB%91+1,+An+Ph%C3%BA,+Qu%E1%BA%ADn+2,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vietnam/@10.8088314,106.7506978,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x31752641f7cf5b8b:0x5573c2cda7b199cb!2m2!1d106.7528865!2d10.8088261?hl=vi" target="_blank" rel="noopener noreferrer"><i class="directions"></i></a>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="row mb-4">
         <div class="col-lg-9 mt-4">
             <div class="content-product mb-3">
@@ -212,8 +227,8 @@
             @endif
             <!-- Nhóm sản phẩm đi kèm -->
             @if($groupProducts->isNotEmpty())
-            <h3 class="mt-4 panel-heading">
-                {{ $parentCate->is_serve == 1 ? "Cấu hình tùy biến cho $product->code" : "Các sản phẩm mua kèm sử dụng cho $product->code" }}
+            <h3 class="mt-4 panel-heading @if($parentCate->is_serve == 1) conf-config @endif" id="conf-config">
+                {{ $parentCate->is_serve == 1 ? "Cấu hình tùy biến cho $product->name" : "Các sản phẩm mua kèm sử dụng cho $product->name" }}
             </h3>
             @endif
 
@@ -228,12 +243,12 @@
                 </div>
                 <div class="scroll-box">
                     @foreach($group->products as $grPro)
-                    <div class="item @if($grPro->pivot->is_checked == 1)is-checked @endif" data-product_id="{{ $grPro->id }}">
+                    <div class="item @if($grPro->pivot->is_checked == 1)is-checked @endif" data-product_id="{{ $grPro->id }}" data-name-product="{{ $grPro->name }}" data-name-group="{{ $group->name }}">
                         <span class="sel">
-                            <input type="{{ $group->is_type == 0 ? 'radio' : 'checkbox' }}" name="{{ $group->name }}" id="part_8703" @if($grPro->pivot->is_checked == 1) checked @endif>
+                            <input type="{{ $group->is_type == 0 ? 'radio' : 'checkbox' }}" name="{{ $group->name }}" @if($grPro->pivot->is_checked == 1) checked @endif>
                         </span>
                         <span class="qty">
-                            <input name="item_qty" value="{{ $grPro->pivot->is_checked == 1 ? '1' : '0' }}" min="1" max="{{ $group->max_quantity }}" type="number"> x
+                            <input type="number" name="item_qty" value="{{ $grPro->pivot->is_checked == 1 ? '1' : '0' }}" min="0" max="{{ $group->max_quantity }}"> x
                         </span>
                         <span class="infor">
                             <span>{{ $grPro->name }}</span>
@@ -375,11 +390,22 @@
         <!-- Hotline -->
         <div class="col-lg-3 mt-4">
             <div class="support-prod new-prod">
+                @if($groupProducts->isNotEmpty())
                 <div class="bg-prod d-flex align-items-center">
-                    <h2><i class="fa-solid fa-users"></i> Thông tin liên hệ</h2>
+                    <h2>{{ $parentCate->is_serve == 1 ? "$product->name" : "Thông tin liên hệ" }}</h2>
                 </div>
+                @endif
                 <div class="title-outstand-prod">
                     <div class="row mt-3">
+                        @if($parentCate->is_serve == 1)
+                        <div class="conf-widget">
+                            <ul></ul>
+                            <div class="row">
+                                <div class="col-6 conf-print text-center" data-bs-toggle="modal" data-bs-target="#confPrint"><i class="fa-solid fa-print"></i> In cấu hình</div>
+                                <div class="col-6 conf-buy text-center" data-bs-toggle="modal" data-bs-target="#confPrint"><i class="fa-solid fa-cart-arrow-down"></i> Đặt mua</div>
+                            </div>
+                        </div>
+                        @else
                         <div><span class="top-heading">Hỗ trợ kinh doanh <i class="fa-solid fa-money-check-dollar"></i></span></div>
                         @foreach($phoneInfors as $val)
                         @if($val->role == 0)
@@ -422,6 +448,7 @@
                         </div>
                         @endif
                         @endforeach
+                        @endif
                     </div>
                 </div>
             </div>
@@ -429,54 +456,75 @@
     </div>
 </div>
 
-<div class="price-modal">
-    <!-- Modal -->
-    <div class="modal fade" id="priceModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Yêu cầu nhận giá tốt về sản phẩm <span class="price-code">{{ $product->code }}</span></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+@if($parentCate->is_serve == 1)
+<div class="top-red-div text-center">Cấu hình tùy biến {{ $product->name }}</div>
+@endif
+<!-- Modal -->
+<div class="modal fade" id="{{ $parentCate->is_serve == 1 ? 'confPrint' : 'priceModal' }}" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">
+                    @if ($parentCate->is_serve == 1)
+                    <strong>{{ $product->name }}</strong>
+                    @else
+                    Yêu cầu nhận giá tốt về sản phẩm <span class="price-code"><strong>{{ $product->code }}</strong></span>
+                    @endif
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger hide" id="price-error"></div>
+                <div class="form-group mb-2">
+                    <label for="name">Tên cá nhân/công ty</label>
+                    <input type="text" name="name" class="form-control" id="name">
+                    <span class="name-price-erros" style="color: red;"></span>
                 </div>
-                <div class="modal-body">
-                    <div class="alert alert-danger hide" id="price-error"></div>
-                    <div class="form-group mb-2">
-                        <label for="name">Họ tên</label>
-                        <input type="text" name="name" class="form-control" id="name">
-                        <span class="name-price-erros" style="color: red;"></span>
-                    </div>
-                    <div class="form-group mb-2">
-                        <label for="phone">Số điện thoại</label>
-                        <input type="text" name="phone" class="form-control" id="phone">
-                        <span class="phone-price-errors" style="color: red;"></span>
-                    </div>
-                    <div class="form-group mb-2">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" name="email" id="email">
-                    </div>
-                    <div class="form-group mb-2">
-                        <label for="amount">Số lượng cần mua</label>
-                        <input type="number" min="1" class="form-control" name="amount" id="amount">
-                    </div>
-                    <div class="form-group">
-                        <label>Mục đích mua hàng: </label>
-                        <label><input value="0" name="purpose" type="radio" style="margin-left: 15px; margin-right: 5px;">Công ty</label>
-                        <label><input value="1" name="purpose" type="radio" style="margin-left: 15px; margin-right: 5px;">Dự án</label>
-                    </div>
+                <div class="form-group mb-2">
+                    <label for="phone">Số điện thoại</label>
+                    <input type="text" name="phone" class="form-control" id="phone">
+                    <span class="phone-price-errors" style="color: red;"></span>
                 </div>
+                <div class="form-group mb-2">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" name="email" id="email">
+                </div>
+                @if ($parentCate->is_serve == 1)
+                <div class="form-group mb-2">
+                    <label for="note_conf">Ghi chú</label>
+                    <input type="text" class="form-control" name="note_conf" id="note_conf">
+                </div>
+                <input type="hidden" name="group-cate" id="group-cate" value="1">
+                @else
+                <div class="form-group mb-2">
+                    <label for="amount">Số lượng cần mua</label>
+                    <input type="number" min="1" class="form-control" name="amount" id="amount">
+                </div>
+                <div class="form-group">
+                    <label>Mục đích mua hàng: </label>
+                    <label><input value="0" name="purpose" type="radio" style="margin-left: 15px; margin-right: 5px;">Công ty</label>
+                    <label><input value="1" name="purpose" type="radio" style="margin-left: 15px; margin-right: 5px;">Dự án</label>
+                </div>
+                @endif
                 @if (!empty($product))
                 <input type="hidden" name="code" id="code" value="{{ $product->code }}">
                 <input type="hidden" name="slug" id="slug" value="{{ $product->slug }}">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 @endif
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                    <button type="button" class="btn btn-primary send-price">Gửi yêu cầu</button>
-                </div>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary send-price">
+                    Gửi yêu cầu <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                </button>
+            </div>
+            @if ($parentCate->is_serve == 1)
+            <div class="d-flex justify-content-end align-items-center">
+                <i class="fa fa-info-circle"></i> NVKD sẽ liên hệ lại ngay
+            </div>
+            @endif
         </div>
     </div>
 </div>
+
 @endsection
 
 @section('js')
@@ -494,68 +542,63 @@
     });
 
     // Báo giá
-    document.querySelector('.send-price').addEventListener('click', function(e) {
-        e.preventDefault();
-        let submitButton = this;
-        let csrfToken = document.querySelector('.send-price input[name="_token"]').value;
+    let sendPriceServerButton = document.querySelector('.modal-conf .send-price');
+    if (sendPriceServerButton) {
+        sendPriceServerButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            let submitButton = this;
+            let csrfToken = document.querySelector('.modal-conf .send-price input[name="_token"]').value;
 
-        // Vô hiệu hóa nút submit để ngăn gửi nhiều lần
+            // Thực hiện logic submit
+            handleSubmit(submitButton, csrfToken, '.modal-conf');
+        });
+    }
+
+    let sendPriceButton = document.querySelector('.price-modal .send-price');
+    if (sendPriceButton) {
+        sendPriceButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            let submitButton = this;
+            let csrfToken = document.querySelector('.price-modal .send-price input[name="_token"]').value;
+
+            // Thực hiện logic submit
+            handleSubmit(submitButton, csrfToken, '.price-modal');
+        });
+    }
+
+    // Hàm xử lý submit chung
+    function handleSubmit(submitButton, csrfToken, modalSelector) {
         submitButton.disabled = true;
-        let nameElement = document.getElementById('name');
-        let phoneElement = document.getElementById('phone');
-        let emailElement = document.getElementById('email');
-        let amountElement = document.getElementById('amount');
-        let purposeElement = document.querySelector('input[name="purpose"]:checked');
-        let codeElement = document.getElementById('code');
-        let slugElement = document.getElementById('slug');
 
-        // Kiểm tra xem các phần tử có tồn tại không
+        let nameElement = document.querySelector(`${modalSelector} #name`);
+        let phoneElement = document.querySelector(`${modalSelector} #phone`);
+        let emailElement = document.querySelector(`${modalSelector} #email`);
+        let amountElement = document.querySelector(`${modalSelector} #amount`);
+        let purposeElement = document.querySelector(`${modalSelector} input[name="purpose"]:checked`);
+        let grCateElement = document.querySelector(`${modalSelector} #group-cate`);
+        let noteConfElement = document.querySelector(`${modalSelector} #note_conf`);
+        let codeElement = document.querySelector(`${modalSelector} #code`);
+        let slugElement = document.querySelector(`${modalSelector} #slug`);
+
         if (!nameElement || !phoneElement) {
-            document.getElementById('price-error').innerText = 'Vui lòng điền đầy đủ thông tin!';
-            document.getElementById('price-error').classList.remove('hide');
-            submitButton.disabled = false; // Kích hoạt lại nút submit
+            document.querySelector(`${modalSelector} #price-error`).innerText = 'Vui lòng điền đầy đủ thông tin!';
+            document.querySelector(`${modalSelector} #price-error`).classList.remove('hide');
+            submitButton.disabled = false;
             return;
         }
 
-        let nameValue = nameElement.value.trim();
-        let phoneValue = phoneElement.value.trim();
+        // Lấy tất cả các thẻ <li> bên trong .conf-widget
+        let listItems = document.querySelectorAll('.conf-widget ul li');
 
-        // Ẩn thông báo trước khi gửi form
-        document.getElementById('price-error').classList.add('hide');
+        // Tạo một mảng để lưu các giá trị
+        let values = [];
 
-        let isValid = true;
-        let errorMessages = {};
-
-        // Kiểm tra trường 'name'
-        if (nameValue.length < 3 || nameValue.length > 256) {
-            isValid = false;
-            errorMessages.name = 'Họ tên phải có từ 3 đến 256 ký tự.';
-        } else {
-            document.querySelector('.name-price-erros').innerText = '';
-        }
-        if (errorMessages.name) {
-            document.querySelector('.name-price-erros').innerText = errorMessages.name;
-        }
-
-        // Kiểm tra trường 'phone'
-        const phonePattern = /^[0-9]{10,12}$/;
-        if (!phonePattern.test(phoneValue)) {
-            isValid = false;
-            errorMessages.phone = 'Số điện thoại không hợp lệ.';
-        } else {
-            document.querySelector('.phone-price-errors').innerText = '';
-        }
-        if (errorMessages.phone) {
-            document.querySelector('.phone-price-errors').innerText = errorMessages.phone;
-        }
-
-        // Nếu không hợp lệ thì ngừng xử lý và hiển thị lỗi
-        if (!isValid) {
-            document.getElementById('price-error').innerText = 'Vui lòng kiểm tra lại thông tin của bạn.';
-            document.getElementById('price-error').classList.remove('hide');
-            submitButton.disabled = false; // Kích hoạt lại nút submit
-            return;
-        }
+        // Lặp qua từng thẻ <li> và lấy nội dung
+        listItems.forEach(item => {
+            // Lấy nội dung bên trong thẻ <li>
+            let textContent = item.innerText.trim();
+            values.push(textContent);
+        });
 
         let data = {
             name: nameElement.value,
@@ -565,6 +608,9 @@
             purpose: purposeElement ? purposeElement.value : 0,
             code: codeElement.value,
             slug: slugElement.value,
+            note_conf: noteConfElement ? noteConfElement.value : null,
+            group_cate: grCateElement ? 1 : 0,
+            customize_conf: values,
         };
 
         fetch('{{ route("price.request") }}', {
@@ -578,39 +624,56 @@
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    // Đóng modal bằng Bootstrap JavaScript API
-                    let modalElement = document.querySelector('#priceModal');
-                    let modal = bootstrap.Modal.getInstance(modalElement);
-                    if (modal) {
-                        modal.hide();
+                    let modalElement = document.querySelector(modalSelector);
+                    if (modalElement) {
+                        // Kiểm tra nếu modal chưa được khởi tạo, thì khởi tạo modal
+                        let modal = bootstrap.Modal.getInstance(modalElement);
+                        console.log(modal);
+
+                        if (!modal) {
+                            modal = new bootstrap.Modal(modalElement); // Khởi tạo modal nếu chưa có instance
+                        }
+                        modal.hide(); // Đóng modal sau khi submit thành công
                     }
                     toastr.success('Yêu cầu báo giá đã được gửi thành công', 'Thành công', {
                         progressBar: true,
                         closeButton: true,
-                        timeOut: 10000
+                        timeOut: 10000,
                     });
-                    // Xóa dữ liệu cũ
-                    document.getElementById('name').value = '';
-                    document.getElementById('phone').value = '';
-                    document.getElementById('email').value = '';
-                    document.getElementById('amount').value = '';
-                    document.querySelectorAll('input[name="purpose"]').forEach(radio => radio.checked = false);
-                    document.getElementById('code').value = '';
-                    document.getElementById('slug').value = '';
                 } else {
-                    document.getElementById('price-error').innerText = data.error;
-                    document.getElementById('price-error').classList.remove('hide');
+                    document.querySelector(`${modalSelector} #price-error`).innerText = data.error;
+                    document.querySelector(`${modalSelector} #price-error`).classList.remove('hide');
                 }
-                submitButton.disabled = false; // Kích hoạt lại nút submit sau khi xử lý xong
+                submitButton.disabled = false;
             })
             .catch(error => {
-                document.getElementById('price-error').innerText = 'Đã xảy ra lỗi khi gửi yêu cầu.';
-                document.getElementById('price-error').classList.remove('hide');
-                submitButton.disabled = false; // Kích hoạt lại nút submit nếu xảy ra lỗi
+                document.querySelector(`${modalSelector} #price-error`).innerText = 'Đã xảy ra lỗi khi gửi yêu cầu.';
+                document.querySelector(`${modalSelector} #price-error`).classList.remove('hide');
+                submitButton.disabled = false;
             });
-    });
+    }
 
     // Xử lý khi nhấn vào thẻ a
+    document.querySelectorAll('#scrollToConfig').forEach(function(element) {
+        element.addEventListener('click', function(e) {
+            e.preventDefault(); // Ngăn hành vi mặc định của thẻ a
+
+            // Cuộn đến #rate-box với một khoảng offset
+            var rateBox = document.getElementById('conf-config');
+            if (rateBox) {
+                var offset = -120; // Điều chỉnh khoảng lệch để đảm bảo hiển thị tốt
+                var rateBoxPosition = rateBox.getBoundingClientRect().top + window.pageYOffset + offset;
+
+                // Cuộn đến vị trí đã điều chỉnh
+                window.scrollTo({
+                    top: rateBoxPosition,
+                    behavior: 'smooth'
+                });
+                setTimeout(function() {}, 500); // Thời gian đợi có thể điều chỉnh
+            }
+        });
+    });
+
     document.querySelectorAll('.scrollToRateBox').forEach(function(element) {
         element.addEventListener('click', function(e) {
             e.preventDefault(); // Ngăn hành vi mặc định của thẻ a
@@ -901,28 +964,6 @@
         // Gọi các sự kiện ban đầu
         addPaginationListeners();
         bindCommentFormEvents(); // Lắng nghe sự kiện cho form bình luận
-
-        // Xử lý cho radio
-        $('.item input[type="radio"]').on('change', function () {
-            const groupName = $(this).attr('name'); // Lấy tên nhóm của radio
-            // Loại bỏ is-checked chỉ trong các item có cùng nhóm name
-            $(`.item input[name="${groupName}"]`).closest('.item').removeClass('is-checked');
-            // Thêm is-checked vào item chứa radio được chọn
-            if ($(this).is(':checked')) {
-                $(this).closest('.item').addClass('is-checked');
-            }
-        });
-
-        // Xử lý cho checkbox
-        $('.item input[type="checkbox"]').on('change', function () {
-            if ($(this).is(':checked')) {
-                // Thêm is-checked nếu checkbox được chọn
-                $(this).closest('.item').addClass('is-checked');
-            } else {
-                // Loại bỏ is-checked nếu checkbox không được chọn
-                $(this).closest('.item').removeClass('is-checked');
-            }
-        });
     });
 
     let typingTimer; // Biến để lưu trữ thời gian chờ

@@ -309,6 +309,8 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
 
+// sản phẩm nổi bật lấy ra nhóm sản phẩm khi di chuyển vào ảnh
+Route::get('/get-grProduct', [HomeController::class, 'getGrProduct']);
 // Tìm kiếm
 Route::get('/tim-kiem', [HomeController::class, 'search'])->name('home.search');
 Route::get('/filters', [HomeController::class, 'filters'])->name('home.filters');

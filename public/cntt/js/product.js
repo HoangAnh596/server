@@ -111,32 +111,149 @@ $(document).ready(function() {
             }
         });
     });
+
+    // Cấu hình tùy chỉnh server
+    // Xử lý cho radio
+    $('.item input[type="radio"]').on('change', function () {
+        const groupName = $(this).attr('name'); // Lấy tên nhóm của radio
+        // Loại bỏ is-checked chỉ trong các item có cùng nhóm name
+        $(`.item input[name="${groupName}"]`).closest('.item').removeClass('is-checked');
+        // Thêm is-checked vào item chứa radio được chọn
+        if ($(this).is(':checked')) {
+            $(this).closest('.item').addClass('is-checked');
+        }
+    });
+
+    // Xử lý cho checkbox
+    $('.item input[type="checkbox"]').on('change', function () {
+        if ($(this).is(':checked')) {
+            // Thêm is-checked nếu checkbox được chọn
+            $(this).closest('.item').addClass('is-checked');
+        } else {
+            // Loại bỏ is-checked nếu checkbox không được chọn
+            $(this).closest('.item').removeClass('is-checked');
+        }
+    });
+    
+    // Khi trang load: Lấy giá trị ban đầu
+    renderCheckedItems();
+
+    // Cấu hình tùy chỉnh
+    // $(window).on('scroll', function() {
+    //     const $config = $('.conf-config');
+    // const configOffset = $config.data('originalOffset') || $config.offset()?.top || 0; // Lưu vị trí gốc
+    // const scrollPosition = $(this).scrollTop();
+
+    // // Lưu giá trị offset gốc một lần duy nhất
+    // if (!$config.data('originalOffset')) {
+    //     $config.data('originalOffset', configOffset);
+    // }
+
+    // // Kiểm tra nếu vị trí cuộn lớn hơn hoặc bằng vị trí của .conf-config
+    // if (scrollPosition >= configOffset) {
+    //     $config.addClass('fixed-config');
+    // } else {
+    //     $config.removeClass('fixed-config');
+    // }
+    // });
 });
-document.addEventListener('DOMContentLoaded', function() {
-    var toggler = document.getElementsByClassName("caret");
-    for (var i = 0; i < toggler.length; i++) {
-        toggler[i].addEventListener("click", function(e) {
-            e.preventDefault();
-            this.parentElement.querySelector(".nested").classList.toggle("active");
-            this.classList.toggle("caret-down");
+
+function getCheckedItems() {
+    // Tạo một mảng để lưu các item có is_checked
+    let checkedItems = [];
+
+    // Duyệt qua tất cả các radio và checkbox đã được chọn
+    $('input[type="radio"]:checked, input[type="checkbox"]:checked').each(function () {
+        let selectedItem = $(this).closest('.item'); // Tìm item chứa input
+        let productId = selectedItem.data('product_id'); // Lấy product_id
+        let nameProduct = selectedItem.data('name-product');
+        let nameGroup = selectedItem.data('name-group');
+        let qtyValue = selectedItem.find('input[name="item_qty"]').val(); // Lấy giá trị qty
+
+        // Thêm thông tin vào mảng checkedItems
+        checkedItems.push({
+            product_id: productId,
+            name_product: nameProduct,
+            name_group: nameGroup,
+            is_checked: true,
+            quantity: qtyValue
+        });
+    });
+
+    return checkedItems;
+}
+
+function groupCheckedItems(checkedItems) {
+    // Tạo object để gộp các item theo name_group
+    let groupedItems = {};
+
+    checkedItems.forEach(item => {
+        if (item.quantity <= 0) return;  // Bỏ qua các item có quantity <= 0
+        // Nếu name_group đã tồn tại thì cộng dồn quantity
+        if (groupedItems[item.name_group]) {
+            groupedItems[item.name_group].quantity += item.quantity;
+            groupedItems[item.name_group].products.push({
+                name_product: item.name_product,
+                quantity: item.quantity
+            });
+        } else {
+            // Nếu name_group chưa tồn tại thì tạo mới
+            groupedItems[item.name_group] = {
+                name_group: item.name_group,
+                quantity: item.quantity,
+                products: [
+                    { name_product: item.name_product, quantity: item.quantity }
+                ]
+            };
+        }
+    });
+
+    return groupedItems;
+}
+
+function renderCheckedItems() {
+    let checkedItems = getCheckedItems();
+
+    // Gộp các item có chung name_group
+    let groupedItems = groupCheckedItems(checkedItems);
+
+    // Tạo nội dung HTML cho danh sách groupedItems
+    let content = Object.values(groupedItems).map(group => {
+        let productDetails = group.products.map(product => {
+            return `<div><strong>${product.quantity}x</strong> ${product.name_product}</div>`;
+        }).join('');
+        return `
+            <li>
+                <strong>${group.name_group} :</strong>
+                ${productDetails}
+            </li>`;
+    }).join('');
+
+    // Cập nhật nội dung trong thẻ .conf-widget
+    $('.conf-widget ul').html(content);
+}
+
+// Cập nhật nội dung mỗi khi radio hoặc checkbox thay đổi
+$('input[type="radio"], input[type="checkbox"], input[name="item_qty"]').on('change input', function () {
+    renderCheckedItems();
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const modalElement = document.getElementById('confPrint');
+    const redDiv = document.querySelector('.top-red-div'); // Thẻ đã tồn tại
+
+    if (modalElement) { // Kiểm tra modalElement có tồn tại
+        // Khi modal hiển thị
+        modalElement.addEventListener('show.bs.modal', function () {
+            if (redDiv) {
+                redDiv.style.display = 'flex'; // Hiển thị thẻ
+            }
+        });
+
+        // Khi modal bị ẩn
+        modalElement.addEventListener('hidden.bs.modal', function () {
+            if (redDiv) {
+                redDiv.style.display = 'none'; // Ẩn thẻ
+            }
         });
     }
 });
-// $('.filtering').slick({
-//     slidesToShow: 4,
-//     slidesToScroll: 4
-// });
-
-// var filtered = false;
-
-// $('.js-filter').on('click', function() {
-//     if (filtered === false) {
-//         $('.filtering').slick('slickFilter', ':even');
-//         $(this).text('Unfilter Slides');
-//         filtered = true;
-//     } else {
-//         $('.filtering').slick('slickUnfilter');
-//         $(this).text('Filter Slides');
-//         filtered = false;
-//     }
-// });

@@ -16,7 +16,7 @@
                 <select id="parent_id" name="parent_id" class="form-control" size="12" style="width: 100%;">
                     <option value="0">Danh mục cha</option>
                     @foreach($categories as $cat)
-                        @include('admin.category.partials.category_edit', ['category' => $cat, 'level' => 0, 'prefix' => '|---', 'selected' => old('parent_id', $category->parent_id)])
+                    @include('admin.category.partials.category_edit', ['category' => $cat, 'level' => 0, 'prefix' => '|---', 'selected' => old('parent_id', $category->parent_id)])
                     @endforeach
                 </select>
             </div>
@@ -57,5 +57,32 @@
             <label for="example-textarea" class="form-label">Mô tả chi tiết <i class="fa-solid fa-circle-info" style="margin-left: 6px; color: red;"></i></label>
             <textarea class="form-control" id="my-editor" rows="10" name="content">{{ old('content', $category->content ?? '') }}</textarea>
         </div>
+    </div>
+    <div class="row mt-3 mb-3">
+        <div class="col-2 d-flex flex-row-reverse align-items-center">Tên menu (Server) :</div>
+        <div class="col-2 d-flex align-items-center">
+            <select class="form-control" aria-label="Default" name="infor_server">
+                <option value="1"
+                    @if(!empty($category) && $category->infor_server == 1) selected @endif> Hãng server
+                </option>
+                <option value="2"
+                    @if(!empty($category) && $category->infor_server == 2) selected @endif> Chassis server
+                </option>
+                <option value="3"
+                    @if(!empty($category) && $category->infor_server == 3) selected @endif> Cấu hình server
+                </option>
+                <option value="0"
+                    @if(!empty($category) && $category->infor_server == 0) selected @endif> Mặc định
+                </option>
+            </select>
+        </div>
+        <div class="d-flex align-items-center" style="height: 38px; color: red;"><i class="fa-solid fa-circle-info"></i></div>
+    </div>
+    <div class="row mt-3 mb-3">
+        <div class="col-2 d-flex flex-row-reverse align-items-center">Thứ tự hiển thị :</div>
+        <div class="col-1">
+            <input type="number" class="form-control" style="width:80px" name="stt_cate" value="{{ old('stt_cate', $category->stt_cate ?? '') }}">
+        </div>
+        <div class="d-flex align-items-center" style="height: 38px; color: red;"><i class="fa-solid fa-circle-info"></i></div>
     </div>
 </div>

@@ -32,23 +32,6 @@ $agent = new Jenssegers\Agent\Agent();
                         <a href="{{ asset('/' . $val->slug) }}">
                             <img class="img-size" loading="lazy" width="240" height="169" data-src="{{ asset($newImagePath) }}" src="{{ asset($newImagePath) }}" srcset="{{ asset($newImagePath) }}" alt="{{ $mainImage->alt }}">
                         </a>
-                        <div id="{{ $val->id }}" class="description-zoom">
-                            <div class="content_pro_toll">
-                                <a data-tooltip="sticky3" href="https://cnttshop.vn/dell-emc-poweredge-r440-2.5-inch-1">Máy chủ Dell PowerEdge R440 8x2.5″ (Intel Xeon Silver 4216 / 16GB RAM / 1.2TB HDD SAS )</a>
-                                <ul class="thong-so-ky-thuat-sv" data-tooltip="sticky3">
-                                    <li>Chassis 1U Dell PowerEdge R440 8x2.5″</li>
-                                    <li>Mainboard Dell PowerEdge R440 2.5inch</li>
-                                    <li>Dell PERC H740P RAID Controller</li>
-                                    <li>1 x Intel Xeon Silver 4216 Processor (16C/32T, 10.4GT/s, 27.5M Cache, 2.1GHz, DDR4-2667)</li>
-                                    <li>1 x Heat Sink CPU 2nd Dell PowerEdge R440, APAC</li>
-                                    <li>1 x RAM DELL 16GB DDR4-2666 RDIMM PC4-21300V-R Dual Rank x8 Replacement</li>
-                                    <li>1 x Ổ Cứng HDD Dell 400-ATJO 1.2TB 10K SAS 12Gbps 512n 2.5inch</li>
-                                    <li>1 x Tray Dell Poweredge DXD9H 2.5inch</li>
-                                    <li>1 x Broadcom 5719 4-port 1Gb Network Interface Card, Full Height</li>
-                                    <li>2 x Power Supply 6V43G Dell PowerEdge 550W</li>
-                                </ul>
-                            </div>
-                        </div>
                     </figure>
 
                     @endif
@@ -305,19 +288,6 @@ $agent = new Jenssegers\Agent\Agent();
 <div class="container">
     <div id="mystickytooltip" class="stickytooltip">
         <div class="content_pro_toll">
-            <a data-tooltip="sticky3" href="https://cnttshop.vn/dell-emc-poweredge-r440-2.5-inch-1">Máy chủ Dell PowerEdge R440 8x2.5″ (Intel Xeon Silver 4216 / 16GB RAM / 1.2TB HDD SAS )</a>
-            <ul class="thong-so-ky-thuat-sv" data-tooltip="sticky3">
-                <li>Chassis 1U Dell PowerEdge R440 8x2.5″</li>
-                <li>Mainboard Dell PowerEdge R440 2.5inch</li>
-                <li>Dell PERC H740P RAID Controller</li>
-                <li>1 x Intel Xeon Silver 4216 Processor (16C/32T, 10.4GT/s, 27.5M Cache, 2.1GHz, DDR4-2667)</li>
-                <li>1 x Heat Sink CPU 2nd Dell PowerEdge R440, APAC</li>
-                <li>1 x RAM DELL 16GB DDR4-2666 RDIMM PC4-21300V-R Dual Rank x8 Replacement</li>
-                <li>1 x Ổ Cứng HDD Dell 400-ATJO 1.2TB 10K SAS 12Gbps 512n 2.5inch</li>
-                <li>1 x Tray Dell Poweredge DXD9H 2.5inch</li>
-                <li>1 x Broadcom 5719 4-port 1Gb Network Interface Card, Full Height</li>
-                <li>2 x Power Supply 6V43G Dell PowerEdge 550W</li>
-            </ul>
         </div>
     </div>
 </div>
@@ -444,15 +414,72 @@ $agent = new Jenssegers\Agent\Agent();
             }
         });
 
+        const tooltipCache = {}; // Bộ nhớ đệm để lưu trữ dữ liệu tooltip
+        const containerWidth = 1320; // Chiều rộng tối đa của container
+
+        $('.img-outstand').on('mouseenter', function (e) {
+            const tooltip = $('#mystickytooltip');
+            const tooltipElement = $(this);
+            const dataId = tooltipElement.data('id'); // Lấy giá trị data-id
+
+            // Kiểm tra nếu dữ liệu đã tồn tại trong cache
+            if (tooltipCache[dataId]) {
+                updateTooltip(tooltip, tooltipCache[dataId], e.pageY, e.pageX);
+            } else {
+                // Gọi API để lấy thông tin
+                $.ajax({
+                    url: '/get-grProduct', // URL API
+                    method: 'GET',
+                    data: { id: dataId },
+                    success: function (response) {
+                        if (response.success) {
+                            // Lưu dữ liệu vào cache
+                            tooltipCache[dataId] = response.html;
+
+                            // Hiển thị tooltip
+                            updateTooltip(tooltip, response.html, e.pageY, e.pageX);
+                        }
+                    },
+                    error: function () {
+                        console.error('Không thể lấy dữ liệu tooltip.');
+                    }
+                });
+            }
+        });
+
+        // Hàm cập nhật tooltip
+        function updateTooltip(tooltip, content, topPosition, leftPosition) {
+            const tooltipWidth = tooltip.outerWidth(); // Lấy chiều rộng tooltip
+            let adjustedLeft = leftPosition + 20;
+
+            // Kiểm tra và điều chỉnh để tooltip không vượt giới hạn bên phải container
+            if (adjustedLeft + tooltipWidth > containerWidth) {
+                adjustedLeft = containerWidth - tooltipWidth - 20; // Điều chỉnh vị trí bên trái
+            }
+
+            tooltip
+                .find('.content_pro_toll')
+                .html(content); // Cập nhật nội dung
+            tooltip
+                .css({
+                    top: topPosition - 200 + 'px',
+                    left: adjustedLeft + 'px',
+                    display: 'block',
+                });
+        }
+
+        // Cập nhật vị trí tooltip khi di chuột
         $('.img-outstand').on('mousemove', function (e) {
             const tooltip = $('#mystickytooltip');
             const tooltipId = $(this).data('tooltip');
+            const tooltipWidth = tooltip.outerWidth();
             let leftPosition = e.pageX + 20;
-            
-            if (leftPosition > 1100) {
-                leftPosition -= 400; // Trừ 200px nếu vượt quá giới hạn
+
+            // Điều chỉnh vị trí bên trái nếu vượt quá container
+            if (leftPosition + tooltipWidth > containerWidth) {
+                leftPosition = containerWidth - tooltipWidth - 20; // Giới hạn bên phải
             }
-            // Cập nhật vị trí tooltip theo chuột
+
             tooltip
                 .css({
                     top: e.pageY - 200 + 'px',
@@ -462,9 +489,11 @@ $agent = new Jenssegers\Agent\Agent();
                 .attr('data-tooltip', tooltipId); // Gán dữ liệu tooltip
         });
 
+        // Ẩn tooltip khi rời chuột
         $('.img-outstand').on('mouseleave', function () {
-            $('#mystickytooltip').hide(); // Ẩn tooltip khi chuột rời ảnh
+            $('#mystickytooltip').hide();
         });
+
     });
 </script>
 @endsection

@@ -89,7 +89,7 @@ $agent = new Jenssegers\Agent\Agent();
 </nav>
 <!-- end navbar mobile -->
 @else
-<div class="header-menu pt-1">
+<div class="header-menu pt-1 w-menu">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -111,7 +111,9 @@ $agent = new Jenssegers\Agent\Agent();
             </div>
             <div class="col-lg-9 d-none d-lg-block">
                 <div class="navbar-content" id="navbarNav">
+                    <?php $count = 0 ?>
                     @foreach($globalMenus as $category)
+                    <?php $count++; $count ?>
                     @if($category->children->isNotEmpty())
                     <div class="nav-item">
                         <a class="nav-link nav-link-web" href="@if($category->is_click == 1){{ asset($category->url) }}@else javascript:void(0) @endif" target="@if($category->is_tab == 1) _blank @endif" id="navbarDropdown{{ $category->id }}" data-id="{{ $category->id }}">
@@ -139,13 +141,15 @@ $agent = new Jenssegers\Agent\Agent();
 
     </div>
 </div>
-<div class="container mb-4">
+<div class="container @if(!request()->is('/')) w-child-menu @endif">
     <div class="row">
         <div class="col-lg-3">
             <div id="prd-cate-list">
                 <div class="main-cate @if(!request()->is('/')) dn-main-cate @endif">
                     <ul>
+                        <?php $countData = 0?>
                         @foreach($globalCategories as $item)
+                        <?php $countData++; $countData?>
                         <li class="d-flex justify-content-between align-items-center">
                             <a title="{{ $item->name }}" href="{{ asset('/' . $item->slug) }}">
                                 <img width="25" height="25" alt="{{ $item->alt_img }}" src="{{ asset('/' . $item->image) }}">
@@ -153,17 +157,44 @@ $agent = new Jenssegers\Agent\Agent();
                             </a>
                             <i class="fa-solid fa-chevron-right"></i>
                             @if($item->is_serve == 1)
+                            @php
+                                $categories = [
+                                    1 => [
+                                        'title' => 'Hãng sản xuất',
+                                        'icon' => '<i class="fa-solid fa-fire"></i>',
+                                        'image' => true, // Có hiển thị ảnh
+                                    ],
+                                    2 => [
+                                        'title' => 'Chassis',
+                                        'icon' => '<i class="fa-solid fa-fire"></i>',
+                                        'image' => false, // Không hiển thị ảnh
+                                    ],
+                                    3 => [
+                                        'title' => 'Cấu hình',
+                                        'icon' => '<i class="fa-solid fa-fire"></i>',
+                                        'image' => false, // Không hiển thị ảnh
+                                    ],
+                                ];
+                            @endphp
+
                             <ul class="dm-server">
-                                @foreach($item->children as $val)
+                                @foreach($categories as $key => $category)
                                 <li class="hang-san-xuat">
-                                    <p>{{ $val->name }} <i class="fa-solid fa-fire"></i></p>
+                                    <p>{!! $category['title'] !!} {!! $category['icon'] !!}</p>
                                     <ul>
-                                        @foreach($val->children as $value)
+                                        @foreach($item->children as $value)
+                                        @if($value->infor_server == $key)
                                         <li>
                                             <a title="{{ $value->name }}" href="{{ asset('/' . $value->slug) }}">
+                                                @if($category['image'])
+                                                <img width="65px" height="20px" alt="{{ $value->alt_img }}" src="{{ asset('/' . $value->image) }}">
+                                                {{ $value->name }}
+                                                @else
                                                 <span><i class="fa-solid fa-caret-right"></i> {{ $value->name }}</span>
+                                                @endif
                                             </a>
                                         </li>
+                                        @endif
                                         @endforeach
                                     </ul>
                                 </li>
