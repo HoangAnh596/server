@@ -1,7 +1,7 @@
 @extends('cntt.layouts.app')
 
 @section('content')
-<div class="pt-44" id="check-list">
+<div class="bgeee" id="check-list">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -12,7 +12,7 @@
                     <span class="decor"></span>
                     <p class="check-list-title">
                         Công cụ kiểm tra bảng giá toàn cầu tốt nhất <br>
-                        Router, Switch, Module Quang, Firewall, Wireless AP...
+                        Server, Máy trạm, Thiết bị lưu trữ SAN & NAS, Linh kiện máy chủ,...
                     </p>
                     <div class="formcheck">
                         <h1>Giá mã sản phẩm: {{ $key }}</h1>

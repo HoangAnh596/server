@@ -376,7 +376,7 @@ li.hang-san-xuat ul li {
     text-align: center;
     border: 1px solid #ddd;
     border-radius: 7px;
-    height: 100px;
+    height: 86px;
     float: left;
     margin-bottom: 15px;
 }
@@ -461,6 +461,7 @@ hr {
 /* ------css Nabar reponsive ----- */
 .navbar-mobile {
     font-size: 14px !important;
+    padding: 0;
 }
 .nav-item-mobile {
     background-color: #fff;
@@ -809,7 +810,7 @@ button:focus {
 .nav-mb li {
     padding-left: 15px;
 }
-.nav-mb a {
+.nav-mb a, .btn-all {
     padding: 5px 10px;
     border: 1px solid #e5e7eb;
     border-radius: 7px;
@@ -866,9 +867,6 @@ button:focus {
 
 .card-body {
     padding: 10px;
-}
-.pt-44 {
-    background-color: #eee;
 }
 
 .page-item.active .page-link {
@@ -1099,7 +1097,7 @@ button:focus {
         z-index: 9999;
         background-color: white;
     }
-    .pt-44, .pt-60, .pro-compare {
+    .pt-60, .pro-compare {
         margin-top: 0;
     }
     .page-footer {

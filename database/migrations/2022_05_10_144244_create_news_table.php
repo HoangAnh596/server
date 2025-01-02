@@ -17,7 +17,6 @@ class CreateNewsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->string('slugParent');
             $table->unsignedBigInteger('cate_id');
             $table->unsignedBigInteger('user_id');
             $table->tinyInteger('is_outstand')->default(0)->comment('1: nổi bật, 0: không nổi bật');
@@ -27,9 +26,9 @@ class CreateNewsTable extends Migration
             $table->text('content')->nullable();
             $table->string('title_img')->nullable();
             $table->string('alt_img')->nullable();
-            $table->string('title_seo')->nullable();
-            $table->string('keyword_seo')->nullable();
-            $table->string('des_seo')->nullable();
+            $table->text('title_seo')->nullable();
+            $table->text('keyword_seo')->nullable();
+            $table->text('des_seo')->nullable();
             $table->timestamps();
             // $table->foreign('cate_id')->references('id')->on('category_news');
         });

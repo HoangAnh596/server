@@ -5,7 +5,7 @@
             @foreach($subcategories as $subcategory)
             @if ($count == 1)
             <a class="btn-menu" href="@if($subcategory->is_click == 1){{ asset($subcategory->url) }}@else javascript:void(0) @endif" target="@if($subcategory->is_tab == 1) _blank @endif">
-                <img src="{{ $subcategory->image }}" alt="{{ $subcategory->name }}">
+                <img src="{{ asset($subcategory->image) }}" alt="{{ $subcategory->name }}">
             </a>
             @else
             <a class="btn-menu-link" href="@if($subcategory->is_click == 1){{ asset($subcategory->url) }}@else javascript:void(0) @endif" target="@if($subcategory->is_tab == 1) _blank @endif">

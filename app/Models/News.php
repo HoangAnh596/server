@@ -13,8 +13,7 @@ class News extends Model
 
     protected $fillable = [
         'name','slug', 'cate_id',
-        'image', 'slugParent',
-        'desc', 'is_outstand', 'view_count',
+        'image', 'desc', 'is_outstand', 'view_count',
         'title_img', 'alt_img', 'content',
         'title_seo', 'keyword_seo', 'des_seo'
     ];

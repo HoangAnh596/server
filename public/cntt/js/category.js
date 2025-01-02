@@ -24,16 +24,6 @@ $(document).ready(function() {
         });
     });
 
-    $('.outstand-prod').each(function() {
-        if ($(this).height() > 350) {
-            $(this).find('.outstand-show-more').show();
-        }
-    });
-    $('.outstand-show-more').on('click', function() {
-        $(this).css('display', 'none'); // Ẩn nút show-more
-        $('.outstand-prod').css('max-height', '10000px');
-    });
-
     // bộ lọc filter
     $(window).on('scroll', function() {
         if ($(this).scrollTop() > 100) {

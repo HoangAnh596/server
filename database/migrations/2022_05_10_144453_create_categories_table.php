@@ -25,9 +25,9 @@ class CreateCategoriesTable extends Migration
             $table->text('content')->nullable();
             $table->string('title_img')->nullable();
             $table->string('alt_img')->nullable();
-            $table->string('title_seo')->nullable();
-            $table->string('keyword_seo')->nullable();
-            $table->string('des_seo')->nullable();
+            $table->text('title_seo')->nullable();
+            $table->text('keyword_seo')->nullable();
+            $table->text('des_seo')->nullable();
             $table->integer('stt_cate')->nullable();
             $table->tinyInteger('is_serve')->default(0)->comment('1: hiển thị serve, 0: không');
             $table->tinyInteger('infor_server')->default(0)->comment('0: không, 1: hãng server, 2: chassis server, 3: cấu hình server');

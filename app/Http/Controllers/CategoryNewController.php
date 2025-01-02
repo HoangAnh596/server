@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CategoryNewFormRequest;
+use App\Models\Category;
 use App\Models\CategoryNew;
 use App\Models\News;
 use App\Models\Product;
@@ -65,11 +66,10 @@ class CategoryNewController extends Controller
      */
     public function create()
     {
-        $cateNewParents = CategoryNew::where('parent_id', 0)
-            ->with('children')
-            ->get();
+        $cateNewParents = CategoryNew::where('parent_id', 0)->with('children')->get();
+        $subCate = Category::where('parent_id', 0)->with('children')->get();
         
-        return view('admin.cateNew.create', compact('cateNewParents'));
+        return view('admin.cateNew.create', compact('cateNewParents', 'subCate'));
     }
 
     /**
@@ -95,14 +95,15 @@ class CategoryNewController extends Controller
     {
         $category = CategoryNew::findOrFail($id);
         $categories = CategoryNew::with('children')->where('parent_id', 0)->get();
+        $subCate = Category::with('children')->where('parent_id', 0)->get();
         // Lấy ra sản phẩm liên quan
         if (!empty($category->related_pro)) {
             $relatedPro = $category->getRelatedPro();
 
-            return view('admin.cateNew.edit', compact('category', 'categories', 'relatedPro'));
+            return view('admin.cateNew.edit', compact('category', 'categories', 'relatedPro', 'subCate'));
         }
         
-        return view('admin.cateNew.edit', compact('category', 'categories'));
+        return view('admin.cateNew.edit', compact('category', 'categories', 'subCate'));
     }
 
     /**
@@ -122,7 +123,7 @@ class CategoryNewController extends Controller
     public function insertOrUpdate(Request $request, $id = '')
     {
         $category = empty($id) ? new CategoryNew() : CategoryNew::findOrFail($id);
-
+        // dd($request->all());
         if (!empty($request['related_pro'])) {
             $request['related_pro'] = json_encode($request->related_pro);
         }

@@ -19,9 +19,13 @@ class ProductImagesController extends Controller
         $smallImagePath = "public/images/san-pham/small/$imageFileName";
         $mediumImagePath = "public/images/san-pham/medium/$imageFileName";
         $largeImagePath = "public/images/san-pham/large/$imageFileName";
+        $Img560Path = "public/images/san-pham/w_560/$imageFileName";
+        $Img640Path = "public/images/san-pham/w_640/$imageFileName";
         Storage::delete($smallImagePath);
         Storage::delete($mediumImagePath);
         Storage::delete($largeImagePath);
+        Storage::delete($Img560Path);
+        Storage::delete($Img640Path);
         
         $imagePath = str_replace('storage/', 'public/', parse_url($image->image, PHP_URL_PATH));
         Storage::delete($imagePath);

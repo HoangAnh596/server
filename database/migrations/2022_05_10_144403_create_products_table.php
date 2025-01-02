@@ -16,7 +16,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('subCategory')->nullable();
+            $table->string('subCate')->nullable();
             $table->string('slug');
             $table->unsignedBigInteger('user_id');
             $table->string('related_pro')->nullable();
@@ -35,9 +35,9 @@ class CreateProductsTable extends Migration
             $table->string('hdd_pr')->nullable();
             $table->text('des')->nullable();
             $table->text('content')->nullable();
-            $table->string('title_seo')->nullable();
-            $table->string('keyword_seo')->nullable();
-            $table->string('des_seo')->nullable();
+            $table->text('title_seo')->nullable();
+            $table->text('keyword_seo')->nullable();
+            $table->text('des_seo')->nullable();
             $table->timestamps();
         });
     }

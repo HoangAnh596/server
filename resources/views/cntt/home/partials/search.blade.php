@@ -13,17 +13,17 @@
         $newDirectory = $directory . '/small';
         $newImagePath = $newDirectory . '/' . $filename;
         @endphp
-        <a class="btn-img" href="{{ $product->slug }}">
+        <a class="btn-img" href="{{ asset($product->slug) }}">
             <img class="img-size" loading="lazy" width="214" height="160" src="{{ asset($newImagePath) }}" data-src="{{ asset($newImagePath) }}" srcset="{{ asset($newImagePath) }}" alt="{{ $mainImage->alt }}" title="{{ $mainImage->title }}">
         </a>
         @else
-        <a class="btn-img" href="{{ $product->slug }}">
+        <a class="btn-img" href="{{ asset($product->slug) }}">
             <img class="img-size" loading="lazy" width="214" height="160" src="{{ asset('storage/images/image-coming-soon.jpg') }}" data-src="{{ asset('storage/images/image-coming-soon.jpg') }}" alt="Image Coming Soon" title="Image Coming Soon">
         </a>
         @endif
         <div class="card-body">
             <div class="text-dark">
-                <a href="{{ $product->slug }}" class="text-decoration-none btn-link">
+                <a href="{{ asset($product->slug) }}" class="text-decoration-none btn-link">
                     <h3>{{ $product->name }}</h3>
                 </a>
             </div>

@@ -79,6 +79,34 @@
         <div class="d-flex align-items-center" style="height: 38px; color: red;"><i class="fa-solid fa-circle-info"></i></div>
     </div>
     <div class="row mt-3 mb-3">
+        <div class="col-2 d-flex flex-row-reverse align-items-center">Nổi bật :</div>
+        <div class="col-2 d-flex align-items-center">
+            <select class="form-control" aria-label="Default" name="is_outstand">
+                <option value="1"
+                    @if(!empty($category) && $category->is_outstand == 1) selected @endif> Có
+                </option>
+                <option value="0"
+                    @if(!empty($category) && $category->is_outstand == 0) selected @endif> Không
+                </option>
+            </select>
+        </div>
+        <div class="d-flex align-items-center" style="height: 38px; color: red;"><i class="fa-solid fa-circle-info"></i></div>
+    </div>
+    <div class="row mt-3 mb-3">
+        <div class="col-2 d-flex flex-row-reverse align-items-center">Hiển thị :</div>
+        <div class="col-2 d-flex align-items-center">
+            <select class="form-control" aria-label="Default" name="is_public">
+                <option value="1"
+                    @if(!empty($category) && $category->is_public == 1) selected @endif> Có
+                </option>
+                <option value="0"
+                    @if(!empty($category) && $category->is_public == 0) selected @endif> Không
+                </option>
+            </select>
+        </div>
+        <div class="d-flex align-items-center" style="height: 38px; color: red;"><i class="fa-solid fa-circle-info"></i></div>
+    </div>
+    <div class="row mt-3 mb-3">
         <div class="col-2 d-flex flex-row-reverse align-items-center">Thứ tự hiển thị :</div>
         <div class="col-1">
             <input type="number" class="form-control" style="width:80px" name="stt_cate" value="{{ old('stt_cate', $category->stt_cate ?? '') }}">

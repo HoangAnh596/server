@@ -11,13 +11,13 @@
                 <input type="text" id="slug" class="form-control" name="slug" value="{{ old('slug') }}" oninput="checkDuplicate()">
                 <span id="slug-error" style="color: red;"></span>
             </div>
-        </div>
-        <div class="col">
             <div class="mb-3">
                 <label for="desc" class="form-label">Mô tả ngắn <i class="fa-solid fa-circle-info" style="margin-left: 6px; color: red;"></i></label>
                 <textarea name="desc" id="desc" rows="5" class="form-control">{{ old('desc') }}</textarea>
                 <span id="desc-error" style="color: red;"></span>
             </div>
+        </div>
+        <div class="col">
             <div class="mb-3">
                 <label for="">Danh mục bài viết <i class="fa-solid fa-circle-info" style="margin-left: 6px; color: red;"></i></label>
                 <select name="cate_id" id="new_categories" class="form-control" size="13" style="width: 100%;">

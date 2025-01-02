@@ -1,5 +1,5 @@
-<li class="{{ in_array($category->id, old('subCategory', $selectedSubCategories ?? [])) ? 'selected' : '' }}">
-    <input type="checkbox" name="subCategory[]" value="{{ $category->id }}" {{ in_array($category->id, old('subCategory', $selectedSubCategories ?? [])) ? 'checked' : '' }}>
+<li class="{{ in_array($category->id, old('subCate', $selectedSubCategories ?? [])) ? 'selected' : '' }}">
+    <input type="checkbox" name="subCate[]" value="{{ $category->id }}" {{ in_array($category->id, old('subCate', $selectedSubCategories ?? [])) ? 'checked' : '' }}>
     {{ str_repeat('--| ', $level * 1) }}{{ $category->name }}
 </li>
 @if ($category->children)

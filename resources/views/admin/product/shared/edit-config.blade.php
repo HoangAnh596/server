@@ -98,7 +98,7 @@
                 <label for="category">Danh mục phụ</label>
                 <ul id="category" class="subCate">
                     @foreach($categories as $val)
-                        @include('admin.product.partials.subCategory_edit', ['category' => $val, 'selectedCategories' => $product->subCategory])
+                        @include('admin.product.partials.subCategory_edit', ['category' => $val, 'selectedCategories' => $product->subCate])
                     @endforeach
                 </ul>
             </div>

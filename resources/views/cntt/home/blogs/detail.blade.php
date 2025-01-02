@@ -5,7 +5,7 @@
 
 @extends('cntt.layouts.app')
 @section('content')
-<div class="pt-44">
+<div class="bgeee">
     <div class="container">
         <nav style="--bs-breadcrumb-divider: '»';" aria-label="breadcrumb">
             <ol class="breadcrumb">

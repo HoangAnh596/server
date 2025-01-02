@@ -1,7 +1,7 @@
 @extends('cntt.layouts.app')
 @section('content')
 
-<div class="container pt-44 bg-white">
+<div class="container bgeee bg-white">
     <div class="text-center pt-4">
         <div class="contact-us">
             <h1>THÔNG TIN LIÊN HỆ HỢP TÁC</h1>

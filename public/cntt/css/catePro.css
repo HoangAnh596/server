@@ -65,7 +65,7 @@
     left: 0;
     width: 100%;
     z-index: 999;
-    height: 50px;
+    height: 40px;
 }
 .bg-prod h2{
     font-size: 1.25rem;
@@ -80,10 +80,9 @@
     box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .1), 0 2px 6px 2px rgba(60, 64, 67, .15);
     display: block;
     margin-right: auto;
-    max-height: 500px;
     min-height: 0;
     overflow: hidden;
-    padding: 15px;
+    padding: 1rem 1rem 0 1rem;
     position: relative;
     width: 100%;
 }
@@ -98,9 +97,15 @@
     margin-right: auto;
     min-height: 0;
     overflow: hidden;
-    padding: 10px 10px 0 10px;
     position: relative;
     width: 100%;
+}
+.see-more-news a {
+    padding: 5px 10px;
+    border: 1px solid #dc3545;
+    border-radius: 7px;
+    font-size: 14px;
+    color: #333;
 }
 .new-prod {
     position: sticky;
@@ -110,7 +115,7 @@
     z-index: 999;
 }
 .top-heading {
-    display: block;
+    margin: 0 1rem;
     border-bottom: 1px solid #eee;
     margin-bottom: 5px;
     font-weight: 600;
@@ -120,7 +125,7 @@
 }
 .contact-infor {
     margin-bottom: 7px;
-    margin-left: 5px;
+    padding: 0 1rem;
     line-height: 20px;
 }
 .contact-infor i {

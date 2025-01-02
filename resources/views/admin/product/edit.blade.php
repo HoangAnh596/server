@@ -361,6 +361,8 @@
 
             var id = $(this).data('id'); // Lấy ID từ thuộc tính data-id
             var url = $(this).attr('href'); // Lấy URL từ href
+            console.log(url);
+            
 
             confirmDeleteImg(id, url); // Gọi hàm confirmDelete
         });
@@ -387,14 +389,16 @@
                             url: url,
                             type: 'DELETE',
                             data: {
-                                _token: '{{ csrf_token() }}'
+                                _token: $('meta[name="csrf-token"]').attr('content') // Lấy token từ meta tag
                             },
                             success: function(result) {
                                 // Xóa hàng khỏi bảng nếu xóa thành công
                                 $('a[data-id="' + id + '"]').closest('tr').remove();
+                                toastr.success('Xóa thành công.');
                             },
                             error: function(xhr) {
-                                alert('Có lỗi xảy ra, vui lòng thử lại.');
+                                toastr.error('Có lỗi xảy ra, vui lòng thử lại.');
+                                console.error(xhr.responseText); // In lỗi ra console để kiểm tra
                             }
                         });
                     });

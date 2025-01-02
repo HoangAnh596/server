@@ -121,7 +121,7 @@ $agent = new Jenssegers\Agent\Agent();
                         </a>
                         @if(count($category->children) > 0)
                         <div class="dropdown-content dropdown-{{ $category->id }}">
-                            <div class="container" style="padding-left: 12px; padding-top: 3px;">
+                            <div class="container" style="padding-left: 12px; padding-top: 4px;">
                                 @include('cntt.components.partials.children', ['subcategories' => $category->children])
                             </div>
                         </div>
@@ -187,7 +187,7 @@ $agent = new Jenssegers\Agent\Agent();
                                         <li>
                                             <a title="{{ $value->name }}" href="{{ asset('/' . $value->slug) }}">
                                                 @if($category['image'])
-                                                <img width="65px" height="20px" alt="{{ $value->alt_img }}" src="{{ asset('/' . $value->image) }}">
+                                                <img width="65" height="20" alt="{{ $value->alt_img }}" src="{{ asset('/' . $value->image) }}">
                                                 {{ $value->name }}
                                                 @else
                                                 <span><i class="fa-solid fa-caret-right"></i> {{ $value->name }}</span>
@@ -205,7 +205,7 @@ $agent = new Jenssegers\Agent\Agent();
                                 @foreach($item->children as $val)
                                 <li>
                                     <a title="{{ $val->name }}" href="{{ asset('/' . $val->slug) }}">
-                                        <img width="65" height="auto" alt="{{ $val->alt_img }}" src="{{ asset('/' . $val->image) }}">
+                                        <img width="65" height="25" alt="{{ $val->alt_img }}" src="{{ asset('/' . $val->image) }}">
                                         <span>{{ $val->name }}</span>
                                     </a>
                                 </li>

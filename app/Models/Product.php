@@ -12,7 +12,7 @@ class Product extends Model
     protected $table = 'products';
 
     protected $fillable = [
-        'name', 'code', 'slug', 'subCategory',
+        'name', 'code', 'slug', 'subCate',
         'price', 'related_pro', 'status',
         'title_seo', 'keyword_seo', 'des_seo',
         'maker_id', 'image_ids', 'tag_ids',
@@ -24,7 +24,7 @@ class Product extends Model
         'images_id' => 'array',
         'tag_id' => 'array',
         'related_id' => 'array',
-        'subCategory' => 'array'
+        'subCate' => 'array'
     ];
 
     protected $appends = ['average_star', 'totalCmt'];

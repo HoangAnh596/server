@@ -33,7 +33,12 @@ $agent = new Jenssegers\Agent\Agent();
                             <img class="img-size" loading="lazy" width="240" height="169" data-src="{{ asset($newImagePath) }}" src="{{ asset($newImagePath) }}" srcset="{{ asset($newImagePath) }}" alt="{{ $mainImage->alt }}">
                         </a>
                     </figure>
-
+                    @else
+                    <figure class="img-outstand" data-id="{{ $val->id }}" data-tooltip="sticky3">
+                        <a href="{{ asset('/' . $val->slug) }}">
+                            <img class="img-size" loading="lazy" width="240" height="169" src="{{ asset('storage/images/small/image-coming-soon.jpg') }}" data-src="{{ asset('storage/images/image-coming-soon.jpg') }}" srcset="{{ asset('storage/images/image-coming-soon.jpg') }}" alt="Image Coming Soon" title="Image Coming Soon">
+                        </a>
+                    </figure>
                     @endif
                     <div class="card-body owl-outstand">
                         <a href="{{ asset('/' . $val->slug) }}" class="text-decoration-none btn-link">
@@ -43,9 +48,11 @@ $agent = new Jenssegers\Agent\Agent();
                             <p class="prd-sale-detail">Nổi bật</p>
                         </div>
                         <div class="config-outstand mt-2 mb-2">
+                            @if(!empty($val->config_pr))
                             <p>
-                                <span>Cấu hình: 4x3.5″ Basic</span>
+                                <span>Cấu hình: {{ $val->config_pr }}</span>
                             </p>
+                            @endif
                             @if(!empty($val->cpu_pr))
                             <p title="Hỗ trợ CPU">
                                 <img src="{{ asset('cntt/img/cpu.png') }}"> {{ $val->cpu_pr }}

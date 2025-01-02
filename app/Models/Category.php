@@ -26,7 +26,8 @@ class Category extends Model
         'name', 'slug', 'parent_id', 'filter_ids',
         'image', 'title_img', 'alt_img', 'content',
         'title_seo', 'keyword_seo', 'des_seo', 'stt_cate', 'is_home',
-        'is_serve', 'is_parent', 'is_menu', 'is_outstand', 'is_public'
+        'infor_server', 'is_serve', 'is_parent',
+        'is_menu', 'is_outstand', 'is_public'
     ];
 
     public function products()

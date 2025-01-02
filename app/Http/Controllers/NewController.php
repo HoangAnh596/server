@@ -22,17 +22,14 @@ class NewController extends Controller
         $keyword = $request->keyword;
         $categoryId = $request->cateNew;
 
-        $newsQuery = News::where('name', 'like', "%" . $keyword . "%")
+        $newsQuery = News::where(function ($query) use ($keyword) {
+            $query->where('name', 'like', "%" . $keyword . "%")
             ->orWhere('slug', 'like', "%" . $keyword . "%");
-        // Nếu có danh mục được chọn, thêm điều kiện lọc theo danh mục
-        if ($categoryId) {
-            $newsQuery->where('cate_id', $categoryId);
-        }
+        })->when($categoryId, function ($query) use ($categoryId) {
+            $query->where('cate_id',$categoryId);
+        });
         $news = $newsQuery->latest()->paginate(config('common.default_page_size'))->appends($request->except('page'));
-        $categories = CategoryNew::where('parent_id', 0)
-        ->with('children')
-        ->get();
-
+        $categories = CategoryNew::where('parent_id', 0)->with('children')->get();
 
         return view('admin.news.index', compact('news', 'keyword', 'categories'));
     }
@@ -44,9 +41,7 @@ class NewController extends Controller
      */
     public function create()
     {
-        $categories = CategoryNew::where('parent_id', 0)
-            ->with('children')
-            ->get();
+        $categories = CategoryNew::where('parent_id', 0)->with('children')->get();
         
         return view('admin.news.add', compact('categories'));
     }

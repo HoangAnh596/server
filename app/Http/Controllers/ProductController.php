@@ -42,7 +42,7 @@ class ProductController extends Controller
             });
             $query->orWhere(function ($query) use ($categoryIds) {
                 foreach ($categoryIds as $categoryId) {
-                    $query->orWhereJsonContains('subCategory', (string)$categoryId);
+                    $query->orWhereJsonContains('subCate', (string)$categoryId);
                 }
             });
         });
@@ -138,6 +138,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
+        dd($id);
         $product = Product::findOrFail($id);
         // Chuyển đổi image_ids thành mảng (giả sử chúng là chuỗi JSON)
         $imageIds = json_decode($product->image_ids, true); // Hoặc explode(',', $product->image_ids) nếu là chuỗi phân tách bởi dấu phẩy
@@ -159,8 +160,8 @@ class ProductController extends Controller
     {
         $product = empty($id) ? new Product() : Product::findOrFail($id);
 
-        if(!empty($request['subCategory'])) {
-            $request->merge(['subCategory' => $request->subCategory]);
+        if(!empty($request['subCate'])) {
+            $request->merge(['subCate' => $request->subCate]);
         }
         if(!empty($request['related_pro'])) {
             $request['related_pro'] = json_encode($request->related_pro);

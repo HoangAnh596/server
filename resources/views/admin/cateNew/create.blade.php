@@ -34,11 +34,6 @@
                             <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}" oninput="checkDuplicate()">
                             <span id="name-error" style="color: red;"></span>
                         </div>
-                        <div class="form-group">
-                            <label for="">URL danh mục bài viết <i class="fa-solid fa-circle-info" style="margin-left: 6px; color: red;"></i></label>
-                            <input type="text" name="slug" id="slug" class="form-control" value="{{ old('slug') }}" oninput="checkDuplicate()">
-                            <span id="slug-error" style="color: red;"></span>
-                        </div>
                         <div class="mb-3">
                             <label for="related_pro" class="form-label">Sản phẩm liên quan: </label>
                             <select class="related_pro form-control" name="related_pro[]" id="related_pro" multiple="multiple"></select>
@@ -46,7 +41,16 @@
                     </div>
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="">Danh mục cha</label>
+                            <label for="">URL danh mục bài viết <i class="fa-solid fa-circle-info" style="margin-left: 6px; color: red;"></i></label>
+                            <input type="text" name="slug" id="slug" class="form-control" value="{{ old('slug') }}" oninput="checkDuplicate()">
+                            <span id="slug-error" style="color: red;"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="">Danh mục cha <i class="fa-solid fa-circle-info" style="margin-left: 6px; color: red;"></i></label>
                             <select name="parent_id" id="parent_id" class="form-control" size="12" style="width: 100%;">
                                 <option value="0">Chọn danh mục</option>
                                 @foreach($cateNewParents as $category)
@@ -54,7 +58,17 @@
                                 @endforeach
                             </select>
                         </div>
-
+                    </div>
+                    <div class="col-6">
+                    <div class="form-group">
+                            <label for="">Danh mục sản phẩm liên quan </label>
+                            <select name="subCate" id="subCate" class="form-control" size="12" style="width: 100%;">
+                                <option value="0">Chọn danh mục sản phẩm</option>
+                                @foreach($subCate as $category)
+                                @include('admin.cateNew.partials.category_add', ['category' => $category, 'level' => 0, 'selected' => old('subCate', $category->subCate)])
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <hr>
