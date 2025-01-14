@@ -32,11 +32,11 @@
     left: 35%;
     width: 30%;
     height: 100%;
-    background: #dc3545;
+    background: #1D6CBE;
 }
 .check-list-title {
     text-align: center;
-    color: #dc3545;
+    color: #1D6CBE;
     font-size: 0.9rem !important;
 }
 .formcheck {
@@ -50,13 +50,13 @@
 }
 #checklistnumber {
     padding: 1px;
-    background: #dc3545;
+    background: #1D6CBE;
     width: 100%;
     float: left;
     border-radius: 3px;
 }
 #checklistnumber .src-submit {
-    background: #dc3545;
+    background: #1D6CBE;
     border-bottom: 1px solid #eee;
     border-right: 1px solid #eee;
     border-top: 1px solid #eee;
@@ -75,7 +75,7 @@
 }
 #checklistnumber .search-submit1 {
     background: #fafafa;
-    color: #dc3545;
+    color: #1D6CBE;
     display: block;
     float: right;
     font-family: inherit;
@@ -141,8 +141,8 @@
     padding: 0 15px;
 }
 .btn-best-price-check {
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #1D6CBE;
+    border-color: #1D6CBE;
     padding: 5px 15px;
     border-radius: 5px;
     color: #fff;

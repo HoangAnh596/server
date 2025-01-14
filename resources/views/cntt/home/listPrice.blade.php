@@ -58,11 +58,11 @@
                                     $newImagePath = $newDirectory . '/' . $filename;
                                     @endphp
                                     <td class="img-check-list">
-                                        <img class="img-size" src="{{ asset($newImagePath) }}" alt="{{ $mainImage->alt }}" title="{{ $mainImage->title }}">
+                                        <img class="img-size" width="120" height="80" src="{{ asset($newImagePath) }}" alt="{{ $mainImage->alt }}" title="{{ $mainImage->title }}">
                                     </td>
                                     @else
                                     <td class="img-check-list">
-                                        <img class="lazyload img-size" src="{{ asset('storage/images/image-coming-soon.jpg') }}" data-src="{{ asset('storage/images/image-coming-soon.jpg') }}" width="206" height="206" alt="Image Coming Soon" title="Image Coming Soon">
+                                        <img class="lazyload" width="120" height="80" src="{{ asset('storage/images/image-coming-soon.jpg') }}" data-src="{{ asset('storage/images/image-coming-soon.jpg') }}" alt="Image Coming Soon" title="Image Coming Soon">
                                     </td>
                                     @endif
                                     <td class="sku-check-list">
@@ -169,7 +169,7 @@
         display: none;
     }
     .price-code {
-        color: #76b900;
+        color: #1D6CBE;
     }
 </style>
 @endsection

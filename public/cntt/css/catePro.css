@@ -59,19 +59,19 @@
 /* End Câu hỏi sản phẩm or product */
 
 .bg-prod {
-    background: linear-gradient(90deg, #dc3545 0%, #ff6b75 75%);
+    background: #1D6CBE;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 999;
     height: 40px;
 }
 .bg-prod h2{
     font-size: 1.25rem;
+    font-weight: bold;
     margin: 0;
     padding-left: 1rem;
-    color: white;
+    color: #fff;
 }
 
 .outstand-prod {
@@ -107,13 +107,13 @@
     font-size: 14px;
     color: #333;
 }
-.new-prod {
+/* .new-prod {
     position: sticky;
     top: 60px;
     left: 0;
     width: 100%;
     z-index: 999;
-}
+} */
 .top-heading {
     margin: 0 1rem;
     border-bottom: 1px solid #eee;
@@ -128,7 +128,7 @@
     padding: 0 1rem;
     line-height: 20px;
 }
-.contact-infor i {
+.contact-infor i, .i-zalo {
     margin-right: 5px;
 }
 .user-heading {
@@ -201,8 +201,8 @@
     width: 50px;
 }
 
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
     .new-prod {
         top: 116px !important;
     }
-}
+} */

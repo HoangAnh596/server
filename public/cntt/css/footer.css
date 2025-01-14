@@ -62,7 +62,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    border: 1px solid #dc3545;
+    border: 1px solid #1D6CBE;
     width: 20px;
     height: 20px;
     border-radius: 100%;
@@ -83,36 +83,6 @@
     font-weight: 600 !important;
     margin-top: 1rem;
 }
-.footer_address {
-    padding-right: 40px;
-}
-.footer_address p {
-    color: #ccc;
-    font-size: 1rem !important;
-    margin: 0;
-}
-.footer_address .footer-heading {
-    text-transform: uppercase;
-    position: relative;
-    padding-bottom: 6px;
-    color: #fff;
-    font-weight: 500 !important;
-    font-size: 18px !important;
-    display: inline-block;
-    margin-bottom: 15px;
-}
-.footer_address .footer-heading:after {
-    content: "";
-    position: absolute;
-    height: 3px;
-    background: #76b900;
-    width: 105px;
-    bottom: 0;
-    left: 0;
-}
-.footer_address a {
-    color: #76b900;
-}
 .directions {
     background: url(../img/gg-map.png) no-repeat 1px 0px / 23px;
     display: inline-block;
@@ -123,7 +93,7 @@
 }
 
 .ft-black {
-    background-color: #000;
+    background-color: #131A22;
     padding: 40px 30px;
 }
 .page-footer {
@@ -142,9 +112,6 @@
 .ft-link {
     color: #ccc;
     line-height: 30px;
-}
-.ft-link:hover {
-    color: #dc3545;
 }
 
 .page-footer__social {
@@ -182,7 +149,7 @@
     transition: color .3s ease-in-out;
 }
 .fa-brands:hover {
-    color: white;
+    color: #1D6CBE;
 }
 .page-footer__subscribe {
     display: inline-block;
@@ -221,35 +188,17 @@
     margin-left: 30px;
     margin-top: 3px;
 }
-.nv-button .btn-content {
-    background-color: var(--custom-button-color, #76b900);
-    border: none;
-    color: #000;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 18px ;
-    font-weight: 700 !important;
-    line-height: 1.25em;
-    min-width: 50px;
-    padding: 13px 15px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    -webkit-transition: background-color .2s ease-out;
-    transition: background-color .2s ease-out;
-    white-space: nowrap;
-}
 #sub-btn-font {
     font-size: 16px !important;
     font-weight: 700 !important;
 }
 
 .global-footer-container {
-    background-color: black;
+    background-color: #131A22;
     width: 100%;
 }
 .global-footer-container hr {
-    background-color: black;
+    background-color: #131A22;
     width: 100%;
     margin: 0 !important;
 }
@@ -280,7 +229,7 @@
 .global-footer__links {
     clear: both;
     list-style-type: none;
-    margin: 0 0 4px;
+    margin: 3px 0;
     padding: 0;
 }
 .global-footer__links>li {
@@ -290,10 +239,9 @@
     position: relative;
 }
 .global-footer__links a:hover {
-    color: #dc3545;
+    color: #1D6CBE;
 }
 .global-footer__links>li>a {
-    color: #ffffffb2;
     display: inline-block;
     line-height: 24px;
     text-decoration: none;
@@ -314,7 +262,7 @@
 
 .global-footer__copyright {
     clear: both;
-    color: #ffffffb2;
+    color: #ccc;
     font-size: 9pt !important;
     line-height: 15px;
 }
@@ -329,7 +277,7 @@
 }
 .back-to-top i {
     font-size: 2.6rem;
-    color: #dc3545;
+    color: #1D6CBE;
 }
 .back-to-top.active {
     display: block;
@@ -343,7 +291,7 @@
     font-weight: 600;
 }
 .contact-us h2 {
-    color: #76b900;
+    color: #1D6CBE;
 }
 .detail-company p {
     display: inline-block;
@@ -352,20 +300,20 @@
     margin-bottom: 6px;
 }
 .contact-us p strong {
-    color: #76b900;
+    color: #1D6CBE;
     font-weight: 500;
 }
 .des-contact {
     display: block;
     float: left;
-    border: 1px dashed #76b900;
+    border: 1px dashed #1D6CBE;
     padding: 5px 10px;
     margin-bottom: 20px;
 }
 .contact-list h4 {
     display: inline-block;
     font-size: 1.2rem;
-    color: #76b900;
+    color: #1D6CBE;
 }
 .contact-list i {
     color: #ffb909;
@@ -389,11 +337,11 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: #76b900;
+    background: #1D6CBE;
 }
 .box-contact-list {
     padding: 10px;
-    border: 1px solid #76b900;
+    border: 1px solid #1D6CBE;
     margin-bottom: 20px;
     border-radius: 8px;
 }
@@ -409,7 +357,7 @@
     text-align: center;
     font-weight: 500 !important;
     padding-top: 5px;
-    color: #76b900;
+    color: #1D6CBE;
 }
 .name-caption {
     font-weight: 500 !important;
@@ -418,7 +366,7 @@
     margin-bottom: 0;
 }
 .caption p a {
-    color: #76b900;
+    color: #1D6CBE;
 }
 /* End Contact */
 

@@ -278,7 +278,7 @@ $isMobile = $agent->isMobile(); // Kiểm tra thiết bị di động
     }
 
     .modal-header .close {
-        border: 1px solid #76b900;
+        border: 1px solid #1D6CBE;
         padding: 2px 8px;
         font-size: 0.9rem;
         border-radius: 3px;

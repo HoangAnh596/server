@@ -78,7 +78,7 @@ button.pop-gallery {
     position: fixed;
     top: 20px; /* Điều chỉnh vị trí */
     right: 40px; /* Điều chỉnh vị trí */
-    background-color: #dc3545;
+    background-color: #1D6CBE;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
@@ -94,7 +94,7 @@ button.pop-gallery {
     cursor: pointer;
 }
 .col-viewmore-item:hover i, .col-viewmore-item:hover a {
-    color: #dc3545;
+    color: #1D6CBE;
 }
 .col-viewmore-item i {
     color: #ff6903;
@@ -107,13 +107,23 @@ button.pop-gallery {
     border: 1px solid #ddd;
 }
 .content-des h1 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
+}
+.product-des {
+    margin: 10px 0;
+    border: 1px dashed #ddd;
+    padding: 10px 10px 0px 0px;
+    border-radius: 5px;
 }
 .product-des p {
     font-size: 0.85rem !important;
+    padding-left: 10px;
     margin-block-start: 0;
     margin-block-end: 7px;
+}
+.product-des ul {
+    margin-bottom: 10px;
 }
 .product-des ul li {
     list-style: circle;
@@ -170,7 +180,7 @@ button.pop-gallery {
 .contact-price {
     border: none;
     padding: 5px 40px 7px;
-    background: #dc3545;
+    background: #1D6CBE;
     color: #fff;
     font-weight: 500;
     font-size: 1.2rem;
@@ -205,7 +215,7 @@ button.pop-gallery {
     display: none;
 }
 .price-modal .price-code {
-    color: #dc3545;
+    color: #1D6CBE;
 }
 
 .check-list-btn svg {
@@ -222,15 +232,15 @@ button.pop-gallery {
     text-align: center;
     font-weight: 700 !important;
     position: relative;
-    color: #dc3545;
+    color: #1D6CBE;
     margin-bottom: 10px;
 }
 .datasheet-prd:hover {
-    color: #dc3545;
+    color: #1D6CBE;
 }
 .product-note p.cam_ket {
     font-size: 1.1rem !important;
-    color: #dc3545;
+    color: #1D6CBE;
     margin-bottom: 10px;
     font-weight: 700 !important;
     line-height: 20px;
@@ -306,7 +316,7 @@ button.pop-gallery {
 .compare button {
     position: absolute;
     top: 0;
-    right: 2px;
+    right: 1px;
     width: 36px;
     height: 34px;
     border: 0;
@@ -328,7 +338,7 @@ button.pop-gallery {
     box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .1), 0 2px 6px 2px rgba(60, 64, 67, .15);
 }
 .panel-heading {
-    background: linear-gradient(90deg, #dc3545 0%, #ff6b75 75%);
+    background: #1D6CBE;
     padding: 8px 10px;
     font-weight: 500;
     color: #fff;
@@ -337,7 +347,7 @@ button.pop-gallery {
 /* cấu hình sản phẩm serve */
 .btn-server {
     font-size: 1rem;
-    background-color: #dc3545;
+    background-color: #1D6CBE;
     padding: 6px 14px;
     cursor: pointer;
     color: #fff;
@@ -358,7 +368,7 @@ button.pop-gallery {
     margin-bottom: 0;
 }
 .contact-sale-server a, .contact-sale-server i {
-    color: #dc3545;
+    color: red;
     font-weight: 700;
 }
 .part {
@@ -372,7 +382,8 @@ button.pop-gallery {
     min-width: 100px;
     margin: 0 0;
     padding: 0 10px;
-    background: linear-gradient(90deg, #dc3545 0%, #ff6b75 75%);
+    background: #1D6CBE;
+    color: #fff;
     font-weight: bold;
     text-transform: uppercase;
     display: inline-block;
@@ -410,13 +421,13 @@ button.pop-gallery {
     margin-left: 5px;
 }
 .part .item .cmd a {
-    color: #dc3545;
+    color: #1D6CBE;
     font-size: 14px;
     margin-left: 5px;
 }
 .part .infor .contact {
     float: right;
-    color: #dc3545;
+    color: #1D6CBE;
     margin-right: 10px;
 }
 .conf-section-desc {
@@ -427,7 +438,7 @@ button.pop-gallery {
 .conf-widget ul {
     list-style: none;
     padding: 0 1rem;
-    margin-bottom: 0;
+    margin-bottom: .5rem;
 }
 .conf-widget li {
     font-size: 14px;
@@ -446,10 +457,10 @@ button.pop-gallery {
     cursor: pointer;
 }
 .conf-print {
-    background: repeating-linear-gradient(to right, #1182fd 0, #0068d9 50%, #429dff 100%);
+    background: #ff6903;
 }
 .conf-buy {
-    background: linear-gradient(90deg, #dc3545 0%, #ff6b75 75%);
+    background: #1D6CBE;
 }
 
 /* Div màu đỏ ở trên cùng */
@@ -464,7 +475,7 @@ button.pop-gallery {
     left: 0;
     width: 100%;
     height: 50px; /* Chiều cao của div */
-    background: linear-gradient(90deg, #dc3545 0%, #ff6b75 75%);
+    background: #1D6CBE;
     z-index: 1056;
     align-items: center;
     justify-content: center;
@@ -496,7 +507,7 @@ button.pop-gallery {
 }
 .prd_di_kem .panel-subheading svg {
     margin-right: 7px;
-    color: #dc3545;
+    color: #1D6CBE;
 }
 .pricing .panel-subheading h4 {
     font-size: 16px;
@@ -526,7 +537,7 @@ button.pop-gallery {
     line-height: 23px;
 }
 .pricing ul li a:hover h4 {
-    color: #dc3545;
+    color: #1D6CBE;
     text-decoration: underline;
 }
 
@@ -590,7 +601,7 @@ button.pop-gallery {
     opacity: 1;
 }
 .mySwiper .swiper-slide-thumb-active img {
-    border: 1px solid #dc3545;
+    border: 1px solid #1D6CBE;
     border-radius: 6px;
 }
 .swiper-slide img {
@@ -600,7 +611,7 @@ button.pop-gallery {
     cursor: pointer;
 }
 .swiper-button-next, .swiper-button-prev, .reviewer i {
-    color: #dc3545;
+    color: #1D6CBE;
 }
 .reviewer a:first-of-type {
     margin-right: 10px;
@@ -613,7 +624,7 @@ button.pop-gallery {
 
 .check-list-btn {
     padding: 5px 40px;
-    background: #dc3545;
+    background: #1D6CBE;
     color: #fff;
     font-weight: 500 !important;
     font-size: 1.2rem !important;

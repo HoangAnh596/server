@@ -34,19 +34,19 @@
 	<url>
 	<loc>http://localhost:8000/hpe-proliant-dl360-gen11</loc>
 		<priority>0.8</priority>
-		<lastmod>2024-12-27T09:57:32+07:00</lastmod>
+		<lastmod>2025-01-10T09:50:19+07:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
 	<loc>http://localhost:8000/hpe-proliant-dl360-gen10-plus</loc>
 		<priority>0.8</priority>
-		<lastmod>2024-12-27T09:55:24+07:00</lastmod>
+		<lastmod>2025-01-10T09:50:18+07:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
 	<loc>http://localhost:8000/switch-maipu</loc>
 		<priority>0.8</priority>
-		<lastmod>2024-11-21T11:12:59+07:00</lastmod>
+		<lastmod>2025-01-07T11:30:19+07:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
@@ -88,7 +88,7 @@
 	<url>
 	<loc>http://localhost:8000/server-supermicro</loc>
 		<priority>0.8</priority>
-		<lastmod>2024-12-31T13:52:43+07:00</lastmod>
+		<lastmod>2025-01-07T11:29:31+07:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>

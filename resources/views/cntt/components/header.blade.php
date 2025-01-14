@@ -2,7 +2,26 @@
 $agent = new Jenssegers\Agent\Agent();
 @endphp
 <!-- Header -->
-
+<div class="top-header">
+    <div class="container">
+        <div class="d-flex justify-content-between">
+            <div>123</div>
+            <div class="">
+                <ul class="global-footer__links">
+                    <li>
+                        <a href="{{ asset('/') }}" target="_blank">Trợ giúp</a>
+                    </li>
+                    <li>
+                        <a href="{{ asset('/'.'lien-he') }}" target="_blank">Liên hệ</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#locationModel">Vị trí của bạn</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="row py-md-3 py-xs-3">
         <div class="col-lg-3 col-md-3 col-sm-3 d-none d-sm-block">
@@ -11,7 +30,7 @@ $agent = new Jenssegers\Agent\Agent();
             </a>
         </div>
 
-        <div class="col-lg-6 col-md-5 col-sm-4 width-lg-search">
+        <div class="col-lg-5 col-md-5 col-sm-4 width-lg-search">
             <div class="form-serach">
                 <form method="GET" action="{{ route('home.search') }}" accept-charset="utf-8" id="menupanelsearch" class="my-2 mt-lg-2 d-flex">
                     <select name="cate" aria-labelledby="searchSgg">
@@ -39,16 +58,21 @@ $agent = new Jenssegers\Agent\Agent();
                 </form>
             </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-5 ddd-none d-lg-block width-lg">
-            <span class="phone-header phone-header-fixed d-flex justify-content-center">
+        <div class="col-lg-4 col-md-4 col-sm-5 ddd-none d-lg-block width-lg">
+            <span class="phone-header phone-header-fixed d-flex justify-content-center align-items-center">
                 <i class="fa-solid fa-phone"></i> Server:
-                <a class="d-none d-sm-inline" rel="nofollow" href="tel:0866176188">0866 176 188</a>
+                <a class="d-none d-sm-inline" rel="nofollow" href="tel:0866176188">0866 176 188 - </a>
+                <a class="d-none d-sm-inline" rel="nofollow" href="tel:0968498887">0968 498 887</a>
             </span>
-            <span class="phone-header phone-header-fixed d-flex justify-content-center">
+            <span class="phone-header phone-header-fixed d-flex justify-content-center align-items-center">
                 <i class="fa-solid fa-phone"></i> Thiết bị mạng:
-                <a class="d-none d-sm-inline" rel="nofollow" href="tel:0862158859">0862 158 859</a>
+                <a class="d-none d-sm-inline" rel="nofollow" href="tel:0369832657">0369 832 657 - </a>
+                <a class="d-none d-sm-inline" rel="nofollow" href="tel:0862323559">0862 323 559</a>
             </span>
-            <span class="phone-header d-flex justify-content-center"><i class="fa-solid fa-phone"></i>Mua hàng: <a rel="nofollow" href="tel:0963506565"> 0963 506 565</a></span>
+            <span class="phone-header d-flex justify-content-center align-items-center">
+                <i class="fa-solid fa-phone"></i> Mua hàng:
+                <a rel="nofollow" href="tel:0963506565">0963 506 565</a>
+            </span>
         </div>
     </div>
 </div>
@@ -89,7 +113,7 @@ $agent = new Jenssegers\Agent\Agent();
 </nav>
 <!-- end navbar mobile -->
 @else
-<div class="header-menu pt-1 w-menu">
+<div class="pt-1 header-menu">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -147,11 +171,11 @@ $agent = new Jenssegers\Agent\Agent();
             <div id="prd-cate-list">
                 <div class="main-cate @if(!request()->is('/')) dn-main-cate @endif">
                     <ul>
-                        <?php $countData = 0?>
+                        <?php $countData = 0 ?>
                         @foreach($globalCategories as $item)
-                        <?php $countData++; $countData?>
+                        <?php $countData++; $countData ?>
                         <li class="d-flex justify-content-between align-items-center">
-                            <a title="{{ $item->name }}" href="{{ asset('/' . $item->slug) }}">
+                            <a class="btn-main-cate" title="{{ $item->name }}" href="{{ asset('/' . $item->slug) }}">
                                 <img width="25" height="25" alt="{{ $item->alt_img }}" src="{{ asset('/' . $item->image) }}">
                                 <span>{{ $item->name }}</span>
                             </a>
@@ -162,24 +186,24 @@ $agent = new Jenssegers\Agent\Agent();
                                     1 => [
                                         'title' => 'Hãng sản xuất',
                                         'icon' => '<i class="fa-solid fa-fire"></i>',
-                                        'image' => true, // Có hiển thị ảnh
+                                        'image' => true,
                                     ],
                                     2 => [
                                         'title' => 'Chassis',
-                                        'icon' => '<i class="fa-solid fa-fire"></i>',
-                                        'image' => false, // Không hiển thị ảnh
+                                        'icon' => '',
+                                        'image' => false,
                                     ],
                                     3 => [
                                         'title' => 'Cấu hình',
-                                        'icon' => '<i class="fa-solid fa-fire"></i>',
-                                        'image' => false, // Không hiển thị ảnh
+                                        'icon' => '',
+                                        'image' => false,
                                     ],
                                 ];
                             @endphp
 
                             <ul class="dm-server">
                                 @foreach($categories as $key => $category)
-                                <li class="hang-san-xuat">
+                                <li class="{{ $key == 1 ? 'hang-san-xuat' : '' }}">
                                     <p>{!! $category['title'] !!} {!! $category['icon'] !!}</p>
                                     <ul>
                                         @foreach($item->children as $value)
@@ -288,4 +312,32 @@ $agent = new Jenssegers\Agent\Agent();
         </div>
     </div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="locationModel" tabindex="-1" aria-labelledby="locationModelLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="locationModelLabel">Vị trí và ngôn ngữ</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-start align-items-center">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <select name="location" class="form-select">
+                        <option selected>Chọn vị trí</option>
+                        <option value="1">Hà Nội</option>
+                        <option value="2">Đà Nẵng</option>
+                        <option value="3">Tp Hồ Chí Minh</option>
+                    </select>
+                </div>
+                <!-- <hr>
+                <span>Chọn ngôn ngữ</span> -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Xong</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Close Header -->
+<div class="fixed-top"></div>

@@ -641,6 +641,7 @@ class ComposerStaticInit753a6ee7025622f5d4379b85befca558
         'App\\Http\\Requests\\UserFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UserFormRequest.php',
         'App\\Http\\Resources\\ProductResource' => __DIR__ . '/../..' . '/app/Http/Resources/ProductResource.php',
         'App\\Mail\\PriceRequestMail' => __DIR__ . '/../..' . '/app/Mail/PriceRequestMail.php',
+        'App\\Mail\\PriceServerRequestMail' => __DIR__ . '/../..' . '/app/Mail/PriceServerRequestMail.php',
         'App\\Models\\CateFooter' => __DIR__ . '/../..' . '/app/Models/CateFooter.php',
         'App\\Models\\CateMenu' => __DIR__ . '/../..' . '/app/Models/CateMenu.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',

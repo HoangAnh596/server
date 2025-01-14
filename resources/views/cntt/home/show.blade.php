@@ -100,8 +100,13 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="fk-main">
+                                    @if($parentCate->is_serve == 1)
+                                    <span><span style="font-weight: bold;">✓</span> Cấu hình:</span>
+                                    <span>{{ $product->config_pr }}</span>
+                                    @else
                                     <span><span style="font-weight: bold;">✓</span> Mã sản phẩm:</span>
                                     <span>{{ $product->code }}</span>
+                                    @endif
                                 </div>
                                 <div class="fk-main">
                                     <span><span style="font-weight: bold;">✓</span> Tình trạng:</span>
@@ -458,17 +463,17 @@
                 <input type="hidden" name="code" id="code" value="{{ $product->code }}">
                 <input type="hidden" name="slug" id="slug" value="{{ $product->slug }}">
                 @endif
+                <div class="d-flex align-items-center mt-3">
+                    <button type="button" class="btn btn-primary send-price" style="margin-right: .5rem">
+                        Gửi yêu cầu <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    </button>
+                    @if ($parentCate->is_serve == 1)
+                    <div>
+                        <i class="fa fa-info-circle"></i> NVKD sẽ liên hệ lại ngay
+                    </div>
+                    @endif
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary send-price">
-                    Gửi yêu cầu <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                </button>
-            </div>
-            @if ($parentCate->is_serve == 1)
-            <div class="d-flex justify-content-end align-items-center">
-                <i class="fa fa-info-circle"></i> NVKD sẽ liên hệ lại ngay
-            </div>
-            @endif
         </div>
     </div>
 </div>
@@ -912,6 +917,17 @@
         // Gọi các sự kiện ban đầu
         addPaginationListeners();
         bindCommentFormEvents(); // Lắng nghe sự kiện cho form bình luận
+
+        // Lấy phần tử modal và nút pop-gallery
+        const $modal = $("#imageModal");
+        const $popGalleryButton = $(".pop-gallery");
+
+        if ($modal.length && $popGalleryButton.length) {
+            $popGalleryButton.on("click", function (event) {
+                event.preventDefault();
+                $modal.show();
+            });
+        }
     });
 
     let typingTimer; // Biến để lưu trữ thời gian chờ
@@ -976,16 +992,5 @@
 
     // Gán sự kiện vào input
     $('#searchSggCP').on('keyup', fetchProducts);
-
-
-    // Lấy phần tử modal và nút pop-gallery
-    const modal = document.getElementById("imageModal");
-    const popGalleryButton = document.querySelector(".pop-gallery");
-
-    // Khi nhấn vào nút pop-gallery, mở modal
-    popGalleryButton.addEventListener("click", function(event) {
-        event.preventDefault(); // Ngăn chặn việc chuyển trang nếu là link
-        modal.style.display = "block"; // Hiển thị modal
-    });
 </script>
 @endsection

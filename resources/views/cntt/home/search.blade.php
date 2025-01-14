@@ -28,58 +28,55 @@
             <!-- Hotline -->
             <div class="support-prod src-fixed mb-4 mb-custom">
                 <div class="bg-prod d-flex align-items-center">
-                    <h2><i class="fa-solid fa-file-invoice-dollar"></i> Bạn cần báo giá tốt nhất</h2>
+                    <h2>Thông tin liên hệ</h2>
                 </div>
                 <div class="title-outstand-prod">
-                    <div class="row mt-3">
-                        <div><span class="top-heading">Hỗ trợ kinh doanh <i class="fa-solid fa-money-check-dollar"></i></span></div>
-                        @foreach($phoneInfors as $val)
-                        @if($val->role == 0)
-                        <div class="contact-infor">
-                            <span class="user-heading"><i class="fa-solid fa-user-check"></i> {{ $val->name }}</span>
-                            <div class="sp-online">
-                                <span title="Mobile"><i class="fa-solid fa-headset"></i> {{ $val->phone }}</span>
+                    <div class="top-heading">Hỗ trợ kinh doanh <i class="fa-solid fa-money-check-dollar"></i></div>
+                    @foreach($phoneInfors as $val)
+                    @if($val->role == 0)
+                    <div class="contact-infor">
+                        <span class="user-heading"><i class="fa-solid fa-user-check"></i> {{ $val->name }}</span>
+                        <div class="sp-online">
+                            <span title="Mobile"><i class="fa-solid fa-headset"></i> {{ $val->phone }}</span>
 
-                                <a href="{{ $val->skype }} " title="Chat với {{ $val->name }} qua Skype">
-                                    <i class="i-skype"></i>
-                                </a>
-                                <a href="https://zalo.me/{{ $val->zalo }} " title="Chat {{ $val->name }} qua Zalo">
-                                    <i class="i-zalo"></i>
-                                </a>
-                                <a target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to={{ $val->gmail }} " title="Gửi mail tới: {{ $val->name }} ">
-                                    <i class="i-gmail"></i>
-                                </a>
-                            </div>
+                            <a href="{{ $val->skype }}" title="Chat với {{ $val->name }} qua Skype">
+                                <span class="i-skype"></span>
+                            </a>
+                            <a href="https://zalo.me/{{ $val->zalo }}" title="Chat {{ $val->name }} qua Zalo">
+                                <span class="i-zalo"></span>
+                            </a>
+                            <a target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to={{ $val->gmail }}" title="Gửi mail tới: {{ $val->name }}">
+                                <span class="i-gmail"></span>
+                            </a>
                         </div>
-                        @endif
-                        @endforeach
-                        <div class="mt-3"><span class="top-heading">Hỗ trợ kỹ thuật <i class="fa-solid fa-gear"></i></span></div>
-                        @foreach($phoneInfors as $val)
-                        @if($val->role == 1)
-                        <div class="contact-infor">
-                            <span class="user-heading"><i class="fa-solid fa-user-check"></i> {{ $val->name }}</span>
-                            <div class="sp-online">
-                                <span title="Mobile"><i class="fa-solid fa-headset"></i> {{ $val->phone }}</span>
-
-                                <a href="{{ $val->skype }} " title="Chat với {{ $val->name }} qua Skype">
-                                    <i class="i-skype"></i>
-                                </a>
-                                <a href="https://zalo.me/{{ $val->zalo }} " title="Chat {{ $val->name }} qua Zalo">
-                                    <i class="i-zalo"></i>
-                                </a>
-                                <a target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to={{ $val->gmail }} " title="Gửi mail tới: {{ $val->name }} ">
-                                    <i class="i-gmail"></i>
-                                </a>
-                            </div>
-                        </div>
-                        @endif
-                        @endforeach
                     </div>
+                    @endif
+                    @endforeach
+                    <div class="mt-3 top-heading">Hỗ trợ kỹ thuật <i class="fa-solid fa-gear"></i></div>
+                    @foreach($phoneInfors as $val)
+                    @if($val->role == 1)
+                    <div class="contact-infor">
+                        <span class="user-heading"><i class="fa-solid fa-user-check"></i> {{ $val->name }}</span>
+                        <div class="sp-online">
+                            <span title="Mobile"><i class="fa-solid fa-headset"></i> {{ $val->phone }}</span>
+
+                            <a href="{{ $val->skype }}" title="Chat với {{ $val->name }} qua Skype">
+                                <span class="i-skype"></span>
+                            </a>
+                            <a href="https://zalo.me/{{ $val->zalo }}" title="Chat {{ $val->name }} qua Zalo">
+                                <span class="i-zalo"></span>
+                            </a>
+                            <a target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to={{ $val->gmail }}" title="Gửi mail tới: {{ $val->name }}">
+                                <span class="i-gmail"></span>
+                            </a>
+                        </div>
+                    </div>
+                    @endif
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 @endsection
 
@@ -89,13 +86,6 @@
     .search-h2 {
         font-size: 1rem;
         margin: 0;
-    }
-    .src-fixed {
-        position: sticky;
-        top: 24px;
-        left: 0;
-        width: 100%;
-        z-index: 999;
     }
 </style>
 @endsection

@@ -23,19 +23,17 @@
     line-height: 30px;
 }
 #chi-tiet a, .content-cate a {
-    color: #dc3545;
+    color: #1D6CBE;
     text-decoration: underline;
 }
 #chi-tiet div, #chi-tiet p, #chi-tiet ul li, .content-cate p, .content-cate ul li{
     margin-block-start: 0;
     margin-block-end: 0;
     margin-bottom: 10px;
-    font-size: 15px !important;
 }
 .content-cate div {
     margin-block-start: 0;
     margin-block-end: 0;
-    font-size: 15px !important;
 }
 #chi-tiet table, .content-cate table {
     --bs-table-bg: transparent;
@@ -74,7 +72,7 @@
 .seo-item-container {
     display: block;
     width: 100%;
-    border: 1px dashed #ff6b75;
+    border: 1px dashed #1D6CBE;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 1rem;
@@ -129,8 +127,8 @@
     margin-top: 1rem;
 }
 .link-close {
-    border: 1px solid #ff6b75;
-    background: linear-gradient(90deg, #dc3545 0%, #ff6b75 75%);
+    border: 1px solid #1D6CBE;
+    background: #1D6CBE;
     border-radius: 3px;
     color: #fff;
     text-align: center;
@@ -304,8 +302,8 @@
 }
 
 .submit-reply {
-    border: 1px solid #ff6b75;
-    background-color: #ff6b75;
+    border: 1px solid #1D6CBE;
+    background-color: #1D6CBE;
     border-radius: 3px;
     color: #fff;
     text-align: center;

@@ -2,7 +2,7 @@
 <table>
     <thead>
         <tr>
-            <th colspan="{{ !empty($product3) ? 4 : 3 }}" style="text-align: center; background-color: #76b900;">
+            <th colspan="{{ !empty($product3) ? 4 : 3 }}" style="text-align: center; background-color: #1D6CBE;">
                 <strong>SO SÁNH SẢN PHẨM</strong>
             </th>        
         </tr>
@@ -18,7 +18,7 @@
         </tr>
         @foreach($compareCates as $cates)
         <tr>
-            <td style="background-color: #76b900;">
+            <td style="background-color: #1D6CBE;">
                 <strong>{{ $cates->name }}</strong>
             </td>
             <td colspan="{{ !empty($product3) ? 3 : 2 }}"></td>

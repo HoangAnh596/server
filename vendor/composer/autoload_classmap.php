@@ -84,6 +84,7 @@ return array(
     'App\\Http\\Requests\\UserFormRequest' => $baseDir . '/app/Http/Requests/UserFormRequest.php',
     'App\\Http\\Resources\\ProductResource' => $baseDir . '/app/Http/Resources/ProductResource.php',
     'App\\Mail\\PriceRequestMail' => $baseDir . '/app/Mail/PriceRequestMail.php',
+    'App\\Mail\\PriceServerRequestMail' => $baseDir . '/app/Mail/PriceServerRequestMail.php',
     'App\\Models\\CateFooter' => $baseDir . '/app/Models/CateFooter.php',
     'App\\Models\\CateMenu' => $baseDir . '/app/Models/CateMenu.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',

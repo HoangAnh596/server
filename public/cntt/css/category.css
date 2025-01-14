@@ -17,9 +17,9 @@
 }
 .header-server h1 {
     font-size: 18px;
-    background: #ff6b75;
+    background: linear-gradient(90deg, #1D6CBE 0%, #2692ff 75%);
+    color: #fff;
     padding: 7px 14px 7px;
-    border: 2px solid #ff6b75;
     border-radius: 34px;
     margin-bottom: 0;
     text-align: center;

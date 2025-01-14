@@ -1,11 +1,6 @@
 /* Begin Chính sách */
 .policy-web ul {
     padding-left: 0;
-    /* position: sticky;
-    top: 55px;
-    left: 0;
-    width: 100%;
-    z-index: 999; */
 }
 .policy-web ul li {
     border-bottom: 1px solid #f2f2f2;
@@ -14,7 +9,7 @@
     margin-bottom: 0;
 }
 .policy-web ul li a {
-    color: #dc3545;
+    color: #1D6CBE;
     display: block;
     height: 38px;
     line-height: 38px;
@@ -26,6 +21,7 @@
 }
 .policy-web h2 {
     font-size: 20px;
+    font-weight: bold;
     text-transform: uppercase;
 }
 .policy-web ul li a:hover, .policy-web ul li.active a {

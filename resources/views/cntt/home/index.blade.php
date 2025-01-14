@@ -294,8 +294,7 @@ $agent = new Jenssegers\Agent\Agent();
 <!-- Hover vào ảnh của sản phẩm nổi bật -->
 <div class="container">
     <div id="mystickytooltip" class="stickytooltip">
-        <div class="content_pro_toll">
-        </div>
+        <div class="content_pro_toll"></div>
     </div>
 </div>
 <!-- End service -->
@@ -385,17 +384,8 @@ $agent = new Jenssegers\Agent\Agent();
 @section('js')
 <!-- Owl Carousel JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<script src="{{ asset('cntt/js/slick.min.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        $('.cate-autoplay').slick({
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 4000,
-            arrows: false,
-            infinite: true
-        });
         $(".owl-carousel").owlCarousel({
             items: 5, // Số lượng item hiển thị
             loop: true,

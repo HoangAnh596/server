@@ -265,7 +265,7 @@
                         </div>
                         @endforeach
                         <p class="see-more-news text-center">
-                            <a target="_black" title="Xem thêm các tin tức, dịch vụ và giải pháp máy chủ tại CNTTShop" href="{{ asset('/blogs/' . $newsQuery->first()->cateNews->slug) }}">Xem thêm các dịch vụ &amp; giải pháp máy chủ</a>
+                            <a target="_black" title="Xem thêm các tin tức, dịch vụ và giải pháp máy chủ tại Nvidia" href="{{ asset('/blogs/' . $newsQuery->first()->cateNews->slug) }}">Xem thêm các bài viết</a>
                         </p>
                     </div>
                 </div>
@@ -273,7 +273,7 @@
                 <!-- Hotline -->
                 <div class="support-prod new-prod mb-3">
                     <div class="bg-prod d-flex align-items-center">
-                        <h2><i class="fa-solid fa-file-invoice-dollar"></i> Bạn cần báo giá tốt nhất</h2>
+                        <h2>Thông tin liên hệ</h2>
                     </div>
                     <div class="title-outstand-prod">
                         <div class="top-heading">Hỗ trợ kinh doanh <i class="fa-solid fa-money-check-dollar"></i></div>
@@ -285,13 +285,13 @@
                                 <span title="Mobile"><i class="fa-solid fa-headset"></i> {{ $val->phone }}</span>
 
                                 <a href="{{ $val->skype }}" title="Chat với {{ $val->name }} qua Skype">
-                                    <i class="i-skype"></i>
+                                    <span class="i-skype"></span>
                                 </a>
                                 <a href="https://zalo.me/{{ $val->zalo }}" title="Chat {{ $val->name }} qua Zalo">
-                                    <i class="i-zalo"></i>
+                                    <span class="i-zalo"></span>
                                 </a>
                                 <a target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to={{ $val->gmail }}" title="Gửi mail tới: {{ $val->name }}">
-                                    <i class="i-gmail"></i>
+                                    <span class="i-gmail"></span>
                                 </a>
                             </div>
                             @endif
@@ -306,13 +306,13 @@
                                 <span title="Mobile"><i class="fa-solid fa-headset"></i> {{ $val->phone }}</span>
 
                                 <a href="{{ $val->skype }}" title="Chat với {{ $val->name }} qua Skype">
-                                    <i class="i-skype"></i>
+                                    <span class="i-skype"></span>
                                 </a>
                                 <a href="https://zalo.me/{{ $val->zalo }}" title="Chat {{ $val->name }} qua Zalo">
-                                    <i class="i-zalo"></i>
+                                    <span class="i-zalo"></span>
                                 </a>
                                 <a target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to={{ $val->gmail }}" title="Gửi mail tới: {{ $val->name }}">
-                                    <i class="i-gmail"></i>
+                                    <span class="i-gmail"></span>
                                 </a>
                             </div>
                             @endif

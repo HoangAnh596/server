@@ -56,7 +56,7 @@
                 </p>
                 @endif
             </div>
-            <ul class="list-unstyled d-flex">
+            <ul class="list-unstyled d-flex justify-content-between align-items-center total-review-home">
                 @if($product->price == 0)
                 <li><span class="lien-he-price">Liên hệ</span></li>
                 @else
@@ -79,8 +79,6 @@
                 </li>
                 @endif
                 @endif
-            </ul>
-            <ul class="list-unstyled d-flex justify-content-between align-items-center total-review-home">
                 <li class="text-muted text-right">
                     <i class="text-warning fa fa-star"></i>
                     <span>
@@ -89,11 +87,6 @@
                         @endif
                     </span>
                 </li>
-                @if($product->status == 1)
-                <li><span class="lien-he-price"><i class="fa-solid fa-check"></i> Còn hàng</span></li>
-                @else
-                <li></li>
-                @endif
             </ul>
         </div>
     </div>

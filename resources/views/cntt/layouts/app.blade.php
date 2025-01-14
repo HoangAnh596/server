@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="canonical" href="{{ $canonical_url ?? url()->full() }}">
-    <meta name="theme-color" content="#76b900">
+    <meta name="theme-color" content="#1D6CBE">
     <meta name="keywords" content="{{ $keywordSeo }}">
     <meta name="description" content="{{ $descriptionSeo }}">
     <meta property="og:url" content="{{ $canonical_url ?? url()->full() }}">
